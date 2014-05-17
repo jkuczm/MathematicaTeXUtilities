@@ -1,6 +1,8 @@
 TestSuite[{
 	"TeXVerbatim.mt"
 	,
+	"TeXDelimited.mt"
+	,
 	"ApplyTeXFormFormat.mt"
 	,
 	"ExpressionToTeX.mt"
