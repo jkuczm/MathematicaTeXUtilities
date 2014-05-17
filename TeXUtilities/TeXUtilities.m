@@ -278,7 +278,7 @@ TeXCommand[name:Except[_String], rest___] := (
 )
 
 TeXCommand[name_, args:Except[_List], rest___] := (
-	Message[TeXCommand::list, 2, HoldForm[TeXCommand[name, args, rest]]];
+	Message[TeXCommand::list, HoldForm[TeXCommand[name, args, rest]], 2];
 	$Failed
 )
 

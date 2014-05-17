@@ -40,7 +40,7 @@ TestMatch[
 TestMatch[
 	TeXCommand["str", a],
 	$Failed,
-	{HoldForm[Message[TeXCommand::list, 2, HoldForm[TeXCommand["str", a]]]]},
+	{HoldForm[Message[TeXCommand::list, HoldForm[TeXCommand["str", a]], 2]]},
 	TestID -> "two args: String Symbol"
 ];
 TestMatch[
