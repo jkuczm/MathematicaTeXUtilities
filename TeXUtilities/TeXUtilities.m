@@ -313,12 +313,7 @@ TeXEnvironment::StrOrListWithStr =
 "String or List with first element being String expected at position 1 in `1`."
 
 
-Options[TeXEnvironment] = {
-	"ArgumentConverter" -> (ToString[#, TeXForm]&),
-	"BodyConverter" -> (ToString[#, TeXForm]&),
-	"Separator" -> "\n",
-	"Indentation" -> "    "
-}
+Options[TeXEnvironment] = Join[Options[TeXCommand], Options[TeXDelimited]]
 
 
 TeXEnvironment[] := (
