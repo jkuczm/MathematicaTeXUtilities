@@ -45,6 +45,31 @@ Arguments argi, optional arguments opt1 and their values vali are converted \
 to TeX using value of \"ArgumentConverter\" option."
 
 
+TeXEnvironment::usage =
+"\
+TeXEnvironment[\"name\", expr1, expr2, ...] or \
+TeXEnvironment[{\"name\"}, expr1, expr2, ...] \
+represents TeX environment:
+\\begin{name}
+	expr1
+	expr2
+	...
+\\end{name}
+with expri converted to TeXForm.\
+
+TeXEnvironment[\
+{\"name\", {{opt1 -> val1, opt2, opt3 -> val3, ...}, arg1, arg2, ...}}, \
+expr1, expr2, ...\
+] \
+represents TeX environment:
+\\begin{name}[opt1=val1,opt2,opt3=val3,...]{arg1}{arg2}...
+	expr1
+	expr2
+	...
+\\end{name}
+with expri, argi, opti and vali converted to TeXForm."
+
+
 (* ::Section:: *)
 (*Implementation*)
 
@@ -274,6 +299,73 @@ TeXCommand /:
 					OptionValue[TeXCommand, opts, "ArgumentConverter"]
 				]& /@
 					args
+			]
+			,
+			TraditionalForm
+		]
+
+
+(* ::Subsection:: *)
+(*TeXEnvironment*)
+
+
+TeXEnvironment::StrOrListWithStr =
+"String or List with first element being String expected at position 1 in `1`."
+
+
+Options[TeXEnvironment] = {
+	"ArgumentConverter" -> (ToString[#, TeXForm]&),
+	"BodyConverter" -> (ToString[#, TeXForm]&),
+	"Separator" -> "\n",
+	"Indentation" -> "    "
+}
+
+
+TeXEnvironment[] := (
+	Message[TeXEnvironment::argm, HoldForm[TeXEnvironment], 0, 1];
+	$Failed
+)
+
+TeXEnvironment[name:Except[_String | {_String, ___}], rest___] := (
+	Message[
+		TeXEnvironment::StrOrListWithStr,
+		HoldForm[TeXEnvironment[name, rest]]
+	];
+	$Failed
+)
+
+TeXEnvironment[name:_String, rest___] := TeXEnvironment[{name}, rest]
+
+
+TeXEnvironment /:
+	MakeBoxes[
+		TeXEnvironment[
+			{name_String, args_List:{}, opts:OptionsPattern[]},
+			body___
+		]
+		,
+		TraditionalForm
+	] :=
+		ToBoxes[
+			TeXDelimited[
+				StringJoin[
+					"\\begin{", name, "}"
+					,
+					TeXCommandArgument[
+						#,
+						OptionValue[TeXEnvironment, opts, "ArgumentConverter"]
+					]& /@
+						args
+				]
+				,
+				body
+				,
+				"\\end{" <> name <> "}"
+				,
+				FilterRules[
+					Join[Flatten[{opts}], Options[TeXEnvironment]],
+					Options[TeXDelimited]
+				]
 			]
 			,
 			TraditionalForm

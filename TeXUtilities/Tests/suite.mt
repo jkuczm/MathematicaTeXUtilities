@@ -7,6 +7,8 @@ TestSuite[{
 	,
 	"TeXCommand.mt"
 	,
+	"TeXEnvironment.mt"
+	,
 	"ApplyTeXFormFormat.mt"
 	,
 	"ExpressionToTeX.mt"
