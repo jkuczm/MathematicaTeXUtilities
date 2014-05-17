@@ -61,6 +61,11 @@ Test[
 	"\\command{arg} $a + b^c$",
 	TestID -> "TeXForm: string with TeX special characters"
 ];
+Test[
+	ToString[TeXVerbatim[""], TeXForm],
+	"",
+	TestID -> "TeXForm: empty string"
+];
 
 
 (* ::Section:: *)
