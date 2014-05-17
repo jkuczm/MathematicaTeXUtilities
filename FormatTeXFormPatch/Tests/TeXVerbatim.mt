@@ -7,6 +7,9 @@
 Begin["TestEnvironment`TeXVerbatim`"];
 
 
+Get[ "FormatTeXFormPatch`TeXUtilities`"];
+
+
 (* ::Section:: *)
 (*Tests*)
 

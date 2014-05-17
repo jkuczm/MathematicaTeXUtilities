@@ -1,6 +1,6 @@
 Resources[
     Version[1],
-    ExecutionBuildCommand["<<FormatTeXFormPatch`"],
+    ExecutionBuildCommand["\"No build command\""],
     Paclet[
         PacletFolder["MathematicaFormatTeXFormPatch"],
         FunctionPaclet[False]

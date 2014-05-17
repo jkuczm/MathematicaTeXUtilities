@@ -7,6 +7,7 @@
 Begin["TestEnvironment`ApplyTeXFormFormat`"];
 
 
+Get["FormatTeXFormPatch`FormatTeXFormPatch`"];
 AppendTo[$ContextPath, "FormatTeXFormPatch`Private`"];
 
 
