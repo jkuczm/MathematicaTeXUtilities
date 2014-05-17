@@ -5,6 +5,8 @@ TestSuite[{
 	,
 	"TeXCommandArgument.mt"
 	,
+	"TeXCommand.mt"
+	,
 	"ApplyTeXFormFormat.mt"
 	,
 	"ExpressionToTeX.mt"

@@ -25,6 +25,26 @@ endDelim
 with expri converted to TeXForm."
 
 
+TeXCommand::usage =
+"\
+TeXCommand[\"name\"] \
+represents TeX command \"\\name\".\
+
+TeXCommand[\"name\", {arg1, arg2, ...}] \
+represents TeX command with arguments \"\\name{arg1}{arg2}...\".\
+
+TeXCommand[\
+\"name\", {\
+{opt1 -> val1, opt2, opt3 -> val3, ...}, \
+arg1, arg2, ...\
+}] \
+represents TeX command with optional arguments \
+\"\\name[opt1=val1,opt2,opt3=val3,...]{arg1}{arg2}...\"
+
+Arguments argi, optional arguments opt1 and their values vali are converted \
+to TeX using value of \"ArgumentConverter\" option."
+
+
 (* ::Section:: *)
 (*Implementation*)
 
@@ -213,6 +233,51 @@ TeXCommandArgument[optArgs_List, argConverter_] :=
 	]
 	
 TeXCommandArgument[arg_, argConverter_] := "{" <> argConverter[arg] <> "}"
+
+
+(* ::Subsection:: *)
+(*TeXCommand*)
+
+
+Options[TeXCommand] = {"ArgumentConverter" -> (ToString[#, TeXForm]&)}
+
+
+TeXCommand[] := (
+	Message[TeXCommand::argm, HoldForm[TeXCommand], 0, 1];
+	$Failed
+)
+
+TeXCommand[name:Except[_String], rest___] := (
+	Message[TeXCommand::string, 1, HoldForm[TeXCommand[name, rest]]];
+	$Failed
+)
+
+TeXCommand[name_, args:Except[_List], rest___] := (
+	Message[TeXCommand::list, 2, HoldForm[TeXCommand[name, args, rest]]];
+	$Failed
+)
+
+
+TeXCommand /:
+	MakeBoxes[
+		TeXCommand[name_String, args_List:{}, opts:OptionsPattern[]],
+		TraditionalForm
+	] :=
+		ToBoxes[
+			TeXVerbatim @ StringJoin[
+				"\\"
+				,
+				name
+				,
+				TeXCommandArgument[
+					#,
+					OptionValue[TeXCommand, opts, "ArgumentConverter"]
+				]& /@
+					args
+			]
+			,
+			TraditionalForm
+		]
 
 
 End[]
