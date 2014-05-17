@@ -3,6 +3,8 @@ TestSuite[{
 	,
 	"TeXDelimited.mt"
 	,
+	"TeXCommandArgument.mt"
+	,
 	"ApplyTeXFormFormat.mt"
 	,
 	"ExpressionToTeX.mt"

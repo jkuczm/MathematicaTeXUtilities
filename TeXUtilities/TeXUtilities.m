@@ -40,6 +40,22 @@ Begin["`Private`"]
 
 
 (* ::Subsection:: *)
+(*Private symbols usage*)
+
+
+TeXCommandArgument::usage =
+"\
+TeXCommandArgument[arg, argConverter]\
+returns string representing argument of TeX command i.e. arg convetred to TeX \
+using argConverter, wrapped in curly bracket.\
+
+TeXCommandArgument[{opt1, opt2 -> val2, ...}, argConverter]\
+returns string representing list of optional arguments of TeX command i.e. \
+\"[opt1,opt2=val2,...]\" with opti and vali converted to TeX using \
+argConverter."
+
+
+(* ::Subsection:: *)
 (*TeXVerbatim*)
 
 
@@ -164,6 +180,39 @@ TeXDelimited /:
 				TraditionalForm
 			]
 		]
+
+
+(* ::Subsection:: *)
+(*TeXCommandArgument*)
+
+
+TeXCommandArgument[optArgs_List, argConverter_] :=
+	StringJoin[
+		"["
+		,
+		Riffle[
+			Replace[
+				optArgs
+				,
+				{
+					(Rule | RuleDelayed)[argName_, value_] :>
+						argConverter[argName] <>
+						"=" <>
+						argConverter[value]
+					,
+					arg_ :> argConverter[arg]
+				}
+				,
+				{1}
+			]
+			, 
+			","
+		]
+		,
+		"]"
+	]
+	
+TeXCommandArgument[arg_, argConverter_] := "{" <> argConverter[arg] <> "}"
 
 
 End[]
