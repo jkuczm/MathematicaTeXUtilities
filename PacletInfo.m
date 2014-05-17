@@ -6,7 +6,7 @@ Paclet[
     Name -> "TeXUtilities",
     Version -> "1.0.0",
     MathematicaVersion -> "6+",
-    Description -> "Patch fixing behavior of TeXForm for expressions with defined custom formatting.",
+    Description -> "Application providing tools useful for customizing TeX output of Mathematica.\n\nContains also patch fixing behavior of TeXForm for expressions with custom formatting defined using Format.",
     Creator -> "Jakub Kuczmarski",
     Extensions -> 
         {
