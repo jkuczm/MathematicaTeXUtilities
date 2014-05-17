@@ -34,8 +34,8 @@ Begin["`Private`"]
 ApplyTeXFormFormat::usage =
 "\
 ApplyTeXFormFormat[expr] \
-returns expr with all subexpressions that have custom TeX formating rules \
-replaced with their TeX form wrapped with TeXVerbatim."
+returns expr with all subexpressions, that have custom TeX formating rules, \
+replaced with their TeX form."
 
 
 (* ::Subsection:: *)
