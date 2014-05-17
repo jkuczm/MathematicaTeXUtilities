@@ -56,14 +56,8 @@ Unprotect[Convert`TeX`ExpressionToTeX];
 
 Convert`TeX`ExpressionToTeX[expr_, opts___?OptionQ] :=
 	Convert`TeX`BoxesToTeX[
-		With[
-			{formatedExpr = ApplyTeXFormFormat[expr]}
-			, 
-			MakeBoxes[formatedExpr, TraditionalForm]
-		]
-		,
-		opts
-		,
+		ToBoxes[ApplyTeXFormFormat[expr], TraditionalForm],
+		opts,
 		"BoxRules" -> System`Convert`TeXFormDump`$GreekWords
 	]
 
