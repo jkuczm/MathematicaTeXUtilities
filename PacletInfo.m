@@ -1,9 +1,9 @@
 (* Paclet Info File *)
 
-(* created 2014/05/13*)
+(* created 2014/05/17*)
 
 Paclet[
-    Name -> "FormatTeXFormPatch",
+    Name -> "TeXUtilities",
     Version -> "1.0.0",
     MathematicaVersion -> "6+",
     Description -> "Patch fixing behavior of TeXForm for expressions with defined custom formatting.",

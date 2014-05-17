@@ -7,8 +7,7 @@
 Begin["TestEnvironment`ExpressionToTeX`"];
 
 
-Get["FormatTeXFormPatch`TeXUtilities`"];
-Get["FormatTeXFormPatch`FormatTeXFormPatch`"];
+Needs["TeXUtilities`"];
 
 
 (* ::Section:: *)

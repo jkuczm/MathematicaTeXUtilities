@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-BeginPackage["FormatTeXFormPatch`"]
+BeginPackage["TeXUtilities`FormatTeXFormPatch`"]
 
 
 (* ::Section:: *)
