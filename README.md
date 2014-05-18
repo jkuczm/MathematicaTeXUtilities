@@ -1,53 +1,85 @@
-FormatTeXFormPatch
-==================
-
-Patch fixing behavior of `TeXForm` for expressions with custom formatting
-defined using `Format[expr, TeXForm]`.
+# TeXUtilities
 
 
+Application providing tools useful for customizing TeX output of Mathematica.
 
-Installation and Initialization
-------------------------------
+Contains also patch fixing behavior of `TeXForm` for expressions with custom
+formatting defined using `Format[expr, TeXForm]`.
 
-There are two ways to initialize this package:
 
-1. Download `FormatTeXFormPatch/FormatTeXFormPatch.m` file and put it somewhere
-on your Mathematica `$Path`.
-To load the package use ``Needs["FormatTeXFormPatch`"]``.
 
-2. Get package contents directly from GitHub:
+## Installation and Initialization
+
+
+### Installation on local machine:
+
+1. Download latest released TeXUtilities.zip file.
+
+2. Open Mathematica and choose `File > Install...`
+
+3. In "Install Mathematica Item" window, which should open, choose:
+    * Type of Item to Install: Application
+    * Source: From File (file chooser should open, choose downloaded `TeXUtilities.zip`)
+    * Install Name: TeXUtilities (this field should be automatically filled after choosing file)
+    * choose whether application should be installed for current user or for all users
+      (to install for all users you may need root/administrator privileges)
+    * click OK
+
+To load the package evaluate:
 ```Mathematica
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaFormatTeXFormPatch/master/FormatTeXFormPatch/FormatTeXFormPatch.m"]
+Needs["TeXUtilities`"]
+```
+
+
+### Using directly from the Web, without installation:
+
+To load package, directly from the Web, evaluate:
+```Mathematica
+Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/TeXUtilities/TeXUtilities.m"]
+Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/TeXUtilities/FormatTeXFormPatch.m"]
 ```
 
 
 
-Usage example
--------------
+## Documentation
+
+This application comes with documentation integrated with Mathematica's documentation center.
+To use it search for "TeXUtilities" in documentation center
+or press `F1` key with cursor on name of any of symbols introduced by this application.
+
+
+
+## Usage example
 
 Define custom TeX formatting for some symbols:
 
 ```Mathematica
-Format[h[x__], TeXForm] :=
-    TeXVerbatim["\\h" <> ("{" <> ToString[#, TeXForm] <> "}" & /@ {x})];
+Format[something, TeXForm] = TeXVerbatim["\\macro $1+1$ \\command[a=b]{c}"];
 
-Format[myEnv[x__], TeXForm] := 
-    TeXVerbatim[
-        "\\begin{myEnv}" <>
-        ("\n    " <> ToString[#, TeXForm] <> "\\\\" & /@ {x}) <>
-        "\n\\end{myEnv}"
-    ];
+Format[f[x__], TeXForm] := TeXDelimited["\\left(", x, "\\right)", "DelimSeparator" -> ""]
+
+Format[g[x__], TeXForm] := TeXCommand["g", {{a -> b}, x}]
+
+Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
 ```
 
 Use `TeXForm` as usual:
 
 ```Mathematica
-TeXForm[myEnv[1 + alpha, 5 - h[3, h[2]]]]
+TeXForm[
+    h[
+        f[1 + alpha],
+        5 - g[3, g[2]],
+        something
+    ]
+]
 ```
+
 Output is:
 ```TeX
 \begin{myEnv}
-    \alpha +1\\
-    5-\h{3}{\h{2}}\\
+    \left(\alpha +1\right)
+    5-\g[a=b]{3}{\g[a=b]{2}}
+    \macro $1+1$ \command[a=b]{c}
 \end{myEnv}
 ```
