@@ -1,0 +1,343 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["1.0", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Tutorial", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["TeXUtilities", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->605800465],
+
+Cell["TeXUtilities`", "Categorization",
+ CellLabel->"Context",
+ CellID->468444828],
+
+Cell["TeXUtilities/tutorial/Customizing TeX conversion", "Categorization",
+ CellLabel->"URI"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->1427428552],
+
+Cell["XXXX", "Keywords",
+ CellID->1251852827]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->218895918],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->795871300],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->199739161],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->40625308],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->357121918],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->35949532],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->929432370],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Customizing TeX conversion", "Title",
+ CellChangeTimes->{{3.609402199141115*^9, 3.609402199519375*^9}},
+ CellID->509267359],
+
+Cell["XXXX", "Text",
+ CellID->1534169418],
+
+Cell[BoxData[GridBox[{
+   {
+    ButtonBox["TeXVerbatim",
+     BaseStyle->"Link",
+     ButtonData->"paclet:TeXUtilities/ref/TeXVerbatim"], Cell[TextData[{
+     "converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     "  returns its argument verbatim"
+    }], "TableText"]},
+   {
+    ButtonBox["TeXDelimited",
+     BaseStyle->"Link",
+     ButtonData->"paclet:TeXUtilities/ref/TeXDelimited"], Cell[TextData[{
+     "converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     "  returns delimited environment with body converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     " "
+    }], "TableText"]},
+   {
+    ButtonBox["TeXCommand",
+     BaseStyle->"Link",
+     ButtonData->"paclet:TeXUtilities/ref/TeXCommand"], Cell[TextData[{
+     "converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     "  returns ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     " command ",
+     "possibly with arguments"
+    }], "TableText"]},
+   {
+    ButtonBox["TeXEnvironment",
+     BaseStyle->"Link",
+     ButtonData->"paclet:TeXUtilities/ref/TeXEnvironment"], Cell[TextData[{
+     "converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     "  returns environment with body converted to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     " "
+    }], "TableText"]}
+  }]], "DefinitionBox",
+ CellChangeTimes->{{3.6094000921272984`*^9, 3.609400237741057*^9}, {
+  3.609400286533133*^9, 3.609400429966531*^9}},
+ CellID->2096742444],
+
+Cell["Functions that can be used to customize TeX conversion.", "Caption",
+ CellChangeTimes->{{3.609400053335705*^9, 3.609400077513815*^9}},
+ CellID->1891092685],
+
+Cell[CellGroupData[{
+
+Cell["Import package:", "MathCaption",
+ CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}, {
+  3.609400645775673*^9, 3.609400658204232*^9}},
+ CellID->819791414],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.609400573904091*^9, 3.60940058931909*^9}},
+ CellLabel->"In[14]:=",
+ CellID->287674000]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Define custom TeX formatting for some symbols:", "MathCaption",
+ CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}},
+ CellID->836781195],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Format", "[", 
+     RowBox[{"something", ",", "TeXForm"}], "]"}], "=", 
+    RowBox[{
+    "TeXVerbatim", "[", "\"\<\\\\macro $1+1$ \\\\command[a=b]{c}\>\"", 
+     "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Format", "[", 
+    RowBox[{
+     RowBox[{"f", "[", "x__", "]"}], ",", "TeXForm"}], "]"}], ":=", 
+   RowBox[{"TeXDelimited", "[", 
+    RowBox[{"\"\<\\\\left(\>\"", ",", "x", ",", "\"\<\\\\right)\>\"", ",", 
+     RowBox[{"\"\<DelimSeparator\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Format", "[", 
+    RowBox[{
+     RowBox[{"g", "[", "x__", "]"}], ",", "TeXForm"}], "]"}], ":=", 
+   RowBox[{"TeXCommand", "[", 
+    RowBox[{"\"\<g\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"a", "\[Rule]", "b"}], "}"}], ",", "x"}], "}"}]}], "]"}]}], 
+  "\n"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Format", "[", 
+   RowBox[{
+    RowBox[{"h", "[", "x__", "]"}], ",", "TeXForm"}], "]"}], ":=", 
+  RowBox[{"TeXEnvironment", "[", 
+   RowBox[{"\"\<myEnv\>\"", ",", "x"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.609400511368061*^9, 3.609400519865382*^9}},
+ CellLabel->"In[10]:=",
+ CellID->2058623809]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[TextData[{
+ "Use ",
+ Cell[BoxData[
+  ButtonBox["TeXForm",
+   BaseStyle->"Link"]], "InlineFormula",
+  ShowStringCharacters->False],
+ " to convert expressions to TeX:"
+}], "MathCaption",
+ CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}, {
+  3.6094006818900967`*^9, 3.609400747949689*^9}},
+ CellID->1028391188],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"h", "[", 
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"1", "+", "alpha"}], "]"}], ",", 
+    RowBox[{"5", "-", 
+     RowBox[{"g", "[", 
+      RowBox[{"3", ",", 
+       RowBox[{"g", "[", "2", "]"}]}], "]"}]}], ",", "something"}], "]"}], "//",
+   "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609400511368061*^9, 3.609400519865382*^9}, {
+  3.609400761421857*^9, 3.609400772802739*^9}},
+ CellLabel->"In[15]:=",
+ CellID->2084343758],
+
+Cell["\<\
+\\begin{myEnv}
+    \\left(\\alpha +1\\right)
+    5-\\g[a=b]{3}{\\g[a=b]{2}}
+    \\macro $1+1$ \\command[a=b]{c}
+\\end{myEnv}\
+\>", "Output",
+ CellChangeTimes->{3.609400775290262*^9},
+ CellLabel->"Out[15]//TeXForm=",
+ CellID->1839196167]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "TutorialMoreAboutSection",
+ CellID->23220180],
+
+Cell[TextData[ButtonBox["Customizing TeX conversion",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:TeXUtilities/guide/CustomizingTeXConversion"]], "TutorialMoreAbout",
+ 
+ CellChangeTimes->{{3.609401369728722*^9, 3.609401392140505*^9}},
+ CellID->1567025153]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Tutorials", "RelatedTutorialsSection",
+ CellID->415694126],
+
+Cell["XXXX", "RelatedTutorials",
+ CellID->806871991]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Wolfram Education Group Courses", "TutorialRelatedLinksSection",
+ 
+ CellID->415694148],
+
+Cell["XXXX", "TutorialRelatedLinks",
+ CellID->415694149]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
