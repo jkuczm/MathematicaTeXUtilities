@@ -1,0 +1,830 @@
+Notebook[{
+Cell[TextData[{
+ "New in: ",
+ Cell["XX", "HistoryData",
+  CellTags->"New"],
+ " | Modified in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Modified"],
+ " | Obsolete in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Obsolete"],
+ " | Excised in: ",
+ Cell[" ", "HistoryData",
+  CellTags->"Excised"]
+}], "History",
+ CellID->1247902091],
+
+Cell[CellGroupData[{
+
+Cell["Categorization", "CategorizationSection",
+ CellID->1122911449],
+
+Cell["Symbol", "Categorization",
+ CellLabel->"Entity Type",
+ CellID->686433507],
+
+Cell["TeXUtilities Package", "Categorization",
+ CellLabel->"Paclet Name",
+ CellID->1731601344],
+
+Cell["TeXUtilities`", "Categorization",
+ CellLabel->"Context",
+ CellID->259548119],
+
+Cell["TeXUtilities/ref/TeXCommand", "Categorization",
+ CellLabel->"URI",
+ CellID->790618274]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Keywords", "KeywordsSection",
+ CellID->477174294],
+
+Cell["XXXX", "Keywords",
+ CellID->1164421360]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Syntax Templates", "TemplatesSection",
+ CellID->1872225408],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Additional Function Template",
+ CellID->1562036412],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Arguments Pattern",
+ CellID->158391909],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Local Variables",
+ CellID->1360575930],
+
+Cell[BoxData[""], "Template",
+ CellLabel->"Color Equal Signs",
+ CellID->793782254]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Details", "DetailsSection",
+ CellID->307771771],
+
+Cell["XXXX", "Details",
+ CellLabel->"Lead",
+ CellID->670882175],
+
+Cell["XXXX", "Details",
+ CellLabel->"Developers",
+ CellID->350963985],
+
+Cell["XXXX", "Details",
+ CellLabel->"Authors",
+ CellID->8391405],
+
+Cell["XXXX", "Details",
+ CellLabel->"Feature Name",
+ CellID->3610269],
+
+Cell["XXXX", "Details",
+ CellLabel->"QA",
+ CellID->401364205],
+
+Cell["XXXX", "Details",
+ CellLabel->"DA",
+ CellID->350204745],
+
+Cell["XXXX", "Details",
+ CellLabel->"Docs",
+ CellID->732958810],
+
+Cell["XXXX", "Details",
+ CellLabel->"Features Page Notes",
+ CellID->222905350],
+
+Cell["XXXX", "Details",
+ CellLabel->"Comments",
+ CellID->240026365]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["TeXCommand", "ObjectName",
+ CellID->1224892054],
+
+Cell[TextData[{
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{"TeXCommand", "[", "\"\<\>", 
+    StyleBox["name", "TI"]}], "\"\<\>", "]"}]], "InlineFormula",
+  ShowStringCharacters->False],
+ "\[LineSeparator]represents TeX command \\",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{"name", " "}], "TI"]], "InlineFormula",
+  ShowStringCharacters->False],
+ ". \n",
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    RowBox[{"TeXCommand", "[", "\"\<\>", 
+     StyleBox["name", "TI"]}], "\"\<\>", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      StyleBox[
+       SubscriptBox[
+        StyleBox["arg", "TI"], 
+        StyleBox["1", "TR"]], "TI"], ",", 
+      StyleBox[
+       SubscriptBox[
+        StyleBox["arg", "TI"], 
+        StyleBox["2", "TR"]], "TI"], ",", "..."}], "}"}]}], "]"}]], 
+  "InlineFormula",
+  ShowStringCharacters->False],
+ "\[LineSeparator]represents TeX command with arguments \\",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{"name", " "}], "TI"]], "InlineFormula",
+  ShowStringCharacters->False],
+ "{",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["arg", "TI"], 
+   StyleBox["1", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "}{",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["arg", "TI"], 
+   StyleBox["2", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "}",
+ Cell[BoxData["\[Ellipsis]"], "InlineFormula",
+  ShowStringCharacters->False],
+ ". \n",
+ Cell["   ", "ModInfo"],
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    RowBox[{"TeXCommand", "[", "\"\<\>", 
+     StyleBox["name", "TI"]}], "\"\<\>", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         StyleBox[
+          SubscriptBox[
+           StyleBox["opt", "TI"], 
+           StyleBox["1", "TR"]], "TI"], "\[Rule]", 
+         SubscriptBox[
+          StyleBox["val", "TI"], 
+          StyleBox["1", "TR"]]}], ",", 
+        SubscriptBox[
+         StyleBox["opt", "TI"], 
+         StyleBox["2", "TR"]], ",", 
+        RowBox[{
+         StyleBox[
+          SubscriptBox[
+           StyleBox["opt", "TI"], 
+           StyleBox["3", "TR"]], "TI"], "\[Rule]", 
+         SubscriptBox[
+          StyleBox["val", "TI"], 
+          StyleBox["3", "TR"]]}], ",", "..."}], "}"}], ",", 
+      StyleBox[
+       SubscriptBox[
+        StyleBox["arg", "TI"], 
+        StyleBox["1", "TR"]], "TI"], ",", 
+      StyleBox[
+       SubscriptBox[
+        StyleBox["arg", "TI"], 
+        StyleBox["2", "TR"]], "TI"], ",", "..."}], "}"}]}], "]"}]], 
+  "InlineFormula",
+  ShowStringCharacters->False],
+ Cell["", "ModInfo"],
+ "\[LineSeparator]represents TeX command with optional arguments \\",
+ Cell[BoxData[
+  StyleBox[
+   RowBox[{"name", " "}], "TI"]], "InlineFormula",
+  ShowStringCharacters->False],
+ "[",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["opt", "TI"], 
+   StyleBox["1", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "=",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["val", "TI"], 
+   StyleBox["1", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ ",",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["opt", "TI"], 
+   StyleBox["2", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ ",",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["opt", "TI"], 
+   StyleBox["3", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "=",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["val", "TI"], 
+   StyleBox["3", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "]{",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["arg", "TI"], 
+   StyleBox["1", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "}{",
+ Cell[BoxData[
+  SubscriptBox[
+   StyleBox["arg", "TI"], 
+   StyleBox["2", "TR"]]], "InlineFormula",
+  ShowStringCharacters->False],
+ "}",
+ Cell[BoxData["\[Ellipsis]"], "InlineFormula",
+  ShowStringCharacters->False],
+ ". "
+}], "Usage",
+ CellChangeTimes->{{3.609340259461516*^9, 3.609340260120801*^9}, {
+   3.6093546434694977`*^9, 3.6093547798236*^9}, {3.609354822433916*^9, 
+   3.60935486164034*^9}, {3.609355207344079*^9, 3.609355523681258*^9}, 
+   3.609355606561653*^9, {3.609355954552918*^9, 3.609355960704936*^9}, {
+   3.609355993859209*^9, 3.609356073570594*^9}, {3.609393486548666*^9, 
+   3.609393587213016*^9}, {3.609393636203949*^9, 3.609393759555851*^9}, {
+   3.609393947944771*^9, 3.609393964132637*^9}}],
+
+Cell["The following options can be given: ", "Notes"],
+
+Cell[BoxData[GridBox[{
+   {Cell["   ", "ModInfo"], "\"\<ArgumentConverter\>\"", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{"#1", ",", " ", "TeXForm"}], "]"}], " ", "&"}], " "}], Cell[
+    TextData[{
+     "function used to convert command arguments, optional argument names and \
+values, to ",
+     Cell[BoxData[
+      FormBox[
+       StyleBox[
+        RowBox[{"T", 
+         AdjustmentBox["E",
+          BoxBaselineShift->0.5,
+          BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+        SingleLetterItalics->False], TraditionalForm]]],
+     ". This function should accept one argument and return a string"
+    }], "TableText"]}
+  }]], "3ColumnTableMod",
+ CellChangeTimes->{{3.609354453084193*^9, 3.609354453085925*^9}, {
+  3.60935555253607*^9, 3.6093555946723957`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Tutorials", "TutorialsSection",
+ CellID->250839057],
+
+Cell["XXXX", "Tutorials",
+ CellID->341631938]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Demonstrations", "RelatedDemonstrationsSection",
+ CellID->1268215905],
+
+Cell["XXXX", "RelatedDemonstrations",
+ CellID->1129518860]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Related Links", "RelatedLinksSection",
+ CellID->1584193535],
+
+Cell["XXXX", "RelatedLinks",
+ CellID->1038487239]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["See Also", "SeeAlsoSection",
+ CellID->1255426704],
+
+Cell[TextData[{
+ Cell[BoxData[
+  ButtonBox["TeXVerbatim",
+   BaseStyle->"Link",
+   ButtonData->"paclet:TeXUtilities/ref/TeXVerbatim"]], "InlineFormula"],
+ " \[EmptyVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["TeXDelimited",
+   BaseStyle->"Link",
+   ButtonData->"paclet:TeXUtilities/ref/TeXDelimited"]], "InlineFormula"],
+ " \[EmptyVerySmallSquare] ",
+ Cell[BoxData[
+  ButtonBox["TeXEnvironment",
+   BaseStyle->"Link",
+   ButtonData->"paclet:TeXUtilities/ref/TeXEnvironment"]], "InlineFormula"]
+}], "SeeAlso",
+ CellChangeTimes->{
+  3.609341131736752*^9, 3.609341748641223*^9, {3.6093561015422277`*^9, 
+   3.609356105321467*^9}},
+ CellID->929782353]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More About", "MoreAboutSection",
+ CellID->38303248],
+
+Cell["XXXX", "MoreAbout",
+ CellID->1665078683]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {
+     StyleBox["Examples", "PrimaryExamplesSection"], 
+     ButtonBox[
+      RowBox[{
+       RowBox[{"More", " ", "Examples"}], " ", "\[RightTriangle]"}],
+      BaseStyle->"ExtendedExamplesLink",
+      ButtonData:>"ExtendedExamples"]}
+   }],
+  $Line = 0; Null]], "PrimaryExamplesSection",
+ CellID->880084151],
+
+Cell["Command without arguments:", "ExampleText",
+ CellChangeTimes->{{3.609356227173244*^9, 3.609356240418304*^9}},
+ CellID->1189277203],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1323670272],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", "\"\<comm\>\"", "]"}], "//", 
+  "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
+   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
+   3.6093561903941517`*^9, 3.609356190880807*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1406218119],
+
+Cell["\\comm", "Output",
+ CellChangeTimes->{{3.609344530652169*^9, 3.609344560868579*^9}, 
+   3.609356193932478*^9},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->1923042836]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->417000467],
+
+Cell["Command with arguments:", "ExampleText",
+ CellChangeTimes->{{3.609356227173244*^9, 3.609356259904478*^9}},
+ CellID->544369607],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1589152665],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", 
+   RowBox[{"\"\<comm\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{"alpha", ",", "b"}], "}"}]}], "]"}], "//", "TeXForm"}]], "Input",
+ 
+ CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
+   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
+   3.6093561903941517`*^9, 3.609356190880807*^9}, {3.609356272420364*^9, 
+   3.609356280069124*^9}, {3.6093567889105797`*^9, 3.6093567915111523`*^9}},
+ CellLabel->"In[1]:=",
+ CellID->385139934],
+
+Cell["\\comm{\\alpha}{b}", "Output",
+ CellChangeTimes->{3.609356298812357*^9, 3.609356801641539*^9},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->1709998604]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->346950878],
+
+Cell["Command with optional arguments:", "ExampleText",
+ CellChangeTimes->{{3.609356227173244*^9, 3.609356259904478*^9}, {
+  3.609356821390175*^9, 3.609356824618025*^9}},
+ CellID->1715900981],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1917287582],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", 
+   RowBox[{"\"\<comm\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"a", "\[Rule]", "alpha"}], ",", "b"}], "}"}], ",", "c", ",", 
+      "beta"}], "}"}]}], "]"}], "//", "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
+   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
+   3.6093561903941517`*^9, 3.609356190880807*^9}, {3.609356272420364*^9, 
+   3.609356280069124*^9}, {3.6093567889105797`*^9, 3.6093567915111523`*^9}, {
+   3.609356829469612*^9, 3.609356862240487*^9}},
+ CellLabel->"In[1]:=",
+ CellID->622467443],
+
+Cell["\\comm[a=\\alpha,b]{c}{\\beta}", "Output",
+ CellChangeTimes->{3.609356298812357*^9, 3.609356801641539*^9, 
+  3.609356872584334*^9},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->1427207727]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["More Examples", "ExtendedExamplesSection",
+ CellTags->"ExtendedExamples",
+ CellID->1854448968],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Scope", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1293636265],
+
+Cell[TextData[{
+ Cell[BoxData["TeXCommand"], "InlineFormula",
+  ShowStringCharacters->False],
+ " can be nested:"
+}], "ExampleText",
+ CellChangeTimes->{{3.6093461088892717`*^9, 3.6093461207285547`*^9}, {
+  3.609356092709311*^9, 3.6093560927095413`*^9}},
+ CellID->1311951073],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->354730472],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", "\[IndentingNewLine]", 
+   RowBox[{"\"\<comm1\>\"", ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"a", "\[Rule]", 
+         RowBox[{"TeXCommand", "[", "\"\<comm2\>\"", "]"}]}], ",", "b"}], 
+       "}"}], ",", "c", ",", 
+      RowBox[{"TeXCommand", "[", 
+       RowBox[{"\"\<comm3\>\"", ",", 
+        RowBox[{"{", "beta", "}"}]}], "]"}]}], "}"}]}], "\[IndentingNewLine]",
+    "]"}], "//", "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609346152940382*^9, 3.6093461914314213`*^9}, {
+  3.60935609326126*^9, 3.609356097570068*^9}, {3.609356905613686*^9, 
+  3.60935695652415*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1908431843],
+
+Cell["\\comm1[a=\\comm2,b]{c}{\\comm3{\\beta}}", "Output",
+ CellChangeTimes->{{3.609346192428653*^9, 3.609346204846438*^9}, 
+   3.609356971694831*^9},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->758772355]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Generalizations & Extensions", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1020263627],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Options", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\"ArgumentConverter\"", "ExampleSubsection"],
+  $Line = 0; Null]], "ExampleSubsection",
+ CellChangeTimes->{{3.6093544926050587`*^9, 3.609354495183316*^9}}],
+
+Cell[TextData[{
+ "With ",
+ StyleBox["\"ArgumentConverter\"", "InlineCode"],
+ " set to ",
+ Cell[BoxData[
+  RowBox[{
+   RowBox[{
+    ButtonBox["ToString",
+     BaseStyle->"Link"], "[", 
+    RowBox[{"#1", ",", 
+     ButtonBox["TeXForm",
+      BaseStyle->"Link"]}], "]"}], "&"}]], "InlineFormula",
+  ShowStringCharacters->False],
+ " (default value) arguments are converted to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+    SingleLetterItalics->False], TraditionalForm]]],
+ ":"
+}], "ExampleText",
+ CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
+  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
+  3.6093440648182096`*^9}, {3.609357275398965*^9, 3.609357286518586*^9}, {
+  3.6093573221395483`*^9, 3.6093573267520723`*^9}},
+ CellID->18900439],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->531061760],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", 
+   RowBox[{"\"\<comm\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"opt1", "\[Rule]", "alpha"}], ",", "opt2"}], "}"}], ",", 
+      "arg", ",", "beta"}], "}"}], ",", 
+    RowBox[{"\"\<ArgumentConverter\>\"", "\[Rule]", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"#", ",", "TeXForm"}], "]"}], "&"}], ")"}]}]}], "]"}], "//", 
+  "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
+   3.609344980202814*^9, 3.609344997574271*^9}, {3.609345856161788*^9, 
+   3.60934585970538*^9}, 3.6093560993235826`*^9, {3.6093573445486403`*^9, 
+   3.609357406402883*^9}, {3.609357477191078*^9, 3.609357523735964*^9}, {
+   3.6093575544841337`*^9, 3.609357557572239*^9}},
+ CellLabel->"In[1]:=",
+ CellID->671180129],
+
+Cell["\\comm[\\text{opt1}=\\alpha,\\text{opt2}]{\\arg}{\\beta}", "Output",
+ CellChangeTimes->{
+  3.609344176166902*^9, 3.6093447935435762`*^9, 3.609345003740848*^9, 
+   3.609345976055354*^9, 3.609357422827503*^9, {3.609357507998826*^9, 
+   3.609357524891302*^9}, {3.609357558322873*^9, 3.609357573924182*^9}},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->1852935110]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["\t", "ExampleDelimiter"],
+  $Line = 0; Null]], "ExampleDelimiter",
+ CellID->1101731154],
+
+Cell[TextData[{
+ "With ",
+ StyleBox["\"ArgumentConverter\"", "InlineCode"],
+ " set to any function, arguments are passed to this function before joining \
+with other strings building ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+    SingleLetterItalics->False], TraditionalForm]]],
+ " form of expression:"
+}], "ExampleText",
+ CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}, {
+  3.609357440838483*^9, 3.609357457848295*^9}},
+ CellID->448392044],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellLabel->"In[1]:=",
+ CellID->269394985],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TeXCommand", "[", 
+   RowBox[{"\"\<comm\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"opt1", "\[Rule]", "alpha"}], ",", "opt2"}], "}"}], ",", 
+      "arg", ",", "beta"}], "}"}], ",", 
+    RowBox[{"\"\<ArgumentConverter\>\"", "\[Rule]", "ToString"}]}], "]"}], "//",
+   "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
+   3.609344980202814*^9, 3.609344997574271*^9}, {3.609345856161788*^9, 
+   3.60934585970538*^9}, 3.6093560993235826`*^9, {3.6093573445486403`*^9, 
+   3.609357406402883*^9}, {3.609357477191078*^9, 3.609357523735964*^9}, {
+   3.6093575544841337`*^9, 3.609357587093286*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1986887612],
+
+Cell["\\comm[opt1=alpha,opt2]{arg}{beta}", "Output",
+ CellChangeTimes->{3.609344176166902*^9, 3.6093448043234673`*^9, 
+  3.6093459855668097`*^9, 3.609357597081773*^9},
+ CellLabel->"Out[1]//TeXForm=",
+ CellID->1021973108]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[Cell["Applications", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->258228157],
+
+Cell[TextData[{
+ Cell[BoxData["TeXCommand"], "InlineFormula",
+  ShowStringCharacters->False],
+ " can be used to define formatting using ",
+ Cell[BoxData[
+  ButtonBox["Format",
+   BaseStyle->"Link"]], "InlineFormula",
+  ShowStringCharacters->False],
+ ":"
+}], "ExampleText",
+ CellChangeTimes->{{3.609344229968511*^9, 3.609344260694563*^9}, {
+  3.609344369727129*^9, 3.6093443703821983`*^9}, {3.609344436099107*^9, 
+  3.609344454979224*^9}, {3.609356100689477*^9, 3.609356100689707*^9}},
+ CellID->908547004],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
+ CellLabel->"In[1]:=",
+ CellID->1920081157],
+
+Cell[TextData[{
+ "Assign ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+    SingleLetterItalics->False], TraditionalForm]]],
+ " formatting for a function:"
+}], "ExampleText",
+ CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
+   3.609341567441502*^9, 3.609341568835944*^9}, 3.609342936319825*^9, {
+   3.609344464939361*^9, 3.609344466075178*^9}},
+ CellID->1565222199],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Format", "[", 
+   RowBox[{
+    RowBox[{"f", "[", 
+     RowBox[{"x_", ",", "y_", ",", "z_"}], "]"}], ",", "TeXForm"}], "]"}], ":=", 
+  RowBox[{"TeXCommand", "[", 
+   RowBox[{"\"\<f\>\"", ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"x", "\[Rule]", "y"}], "}"}], ",", "z"}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, 
+   3.609356101165889*^9, {3.609357651871059*^9, 3.6093576966101503`*^9}},
+ CellLabel->"In[1]:=",
+ CellID->828485488],
+
+Cell[TextData[{
+ "Formatting is used when function is converted to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    RowBox[{"T", 
+     AdjustmentBox["E",
+      BoxBaselineShift->0.5,
+      BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
+    SingleLetterItalics->False], TraditionalForm]]],
+ ":"
+}], "ExampleText",
+ CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
+  3.609341567441502*^9, 3.609341568835944*^9}, {3.609341603184952*^9, 
+  3.60934162103139*^9}, {3.609344478213131*^9, 3.60934447940843*^9}},
+ CellID->1137687184],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"f", "[", 
+   RowBox[{"x", ",", "5", ",", 
+    RowBox[{"alpha", " ", "-", 
+     RowBox[{"2", "y"}]}]}], "]"}], "//", "TeXForm"}]], "Input",
+ CellChangeTimes->{{3.6093414344094276`*^9, 3.60934143664952*^9}, {
+  3.6093437107736197`*^9, 3.6093437602938766`*^9}, {3.609357647357254*^9, 
+  3.609357685331163*^9}, {3.609357725439289*^9, 3.609357725879486*^9}},
+ CellLabel->"In[2]:=",
+ CellID->1497456338],
+
+Cell["\\f[x=5]{\\alpha -2 y}", "Output",
+ CellChangeTimes->{{3.609343730401766*^9, 3.609343761207244*^9}, 
+   3.609344085864707*^9, 3.6093577269363413`*^9},
+ CellLabel->"Out[2]//TeXForm=",
+ CellID->1541786272]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Properties & Relations", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->2123667759],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Possible Issues", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1305812373],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Interactive Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->1653164318],
+
+Cell[BoxData[
+ InterpretationBox[Cell["Neat Examples", "ExampleSection"],
+  $Line = 0; Null]], "ExampleSection",
+ CellID->589267740]
+}, Open  ]]
+},
+WindowSize->{700, 770},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"FileOutlineCache"->False},
+CellContext->"Global`",
+FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
+  CharacterEncoding -> "UTF-8"]
+]
+
