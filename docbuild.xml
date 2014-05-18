@@ -1,0 +1,327 @@
+<?xml version="1.0"?>
+<project name="BuildDocumentation" default="main" basedir=".">
+
+<!--
+ This build file has been created by the Wolfram Workbench.
+ If you run it inside the Workbench it should not need any 
+ modifications to create documentation.
+
+
+ If you run the build outside of the Workbench you may need to 
+ modify appPath, mathematicaInstallDir and mathExe.
+ 
+ If you move the buildfile inside the project, you will 
+ need to make appropriate changes to inputDir, outputDirNB,
+ outputDirWeb, and logDir.
+ 
+ Properties:
+   appPath    the path that contains the location of the DocumentationBuild app
+   mathematicaInstallDir   
+              the installation directory of Mathematica
+   mathExe    the command to use for invoking the Mathematica Kernel
+   inputDir   the directory in which to search for notebooks to convert
+   outputDirNB  the directory into which notebook output will be written
+   outputDirWeb  the directory into which web output will be written
+   logDir     the directory into which log information will be written
+   buildNBDocs set this if you want to build NB documentation
+   buildWebDocs set this if you want to build Web documentation
+-->
+    
+<!--
+    app.name is the name of the application.
+-->
+    <property name="pacletName" value="TeXUtilities"/>
+    <property name="app.name" value="TeXUtilities"/>
+    <property name="pacletContainer" value="TeXUtilities"/>
+    <property name="docInputDir" value="TeXUtilities/Documentation"/>
+    <property name="docOutputDir" value="Documentation"/>
+    <property name="dist" value="${basedir}/build" />
+    
+    <target name="clean">
+        <delete  dir="${dist}" />
+    </target>
+    
+    <target name="docbuild">
+
+<!--
+If you want to create HTML you should always set Mathematica.DocumentationBuild.createHTML
+or set Mathematica.DocumentationBuild.createHTML.setting to Mathematica.DocumentationBuild.createHTML.
+-->
+        <property name="${Mathematica.DocumentationBuild.createHTML.setting}" value="true" />    
+
+<!--
+ appPath, mathematicaInstallDir and mathExe. 
+ These need to be set appropriately for your build.
+-->        
+        <property name="appPath" value="${appPath.default}"/>
+        <property name="mathematicaInstallDir" value="/usr/local/Wolfram/Mathematica/9.0"/>
+        <property name="mathExe" value="/usr/local/Wolfram/Mathematica/9.0/Executables/MathKernel"/>
+
+<!--
+ If you move the build file, you need to change inputDir, outputDir, and logDir.
+-->
+
+        <property name="inputDir" value="${basedir}/${docInputDir}" />
+        <property name="outputDirNB" value="${dist}/${pacletContainer}/${docOutputDir}" />
+        <property name="outputDirWeb" value="${dist}/${pacletContainer}-HTML" />
+        <property name="logDir" value="${dist}/log" />
+        <property name="jlinkpath" value="${mathematicaInstallDir}/SystemFiles/Links/JLink"/>
+
+        <echo message="DocumentationBuild: ${appPath}"/>
+        <echo message="Mathematica Install Dir: ${mathematicaInstallDir}"/>
+        <echo message="MathKernel: ${mathExe}"/>
+        <echo message="Input: ${inputDir}"/>
+        <echo message="Output NB: ${outputDirNB}"/>
+        <echo message="Output Web: ${outputDirWeb}"/>
+            
+        <property name="buildNBDocs" value="true" />
+        <property name="buildWebDocs" value="true" />
+        <property name="includeLinkTrails" value="false"/> 
+
+          <path id="jlink.lib">
+            <fileset dir="${jlinkpath}">
+                  <include name="**/JLink.jar"/>
+                  <include name="**/SystemFiles/*"/>
+                </fileset>
+          </path>
+
+          <!-- Load JLink -->
+          <taskdef name="mathematica"
+              classname="com.wolfram.jlink.util.MathematicaTask" >
+            <classpath refid="jlink.lib" />
+          </taskdef>
+
+        <property name="JLinkLoaded" value="true"/>
+        
+        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/notebook.xml"
+               target="main">
+            <property name="outputDir" value="${outputDirNB}" />
+            <property name="language" value="English" />
+        </ant>
+
+        <antcall target="createHTML" />
+        
+        <antcall target="setupPaclet" />
+        
+        <antcall target="crossVersionReplacements" />
+        
+
+    </target>
+
+    <target name="createHTML" if="Mathematica.DocumentationBuild.createHTML">
+        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/html.xml"
+               target="main">
+                <property name="local" value="True"/>
+                <property name="completeHTMLQ" value="True"/>
+                <property name="includeLinkTrails" value="False"/>    
+                   <property name="outputDir" value="${outputDirWeb}" />
+            <property name="language" value="English" />
+        </ant>    
+    </target>
+    
+    <target name="setupPaclet" if="buildNBDocs">    
+        <copy file="${basedir}/PacletInfo.m" todir="${dist}/${pacletContainer}" overwrite="true" />
+        <copy todir="${dist}/${pacletContainer}/${docOutputDir}" overwrite="true" >
+        <fileset dir="${basedir}/${docInputDir}">
+            <exclude name="*/Guides/**"/>
+            <exclude name="*/ReferencePages/**"/>
+            <exclude name="*/Tutorials/**"/>
+        </fileset>
+        </copy>
+    </target>
+    
+    <target name="main" depends="clean">
+        <antcall target="docbuild" />
+        <antcall target="replaceStuff" />
+    </target>
+
+    <target name="replaceStuff">
+        <!--
+        By Teake Nutma
+        http://mathematica.stackexchange.com/questions/28316/creating-cross-version-compatible-documentation-with-workbench#answer-28358
+        -->
+        <!-- Remove CacheIDs -->
+        <replace dir="${dist}" value=''>
+            <include name="**/*.nb"/>
+            <replacetoken>(*CacheID: 234*)</replacetoken>
+        </replace>
+        <!-- Change FrontEndVersion to 6.0 -->
+        <replaceregexp match='FrontEndVersion -> "(.*)"' replace='FrontEndVersion -> "6.0"' byline="true">
+            <fileset dir="${dist}" includes="**/*.nb"/>
+        </replaceregexp>
+        <replaceregexp match='FrontEndVersion->"(.*)"' replace='FrontEndVersion->"6.0"' byline="true">
+            <fileset dir="${dist}" includes="**/*.nb"/>
+        </replaceregexp>
+    </target>
+    
+    <target name="crossVersionReplacements">
+        <!--
+        By Simon Rochester
+        http://mathematica.stackexchange.com/questions/28316/creating-cross-version-compatible-documentation-with-workbench#answer-28592
+        -->
+        <mathematica exe="${mathExe}">
+            <![CDATA[
+
+            (* Start Front End *)
+            Developer`InstallFrontEnd[];
+
+            (* Get all .nb files from build directory *)
+            outputDir = AntProperty["dist"];
+          files = FileNames["*.nb", outputDir, Infinity];
+
+            AntLog["Running cross-version replacements on "<>ToString@Length@files<>" files in "<>outputDir];
+
+            (* Function to discriminate between versions 6--8 and 9 *)
+            IfPreVer9[pre_, post_] := FEPrivate`If[             
+               FEPrivate`Or[FEPrivate`SameQ[FEPrivate`$ProductVersion, "6.0"],
+                                FEPrivate`SameQ[FEPrivate`$ProductVersion, "7.0"],
+                            FEPrivate`SameQ[FEPrivate`$ProductVersion, "8.0"]], 
+               pre, post];
+
+            (* Section spacer that displays as very thin cell in versions 6--8 *)
+            mySectionSpacer[sty_] = Cell["", sty,
+                    CellSize -> IfPreVer9[{Inherited, 1}, Inherited],
+                    CellElementSpacings -> {CellMinHeight -> 
+                  IfPreVer9[1, Inherited]},
+                    CellMargins -> IfPreVer9[0, Inherited],
+                    Editable -> False, Selectable -> False, Deletable -> False, 
+               ShowCellBracket -> False, ShowSelection -> False];
+
+            (* List of styles for section headings that we will do replacements on *)
+            headingStyles = {
+                  "GuideMoreAboutSection", 
+                   "GuideTutorialsSection", "MoreAboutSection", 
+                   "MoreInformationSection",
+                   "PrimaryExamplesSection", "RelatedDemonstrationsSection", 
+                   "RelatedLinksSection", "SeeAlsoSection", 
+                   "TutorialsSection", 
+                   "RelatedTutorialsSection", "TutorialMoreAboutSection",
+                   "TutorialRelatedLinksSection", "NotesSection", 
+                     "GuideRelatedLinksSection"
+              };
+
+            (* Utility functions*)
+            myspacer = Cell[BoxData[ToBoxes[Spacer[24]]]];
+
+            toTitleCase[str_String] := 
+              StringReplace[ToLowerCase[str], 
+               WordBoundary ~~ x_ :> ToUpperCase[x]];
+
+            framelabelopts = {CellSize -> {5000, Inherited}};
+
+            cellopts = {"WholeCellGroupOpener" -> True, 
+               CellFrameLabelMargins -> 0, 
+               CellElementSpacings -> {"CellMinHeight" -> 3}, 
+               CellSize -> {Inherited, IfPreVer9[11, 14]}};
+
+            (* Loop over files *)
+            Do[
+              (* Importing nb files containing Manipulate objects can throw a bunch of benign newline interpretation warnings *)
+              Quiet[expr = Get[file];, Syntax::newl];
+
+              (* Convert section headings to Title Case in version 9 *)
+                expr = expr /. {
+                (*"MORE INFORMATION" section-- get rid of frame*)
+                Cell[con_, sty : "NotesSection", o___] :> 
+                 Cell["", sty, Sequence @@ cellopts, o, CellFrameLabels -> {{
+                     IfPreVer9[
+                      Cell[con, sty, Sequence @@ framelabelopts], 
+                      con /. TextData[Cell[BoxData[box : ButtonBox[__]]]] :> TextData[box] /. 
+                       box_FrameBox -> 
+                        Cell[TextData[{myspacer, "Details and Options"}], 
+                         "NotesSection", Sequence @@ framelabelopts]
+                      ], None}, {None, None}}],
+                (*Guide Tutorials section-- need to mimic standard version 9 section style*)
+                Cell[con_, sty : "GuideTutorialsSection", o___] :> 
+                 Cell["", sty, Sequence @@ cellopts, o, 
+                  CellMargins -> 
+                   IfPreVer9[Inherited, {{Inherited, Inherited}, {Inherited, 20}}], 
+                  CellFrameLabels -> {{
+                     IfPreVer9[
+                      Cell[con, sty, Sequence @@ framelabelopts], 
+                      con /. str_String -> 
+                        Cell[TextData[{myspacer, toTitleCase[str]}], sty, 
+                         Sequence @@ framelabelopts]
+                      ], None}, {None, None}}],
+                (*Examples section-- add placeholder for total example count*)
+                Cell[con_, sty : "PrimaryExamplesSection", o___] :> 
+                 Cell["", sty, o, Sequence @@ cellopts, CellFrameLabels -> {{
+                     IfPreVer9[
+                      Cell[con, sty, Sequence @@ framelabelopts], 
+                      con /. (ButtonBox[str_String, bbo___] :> 
+                         ButtonBox[
+                          Cell[TextData[{myspacer, toTitleCase[str], "  ", 
+                             "InsertExampleCount"}], sty, 
+                           Sequence @@ framelabelopts], bbo])
+                      ], None}, {None, None}}],
+                (*All other section headings with text only in the title*)
+                Cell[con_String, sty : Alternatives @@ headingStyles, o___] :> 
+                 Cell["", sty, Sequence @@ cellopts, o, CellFrameLabels -> {{
+                     IfPreVer9[
+                      Cell[con, sty, Sequence @@ framelabelopts],
+                      Cell[TextData[{myspacer, toTitleCase[con]}], sty, 
+                       Sequence @@ framelabelopts]
+                      ], None}, {None, None}}],
+                (*All other section headings with buttons in the title*)
+                Cell[con_, sty : Alternatives @@ headingStyles, o___] :> 
+                 Cell["", sty, Sequence @@ cellopts, o, CellFrameLabels -> {{
+                     IfPreVer9[
+                      Cell[con, sty, Sequence @@ framelabelopts], 
+                      con /. (ButtonBox[str_String, bbo___] :> 
+                         ButtonBox[
+                          Cell[TextData[{myspacer, toTitleCase[str]}], sty, 
+                           Sequence @@ framelabelopts], bbo])
+                      ], None}, {None, None}}]
+              };
+
+              (* Replace "Details and Options" with "Details" if there is no mention of options in the notes section *)
+              expr = expr /. 
+                 notescell : CellGroupData[{Cell["", "NotesSection", ___], ___}, ___] :> 
+                 (notescell /. If[
+                   Count[notescell, str_String /; ! StringFreeQ[str, {"option", "Option"}], Infinity] > 1, 
+                       {}, 
+                   "Details and Options" -> "Details"
+                  ]);
+
+            (* Add total example count to Examples section heading in version 9 *)
+            expr = expr /. (examplegroup : Cell[CellGroupData[{Cell[_, "PrimaryExamplesSection", ___], ___}, ___], ___]) :>
+              (examplegroup /. "InsertExampleCount" -> 
+                Cell["(" <> 
+                  ToString[Total@Cases[examplegroup, Cell[countstring_, "ExampleCount"] :> ToExpression[countstring], Infinity]] <> 
+                  ")", "ExampleCount"]
+               );
+
+            (* Add spacers before and after section content in version 9 *)
+            expr = expr /. {Cell[
+              CellGroupData[{c1 : Cell[_, "SeeAlsoSection", ___], c2__}, o2___], o3___] :> 
+                Cell[CellGroupData[{c1, c2}, o2], o3], 
+              Cell[CellGroupData[{c1 : Cell[_, "PrimaryExamplesSection", ___], c2__}, o2___], o3___] :> 
+                Cell[CellGroupData[{c1, c2, mySectionSpacer["SectionFooterSpacer"]}, o2], o3],                  
+              Cell[CellGroupData[{c1 : Cell[_, Alternatives @@ headingStyles, ___], c2__}, o2___], o3___] :> 
+                Cell[CellGroupData[{c1, mySectionSpacer["SectionHeaderSpacer"], c2, mySectionSpacer["SectionFooterSpacer"]}, o2], o3]};
+
+
+              (*Fix button behavior in Example subsections*)
+              expr = expr /. 
+                Cell[con__, sty : "ExampleSection" | "ExampleSubsection", o___] :> 
+                  Cell[con, sty, "WholeCellGroupOpener" -> True, o];        
+
+            (*Fix rendering bug pre-version 9 *)
+            expr = expr /. 
+              Cell[c_, "GuideAbstract", o___] :> 
+                Cell[c, "GuideAbstract", CellFrame -> IfPreVer9[{{0, 0}, {1, 0}}, Inherited], o];
+
+            (* Improve font appearance for tutorial links in Guide pages, and mimic section heading style for Guide Tutorial heading *)
+            expr = expr /. {"GuideTutorial" -> "GuideMoreAbout", "GuideTutorialsSection" -> "GuideMoreAboutSection"};
+
+            (* Save notebook using Front End *)
+            Developer`UseFrontEnd[NotebookSave[NotebookPut[expr], file]],
+
+            {file,files}];
+            ]]>
+        </mathematica>
+    </target>
+
+    
+</project>
+

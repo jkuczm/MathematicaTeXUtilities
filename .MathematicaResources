@@ -1,8 +1,11 @@
 Resources[
     Version[1],
+    Sources[
+        Directory["~"]
+    ],
     ExecutionBuildCommand["\"No build command\""],
     Paclet[
-        PacletFolder["MathematicaFormatTeXFormPatch"],
+        DocumentationFolder["TeXUtilities/Documentation"],
         FunctionPaclet[False]
     ]
 ]
