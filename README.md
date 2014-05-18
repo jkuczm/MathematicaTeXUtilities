@@ -13,7 +13,9 @@ formatting defined using `Format[expr, TeXForm]`.
 
 ### Installation on local machine:
 
-1. Download latest released TeXUtilities.zip file.
+1. Download latest released
+   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
+   file.
 
 2. Open Mathematica and choose `File > Install...`
 
