@@ -26,7 +26,9 @@ To install package using
 [ProjectInstaller](https://github.com/lshifr/ProjectInstaller)
 evaluate:
 ```Mathematica
-ProjectInstall["https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip"]
+Needs["ProjectInstaller`"]
+
+ProjectInstall[URL["https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip"]]
 ```
 
 To load the package evaluate:
