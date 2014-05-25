@@ -1,17 +1,41 @@
 # TeXUtilities
 
 
-Application providing tools useful for customizing TeX output of Mathematica.
+Set of tools useful for customizing TeX output of Mathematica.
 
 Contains also patch fixing behavior of `TeXForm` for expressions with custom
 formatting defined using `Format[expr, TeXForm]`.
 
 
+* [Installation](#installation)
+    * [Automatic installation (using ProjectInstaller)](#automatic-installation-using-projectinstaller)
+    * [Semi-automatic installation](#semi-automatic-installation)
+    * [Manual installation](#manual-installation)
+    * [No installation](#no-installation)
+* [Documentation](#documentation)
+* [Usage example](#usage-example)
 
-## Installation and Initialization
 
 
-### Installation on local machine:
+## Installation
+
+
+### Automatic installation (using ProjectInstaller)
+
+To install package using
+[ProjectInstaller](https://github.com/lshifr/ProjectInstaller)
+evaluate:
+```Mathematica
+ProjectInstall["https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip"]
+```
+
+To load the package evaluate:
+```Mathematica
+Needs["TeXUtilities`"]
+```
+
+
+### Semi-automatic installation
 
 1. Download latest released
    [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
@@ -33,19 +57,37 @@ Needs["TeXUtilities`"]
 ```
 
 
-### Using directly from the Web, without installation:
+### Manual installation
 
-To load package, directly from the Web, evaluate:
+1. Download latest released
+   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
+   file.
+
+2. Extract downloaded `TeXUtilities.zip` to any directory which is on Mathematica `$Path`,
+   e.g. to one obtained by evaluating `FileNameJoin[{$UserBaseDirectory,"Applications"}]`.
+
+
+To load the package evaluate:
 ```Mathematica
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/TeXUtilities/TeXUtilities.m"]
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/TeXUtilities/FormatTeXFormPatch.m"]
+Needs["TeXUtilities`"]
 ```
+
+
+### No installation
+
+To use package directly from the Web, without installation, evaluate:
+```Mathematica
+Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/NoInstall.m"]
+```
+
+Note that, with this method of initialization,
+package documentation will not be available in Mathematica Documentation Center.
 
 
 
 ## Documentation
 
-This application comes with documentation integrated with Mathematica's documentation center.
+This application comes with documentation integrated with Mathematica Documentation Center.
 To use it search for "TeXUtilities" in documentation center
 or press `F1` key with cursor on name of any of symbols introduced by this application.
 
