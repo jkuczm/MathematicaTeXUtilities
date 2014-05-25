@@ -22,9 +22,11 @@ formatting defined using `Format[expr, TeXForm]`.
 
 ### Automatic installation (using ProjectInstaller)
 
-To install package using
+To use this method you need to have
 [ProjectInstaller](https://github.com/lshifr/ProjectInstaller)
-evaluate:
+package installed.
+
+To install TeXUtilities package evaluate:
 ```Mathematica
 Needs["ProjectInstaller`"]
 
