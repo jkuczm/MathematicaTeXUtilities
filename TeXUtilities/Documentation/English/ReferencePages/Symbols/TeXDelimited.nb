@@ -132,8 +132,8 @@ Cell[TextData[{
      SubscriptBox[
       StyleBox["expr", "TI"], 
       StyleBox["2", "TR"]], "TI",
-     ShowStringCharacters->True], ",", "...", ",", "\"", 
-    StyleBox["endDelim", "TI"]}], "\"", "]"}]], "InlineFormula",
+     ShowStringCharacters->True], ",", "...", ",", "\"\<\>", 
+    StyleBox["endDelim", "TI"]}], "\"\<\>", "]"}]], "InlineFormula",
   ShowStringCharacters->False],
  "\[LineSeparator]converted to TeX gives:\[LineSeparator]",
  StyleBox[Cell[BoxData[
@@ -228,8 +228,20 @@ Cell[CellGroupData[{
 Cell["Tutorials", "TutorialsSection",
  CellID->250839057],
 
-Cell["XXXX", "Tutorials",
- CellID->341631938]
+Cell[TextData[ButtonBox["Customizing TeX conversion",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:TeXUtilities/tutorial/CustomizingTeXConversion"]], "Tutorials",
+ CellChangeTimes->{{3.6101833910276747`*^9, 3.610183463782742*^9}},
+ CellID->341631938],
+
+Cell[TextData[ButtonBox["TeX Utilities overview",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "Tutorials",
+ CellChangeTimes->{{3.6101833910276747`*^9, 3.6101833953827553`*^9}, {
+  3.6101834672185163`*^9, 3.6101834987320747`*^9}},
+ CellID->434404830]
 }, Open  ]],
 
 Cell[CellGroupData[{
