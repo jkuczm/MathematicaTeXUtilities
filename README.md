@@ -131,3 +131,9 @@ Output is:
     \macro $1+1$ \command[a=b]{c}
 \end{myEnv}
 ```
+
+
+
+## License
+
+This package is released under [The MIT License](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE).
