@@ -78,23 +78,21 @@ or set Mathematica.DocumentationBuild.createHTML.setting to Mathematica.Document
         <property name="buildWebDocs" value="true" />
         <property name="includeLinkTrails" value="false"/> 
 
-          <path id="jlink.lib">
+        <path id="jlink.lib">
             <fileset dir="${jlinkpath}">
-                  <include name="**/JLink.jar"/>
-                  <include name="**/SystemFiles/*"/>
-                </fileset>
-          </path>
+                <include name="**/JLink.jar"/>
+                <include name="**/SystemFiles/*"/>
+            </fileset>
+        </path>
 
-          <!-- Load JLink -->
-          <taskdef name="mathematica"
-              classname="com.wolfram.jlink.util.MathematicaTask" >
+        <!-- Load JLink -->
+        <taskdef name="mathematica" classname="com.wolfram.jlink.util.MathematicaTask" >
             <classpath refid="jlink.lib" />
-          </taskdef>
+        </taskdef>
 
         <property name="JLinkLoaded" value="true"/>
         
-        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/notebook.xml"
-               target="main">
+        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/notebook.xml" target="main">
             <property name="outputDir" value="${outputDirNB}" />
             <property name="language" value="English" />
         </ant>
@@ -104,17 +102,19 @@ or set Mathematica.DocumentationBuild.createHTML.setting to Mathematica.Document
         <antcall target="setupPaclet" />
         
         <antcall target="crossVersionReplacements" />
-        
 
+        <antcall target="replaceStuffNB" />
+        
+        <antcall target="replaceStuffHTML" />
+        
     </target>
 
     <target name="createHTML" if="Mathematica.DocumentationBuild.createHTML">
-        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/html.xml"
-               target="main">
-                <property name="local" value="True"/>
-                <property name="completeHTMLQ" value="True"/>
-                <property name="includeLinkTrails" value="False"/>    
-                   <property name="outputDir" value="${outputDirWeb}" />
+        <ant antfile="${appPath}/DocumentationBuild/SystemFiles/ant/Build/html.xml" target="main">
+            <property name="local" value="True"/>
+            <property name="completeHTMLQ" value="True"/>
+            <property name="includeLinkTrails" value="False"/>
+            <property name="outputDir" value="${outputDirWeb}" />
             <property name="language" value="English" />
         </ant>    
     </target>
@@ -132,26 +132,6 @@ or set Mathematica.DocumentationBuild.createHTML.setting to Mathematica.Document
     
     <target name="main" depends="clean">
         <antcall target="docbuild" />
-        <antcall target="replaceStuff" />
-    </target>
-
-    <target name="replaceStuff">
-        <!--
-        By Teake Nutma
-        http://mathematica.stackexchange.com/questions/28316/creating-cross-version-compatible-documentation-with-workbench#answer-28358
-        -->
-        <!-- Remove CacheIDs -->
-        <replace dir="${dist}" value=''>
-            <include name="**/*.nb"/>
-            <replacetoken>(*CacheID: 234*)</replacetoken>
-        </replace>
-        <!-- Change FrontEndVersion to 6.0 -->
-        <replaceregexp match='FrontEndVersion -> "(.*)"' replace='FrontEndVersion -> "6.0"' byline="true">
-            <fileset dir="${dist}" includes="**/*.nb"/>
-        </replaceregexp>
-        <replaceregexp match='FrontEndVersion->"(.*)"' replace='FrontEndVersion->"6.0"' byline="true">
-            <fileset dir="${dist}" includes="**/*.nb"/>
-        </replaceregexp>
     </target>
     
     <target name="crossVersionReplacements">
@@ -315,11 +295,78 @@ or set Mathematica.DocumentationBuild.createHTML.setting to Mathematica.Document
             expr = expr /. {"GuideTutorial" -> "GuideMoreAbout", "GuideTutorialsSection" -> "GuideMoreAboutSection"};
 
             (* Save notebook using Front End *)
-            Developer`UseFrontEnd[NotebookSave[NotebookPut[expr], file]],
+            Developer`UseFrontEnd[
+                With[
+                    {nb = NotebookPut[expr]}
+                    ,
+                    SetOptions[
+                        nb
+                        , 
+                         PrivateNotebookOptions -> 
+                              Prepend[
+                                FilterRules[
+                                    Flatten @ Cases[
+                                        Options[nbObj],
+                                        HoldPattern[PrivateNotebookOptions -> value_] :> value,
+                                        {1},
+                                        1
+                                    ]
+                                    ,
+                                    Except["FileOutlineCache"]
+                                   ]
+                                ,
+                                "FileOutlineCache" -> False]
+                            ];
+                    NotebookSave[nb, file];
+                    NotebookClose[nb];
+                ]
+            ];
+            
+            ,
 
-            {file,files}];
+            {file, files}];
             ]]>
         </mathematica>
+    </target>
+
+    <!--
+    By Teake Nutma
+    http://mathematica.stackexchange.com/questions/28316/creating-cross-version-compatible-documentation-with-workbench#answer-28358
+    https://github.com/xAct-contrib/xTras/tree/master/buildfiles
+    -->
+    <target name="replaceStuffNB">
+        <echo>Changing FrontEndVersion to 6.0</echo>
+        <replaceregexp match='FrontEndVersion(\s*)->(\s*)"([^"]*)"' replace='FrontEndVersion -> "6.0"' flags="gs">
+            <fileset dir="${outputDirNB}" includes="**/*.nb"/>
+        </replaceregexp>
+        
+        <echo>Replacing "Te X Utilities" with "TeX Utilities" in notebooks</echo>
+        <replace dir="${outputDirNB}" value='TEX UTILITIES' summary="true">
+            <include name="**/*.nb"/>
+            <replacetoken>TE X UTILITIES</replacetoken>
+        </replace>
+        <replace dir="${outputDirNB}" value='TeX Utilities' summary="true">
+            <include name="**/*.nb"/>
+            <replacetoken>Te X Utilities</replacetoken>
+        </replace>
+    </target>
+    
+    <target name="replaceStuffHTML" if="Mathematica.DocumentationBuild.createHTML">
+        <echo>Replacing "Te X Utilities" with "TeX Utilities" in webpages</echo>
+        <replace dir="${outputDirWeb}" value='TeX Utilities' summary="true">
+            <include name="**/*.html"/>
+            <replacetoken>Te X Utilities</replacetoken>
+        </replace>
+        
+        <echo>Replacing absolute URLs with relative URLs in webpages</echo>
+        <replace dir="${outputDirWeb}" value='a href="../' summary="true">
+            <include name="**/*.html"/>
+            <replacetoken>a href="http://reference.wolfram.com/mathematica/TeXUtilities/</replacetoken>
+        </replace>
+        <replace dir="${outputDirWeb}" value='a href="../' summary="true">
+            <include name="**/*.html"/>
+            <replacetoken>a href="/mathematica/TeXUtilities/</replacetoken>
+        </replace>
     </target>
 
     
