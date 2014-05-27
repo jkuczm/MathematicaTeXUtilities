@@ -85,8 +85,9 @@ Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/NoI
 ```
 
 Note that, with this method of initialization,
-package documentation will not be available in Mathematica Documentation Center.
-
+package documentation will not be available in Mathematica Documentation Center,
+but you can use
+[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html).
 
 
 ## Documentation
@@ -94,6 +95,9 @@ package documentation will not be available in Mathematica Documentation Center.
 This application comes with documentation integrated with Mathematica Documentation Center.
 To use it search for "TeXUtilities" in documentation center
 or press `F1` key with cursor on name of any of symbols introduced by this application.
+
+There's also
+[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html).
 
 
 
