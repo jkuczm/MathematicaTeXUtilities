@@ -1,0 +1,1 @@
+<pre name='i_27_in' id='i_27_in' class='IFT'>Format[f[x_, y_, z_], TeXForm] := TeXCommand[&quot;f&quot;, {{x -&gt; y}, z}]</pre><div class='IFU'><a name='828485488'></a>http://wolfram.com/xid/0cesu3wwz1m6dyy457mtmozw2-nzjlr2</div>

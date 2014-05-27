@@ -1,0 +1,3 @@
+<pre name='i_39_in' id='i_39_in' class='IFT'>TeXDelimited[&quot;\\left(&quot;, &quot;expr1&quot;, 
+  TeXVerbatim[&quot;expr2 line1\nexpr2 line2&quot;], &quot;expr3&quot;, &quot;\\right)&quot;, 
+  &quot;Indentation&quot; -&gt; &quot;&quot;] // TeXForm</pre><div class='IFU'><a name='494245678'></a>http://wolfram.com/xid/0npxxwof3b3rvc0qurau8bvelmp-igjoow</div>

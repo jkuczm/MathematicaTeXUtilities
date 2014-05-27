@@ -1,0 +1,2 @@
+<pre name='i_55_in' id='i_55_in' class='IFT'>Format[f[x_, y_, expr___], TeXForm] := 
+ TeXEnvironment[{&quot;fEnv&quot;, {{x -&gt; y}}}, expr]</pre><div class='IFU'><a name='828485488'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-nzjlr2</div>

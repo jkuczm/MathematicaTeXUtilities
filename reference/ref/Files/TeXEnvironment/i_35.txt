@@ -1,0 +1,6 @@
+<pre name='i_35_in' id='i_35_in' class='IFT'>TeXEnvironment[
+  {&quot;env&quot;, &quot;BodySeparator&quot; -&gt; &quot;\\\\\n&quot;},
+  &quot;expr1&quot;,
+  &quot;expr2&quot;,
+  &quot;expr3&quot;
+  ] // TeXForm</pre><div class='IFU'><a name='1846041725'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-4tdc63</div>

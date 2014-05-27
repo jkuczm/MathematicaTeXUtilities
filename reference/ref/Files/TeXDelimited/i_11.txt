@@ -1,0 +1,2 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>TeXDelimited[&quot;\\left(&quot;, &quot;str&quot;, sym, &quot;\\right)&quot;, 
+  &quot;BodyConverter&quot; -&gt; (ToString[#, TeXForm] &amp;)] // TeXForm</pre><div class='IFU'><a name='671180129'></a>http://wolfram.com/xid/0npxxwof3b3rvc0qurau8bvelmp-ldvz6r</div>

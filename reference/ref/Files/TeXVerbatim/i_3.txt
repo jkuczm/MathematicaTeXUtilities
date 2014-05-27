@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>TeXVerbatim[&quot;\\macro $1+1$ \\command[a=b]{c}&quot;] // TeXForm</pre><div class='IFU'><a name='169816296'></a>http://wolfram.com/xid/0raewvbb0c5e3rs5do2k1pp4y-c3d1dm</div>

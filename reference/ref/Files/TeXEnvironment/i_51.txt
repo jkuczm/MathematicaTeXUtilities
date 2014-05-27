@@ -1,0 +1,6 @@
+<pre name='i_51_in' id='i_51_in' class='IFT'>TeXEnvironment[
+  {&quot;env&quot;, &quot;Indentation&quot; -&gt; &quot;&quot;},
+  &quot;expr1&quot;,
+  TeXVerbatim[&quot;expr2 line1\nexpr2 line2&quot;],
+  &quot;expr3&quot;
+  ] // TeXForm</pre><div class='IFU'><a name='494245678'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-igjoow</div>

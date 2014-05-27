@@ -1,0 +1,70 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="1311951073"><a name="1311951073"></a><span class="IF">TeXEnvironment</span> can be nested:</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="354730472"></a>
+       <a href="javascript:input('i_9')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/TeXEnvironment/I_10.gif"
+            height="15"
+            width="177"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_9_out" id="i_9_out" class="IFL"><a name="354730472"></a></div>
+     </td>
+    </tr>
+   </table>
+   <a name="1908431843" />
+   <a name="825128500" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1908431843"></a>
+        <a href="javascript:input('i_11')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/TeXEnvironment/I_12.gif"
+             height="84"
+             width="338"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_11_out" id="i_11_out" class="IFL"><a name="1908431843"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td colspan="2">
+       <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+      </td>
+     </tr>
+     <tr>
+      <td class="lab"> </td>
+      <td class="Output">
+       <img src="Files/TeXEnvironment/O_3.gif"
+           width="136"
+           height="111"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

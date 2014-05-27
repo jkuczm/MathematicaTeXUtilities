@@ -1,0 +1,1 @@
+<pre name='i_11_in' id='i_11_in' class='IFT'>TeXCommand[&quot;comm&quot;, {{a -&gt; alpha, b}, c, beta}] // TeXForm</pre><div class='IFU'><a name='622467443'></a>http://wolfram.com/xid/0cesu3wwz1m6dyy457mtmozw2-kkvw8l</div>

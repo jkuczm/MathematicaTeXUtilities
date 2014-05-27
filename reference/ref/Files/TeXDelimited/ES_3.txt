@@ -1,0 +1,621 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> &quot;BodyConverter&quot;&#160;&#160;</a> <span class="excount">(2)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="18900439"><a name="18900439"></a>With <span class="InlineCode">&quot;BodyConverter&quot;</span> set to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/ToString.html">ToString</a>[#1, <a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a>]&amp;</span> (default value) expressions given as body of delimited environment are converted to <span class="MBookTableText"><img src="Files/TeXDelimited/2.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="531061760"></a>
+             <a href="javascript:input('i_9')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_10.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_9_out" id="i_9_out" class="IFL"><a name="531061760"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="671180129" />
+         <a name="1011365131" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_11')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="671180129"></a>
+              <a href="javascript:input('i_11')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_12.gif"
+                   height="37"
+                   width="440"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_11_out" id="i_11_out" class="IFL"><a name="671180129"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_3.gif"
+                 width="112"
+                 height="63"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExLine"><a name="1101731154"></a>&nbsp;</div>
+         <div class="ExampleText" id="448392044"><a name="448392044"></a>With <span class="InlineCode">&quot;BodyConverter&quot;</span> set to any function, expressions given as body of delimited environment are passed to this function before joining with other strings building <span class="MBookTableText"><img src="Files/TeXDelimited/3.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> form of expression:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_13')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="269394985"></a>
+             <a href="javascript:input('i_13')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_14.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_13_out" id="i_13_out" class="IFL"><a name="269394985"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1128079066" />
+         <a name="1474484689" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_15')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1128079066"></a>
+              <a href="javascript:input('i_15')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_16.gif"
+                   height="37"
+                   width="408"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_15_out" id="i_15_out" class="IFL"><a name="1128079066"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_4.gif"
+                 width="56"
+                 height="63"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_2">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_2')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_2_" /> &quot;BodySeparator&quot;&#160;&#160;</a> <span class="excount">(2)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_2')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="248964326"><a name="248964326"></a>With <span class="InlineCode">&quot;BodySeparator&quot;</span> set to <span class="InlineCode">&quot;\n&quot;</span> (default value) expressions given as body of delimited environment are separated by newline characters:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="1354212127"></a>
+             <a href="javascript:input('i_17')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_18.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_17_out" id="i_17_out" class="IFL"><a name="1354212127"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="2036896914" />
+         <a name="86182534" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="2036896914"></a>
+              <a href="javascript:input('i_19')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_20.gif"
+                   height="37"
+                   width="445"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_19_out" id="i_19_out" class="IFL"><a name="2036896914"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_5.gif"
+                 width="128"
+                 height="79"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExLine"><a name="1842776819"></a>&nbsp;</div>
+         <div class="ExampleText" id="1948629125"><a name="1948629125"></a>With <span class="InlineCode">&quot;BodySeparator&quot;</span> set to any string, expressions given as body of delimited environment are separated by this string:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="62161124"></a>
+             <a href="javascript:input('i_21')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_22.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_21_out" id="i_21_out" class="IFL"><a name="62161124"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1846041725" />
+         <a name="2023951718" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1846041725"></a>
+              <a href="javascript:input('i_23')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_24.gif"
+                   height="37"
+                   width="436"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_23_out" id="i_23_out" class="IFL"><a name="1846041725"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_6.gif"
+                 width="336"
+                 height="47"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_2')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_3">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_3')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_3_" /> &quot;DelimSeparator&quot;&#160;&#160;</a> <span class="excount">(2)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_3')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="918621932"><a name="918621932"></a>With <span class="InlineCode">&quot;DelimSeparator&quot;</span> set to <span class="InlineCode">&quot;\n&quot;</span> (default value) delimiters are separated from body of delimited environment by newline characters:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_25')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="427283940"></a>
+             <a href="javascript:input('i_25')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_26.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_25_out" id="i_25_out" class="IFL"><a name="427283940"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="824541795" />
+         <a name="1373846469" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_27')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="824541795"></a>
+              <a href="javascript:input('i_27')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_28.gif"
+                   height="37"
+                   width="384"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_27_out" id="i_27_out" class="IFL"><a name="824541795"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_7.gif"
+                 width="128"
+                 height="63"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExLine"><a name="1940038311"></a>&nbsp;</div>
+         <div class="ExampleText" id="160245054"><a name="160245054"></a>With <span class="InlineCode">&quot;DelimSeparator&quot;</span> set to any string, delimiters are separated from body of delimited environment by this string:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_29')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="1720695271"></a>
+             <a href="javascript:input('i_29')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_30.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_29_out" id="i_29_out" class="IFL"><a name="1720695271"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="381902259" />
+         <a name="1393191759" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_31')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="381902259"></a>
+              <a href="javascript:input('i_31')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_32.gif"
+                   height="37"
+                   width="435"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_31_out" id="i_31_out" class="IFL"><a name="381902259"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_8.gif"
+                 width="184"
+                 height="31"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_3')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+   <div class="ESS_Co"
+       id="ESS_4">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_4')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_4_" /> &quot;Indentation&quot;&#160;&#160;</a> <span class="excount">(2)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_4')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="160678906"><a name="160678906"></a>With <span class="InlineCode">&quot;Indentation&quot;</span> set to <span class="InlineCode">&quot;    &quot;</span> (4 spaces - default value) all newline characters inside body of delimited environment have added 4 spaces:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_33')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="283470160"></a>
+             <a href="javascript:input('i_33')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_34.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_33_out" id="i_33_out" class="IFL"><a name="283470160"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1035716862" />
+         <a name="1620397598" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_35')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1035716862"></a>
+              <a href="javascript:input('i_35')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_36.gif"
+                   height="56"
+                   width="412"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_35_out" id="i_35_out" class="IFL"><a name="1035716862"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_9.gif"
+                 width="128"
+                 height="95"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExLine"><a name="1403379429"></a>&nbsp;</div>
+         <div class="ExampleText" id="263101137"><a name="263101137"></a>With <span class="InlineCode">&quot;Indentation&quot;</span> set to any string, all newline characters inside body of delimited environment have this string added behind them:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_37')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="684903061"></a>
+             <a href="javascript:input('i_37')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXDelimited/I_38.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_37_out" id="i_37_out" class="IFL"><a name="684903061"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="494245678" />
+         <a name="1814358316" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_39')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="494245678"></a>
+              <a href="javascript:input('i_39')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXDelimited/I_40.gif"
+                   height="56"
+                   width="411"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_39_out" id="i_39_out" class="IFL"><a name="494245678"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXDelimited/O_10.gif"
+                 width="96"
+                 height="95"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_4')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_3')" />
+ </tr>
+</table>

@@ -1,0 +1,92 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="908547004"><a name="908547004"></a><span class="IF">TeXDelimited</span> can be used to define formatting using <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/Format.html">Format</a></span>:</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_41')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="1920081157"></a>
+       <a href="javascript:input('i_41')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/TeXDelimited/I_42.gif"
+            height="15"
+            width="177"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_41_out" id="i_41_out" class="IFL"><a name="1920081157"></a></div>
+     </td>
+    </tr>
+   </table>
+   <div class="ExampleText" id="1565222199"><a name="1565222199"></a>Assign <span class="MBookTableText"><img src="Files/TeXDelimited/4.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> formatting for a function:</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_43')" onmouseover="javascript:return(true);">In[2]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="828485488"></a>
+       <a href="javascript:input('i_43')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/TeXDelimited/I_44.gif"
+            height="18"
+            width="521"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_43_out" id="i_43_out" class="IFL"><a name="828485488"></a></div>
+     </td>
+    </tr>
+   </table>
+   <div class="ExampleText" id="1137687184"><a name="1137687184"></a>Formatting is used when function is converted to <span class="MBookTableText"><img src="Files/TeXDelimited/5.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+   <a name="1497456338" />
+   <a name="58675451" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_45')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1497456338"></a>
+        <a href="javascript:input('i_45')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/TeXDelimited/I_46.gif"
+             height="15"
+             width="237"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_45_out" id="i_45_out" class="IFL"><a name="1497456338"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td colspan="2">
+       <div class="celllabelTableForm">Out[3]//TeXForm=</div>
+      </td>
+     </tr>
+     <tr>
+      <td class="lab"> </td>
+      <td class="Output">
+       <img src="Files/TeXDelimited/O_11.gif"
+           width="104"
+           height="63"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_4')" />
+ </tr>
+</table>

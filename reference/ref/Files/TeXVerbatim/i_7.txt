@@ -1,0 +1,1 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>Format[x, TeXForm] = TeXVerbatim[&quot;\\x&quot;]</pre><div class='IFU'><a name='1649185322'></a>http://wolfram.com/xid/0raewvbb0c5e3rs5do2k1pp4y-1j51to</div>

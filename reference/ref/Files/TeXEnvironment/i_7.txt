@@ -1,0 +1,2 @@
+<pre name='i_7_in' id='i_7_in' class='IFT'>TeXEnvironment[{&quot;env&quot;, {{a -&gt; alpha, b}}}, 1 + beta, 
+  x - 2 y] // TeXForm</pre><div class='IFU'><a name='622467443'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-kkvw8l</div>

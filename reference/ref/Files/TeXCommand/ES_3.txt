@@ -1,0 +1,162 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ESS_Co"
+       id="ESS_1">
+    <table class="ESSHT"
+        border="0">
+     <tr>
+      <td>
+       <div class="ESSH"><a href="javascript:toggle('ESS_1')"><img src="../images/mathematicaImages/closedGroup.gif" id="ESS_1_" /> &quot;ArgumentConverter&quot;&#160;&#160;</a> <span class="excount">(2)</span></div>
+      </td>
+      <td class="CB"
+          valign="bottom"
+          width="5px"
+          height="100%"
+          onclick="toggle('ESS_1')" />
+     </tr>
+    </table>
+    <div class="ESS">
+     <table class="ESST">
+      <tr>
+       <td>
+        <div>
+         <div class="ExampleText" id="18900439"><a name="18900439"></a>With <span class="InlineCode">&quot;ArgumentConverter&quot;</span> set to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/ToString.html">ToString</a>[#1, <a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a>]&amp;</span> (default value) arguments are converted to <span class="MBookTableText"><img src="Files/TeXCommand/2.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_17')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="531061760"></a>
+             <a href="javascript:input('i_17')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXCommand/I_18.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_17_out" id="i_17_out" class="IFL"><a name="531061760"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="671180129" />
+         <a name="1852935110" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_19')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="671180129"></a>
+              <a href="javascript:input('i_19')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXCommand/I_20.gif"
+                   height="33"
+                   width="473"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_19_out" id="i_19_out" class="IFL"><a name="671180129"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXCommand/O_5.gif"
+                 width="400"
+                 height="15"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+         <div class="ExLine"><a name="1101731154"></a>&nbsp;</div>
+         <div class="ExampleText" id="448392044"><a name="448392044"></a>With <span class="InlineCode">&quot;ArgumentConverter&quot;</span> set to any function, arguments are passed to this function before joining with other strings building <span class="MBookTableText"><img src="Files/TeXCommand/3.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> form of expression:</div>
+         <table class="InCell">
+          <tr>
+           <td class="lab">
+            <a name="inoutlink" href="javascript:input('i_21')" onmouseover="javascript:return(true);">In[1]:=</a>
+           </td>
+           <td class="Input">
+            <div>
+             <a name="269394985"></a>
+             <a href="javascript:input('i_21')"
+                 onmouseover="javascript:return(true);">
+              <img src="Files/TeXCommand/I_22.gif"
+                  height="15"
+                  width="177"
+                  alt="Click for copyable input" />
+             </a>
+            </div>
+            <div name="i_21_out" id="i_21_out" class="IFL"><a name="269394985"></a></div>
+           </td>
+          </tr>
+         </table>
+         <a name="1986887612" />
+         <a name="1021973108" />
+         <div class="IO">
+          <table class="InCell">
+           <tr>
+            <td class="lab">
+             <a name="inoutlink" href="javascript:input('i_23')" onmouseover="javascript:return(true);">In[2]:=</a>
+            </td>
+            <td class="Input">
+             <div>
+              <a name="1986887612"></a>
+              <a href="javascript:input('i_23')"
+                  onmouseover="javascript:return(true);">
+               <img src="Files/TeXCommand/I_24.gif"
+                   height="33"
+                   width="414"
+                   alt="Click for copyable input" />
+              </a>
+             </div>
+             <div name="i_23_out" id="i_23_out" class="IFL"><a name="1986887612"></a></div>
+            </td>
+           </tr>
+          </table>
+          <table class="OCell">
+           <tr>
+            <td colspan="2">
+             <div class="celllabelTableForm">Out[2]//TeXForm=</div>
+            </td>
+           </tr>
+           <tr>
+            <td class="lab"> </td>
+            <td class="Output">
+             <img src="Files/TeXCommand/O_6.gif"
+                 width="264"
+                 height="15"
+                 alt="" />
+            </td>
+           </tr>
+          </table>
+         </div>
+        </div>
+       </td>
+       <td class="CBG"
+           width="5px"
+           height="100%"
+           onclick="toggle('ESS_1')" />
+      </tr>
+     </table>
+    </div>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_3')" />
+ </tr>
+</table>

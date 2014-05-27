@@ -1,0 +1,107 @@
+<table class="EST">
+ <tr>
+  <td>
+   <div class="ExampleText" id="908547004"><a name="908547004"></a><span class="IF">TeXVerbatim</span> can be used to define formatting using <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/Format.html">Format</a></span>:</div>
+   <table class="InCell">
+    <tr>
+     <td class="lab">
+      <a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[1]:=</a>
+     </td>
+     <td class="Input">
+      <div>
+       <a name="911190217"></a>
+       <a href="javascript:input('i_5')"
+           onmouseover="javascript:return(true);">
+        <img src="Files/TeXVerbatim/I_6.gif"
+            height="15"
+            width="177"
+            alt="Click for copyable input" />
+       </a>
+      </div>
+      <div name="i_5_out" id="i_5_out" class="IFL"><a name="911190217"></a></div>
+     </td>
+    </tr>
+   </table>
+   <div class="ExampleText" id="1565222199"><a name="1565222199"></a>Assign <span class="MBookTableText"><img src="Files/TeXVerbatim/1.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> formatting for a symbol:</div>
+   <a name="1649185322" />
+   <a name="2105183404" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[2]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1649185322"></a>
+        <a href="javascript:input('i_7')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/TeXVerbatim/I_8.gif"
+             height="18"
+             width="310"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_7_out" id="i_7_out" class="IFL"><a name="1649185322"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td class="lab">Out[2]=</td>
+      <td class="Output">
+       <img src="Files/TeXVerbatim/O_2.gif"
+           height="15"
+           width="125"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+   <div class="ExampleText" id="1137687184"><a name="1137687184"></a>Formatting is used when symbol is converted to <span class="MBookTableText"><img src="Files/TeXVerbatim/2.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+   <a name="1663226907" />
+   <a name="1704916038" />
+   <div class="IO">
+    <table class="InCell">
+     <tr>
+      <td class="lab">
+       <a name="inoutlink" href="javascript:input('i_9')" onmouseover="javascript:return(true);">In[3]:=</a>
+      </td>
+      <td class="Input">
+       <div>
+        <a name="1663226907"></a>
+        <a href="javascript:input('i_9')"
+            onmouseover="javascript:return(true);">
+         <img src="Files/TeXVerbatim/I_10.gif"
+             height="15"
+             width="91"
+             alt="Click for copyable input" />
+        </a>
+       </div>
+       <div name="i_9_out" id="i_9_out" class="IFL"><a name="1663226907"></a></div>
+      </td>
+     </tr>
+    </table>
+    <table class="OCell">
+     <tr>
+      <td colspan="2">
+       <div class="celllabelTableForm">Out[3]//TeXForm=</div>
+      </td>
+     </tr>
+     <tr>
+      <td class="lab"> </td>
+      <td class="Output">
+       <img src="Files/TeXVerbatim/O_3.gif"
+           width="16"
+           height="15"
+           alt="" />
+      </td>
+     </tr>
+    </table>
+   </div>
+  </td>
+  <td class="CBG"
+      width="5px"
+      onclick="toggle('ES_2')" />
+ </tr>
+</table>

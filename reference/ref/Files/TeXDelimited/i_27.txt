@@ -1,0 +1,2 @@
+<pre name='i_27_in' id='i_27_in' class='IFT'>TeXDelimited[&quot;\\left(&quot;, &quot;expr1&quot;, &quot;expr2&quot;, &quot;\\right)&quot;, 
+  &quot;DelimSeparator&quot; -&gt; &quot;\n&quot;] // TeXForm</pre><div class='IFU'><a name='824541795'></a>http://wolfram.com/xid/0npxxwof3b3rvc0qurau8bvelmp-nw62s1</div>

@@ -1,0 +1,6 @@
+<pre name='i_15_in' id='i_15_in' class='IFT'>TeXEnvironment[
+  {&quot;env&quot;, {{opt1 -&gt; alpha, opt2}, arg}, 
+   &quot;ArgumentConverter&quot; -&gt; (ToString[#, TeXForm] &amp;)},
+  1 + beta,
+   x - 2 y
+  ] // TeXForm</pre><div class='IFU'><a name='671180129'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-ldvz6r</div>

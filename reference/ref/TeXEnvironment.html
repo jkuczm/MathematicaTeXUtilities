@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+<head>
+<title>TeXEnvironment</title>
+<meta name='keywords' content='' />
+<meta name='description' content='TeXEnvironment[&quot;name &quot;, expr 1, expr 2, ...] or TeXEnvironment[{&quot; name &quot;}, expr 1, expr 2, ...] represents TeX environment: \begin {name} expr 1 expr 2 ... \end {name} with expr i converted to TeXForm. TeXEnvironment[{&quot; name &quot;, {{opt 1 -> val_1, opt_2, opt 3 -> val_3, ...}, arg 1, arg 2, ...}}, expr 1, expr 2, ...] represents TeX environment: \begin {name}[opt 1 = val 1, opt 2, opt 3 = val 3, ...] {arg 1} {arg 2} ... expr 1 expr 2 ... \end {name} with expr i, arg i, opt i and val_i converted to TeXForm.' />
+<link rel='stylesheet' type='text/css' href='../css/functions.css' />
+<script src='../javascript/menu.js' type='text/javascript'></script>
+<script src='../javascript/common.js' type='text/javascript'></script>
+<script src='../javascript/prototype-1.4.0.js' type='text/javascript'></script>
+<script src='../javascript/search.js' type='text/javascript'></script>
+<script src='../javascript/jquery.js' type='text/javascript'></script>
+<script src='../javascript/jquery-query.js' type='text/javascript'></script>
+<script src='../javascript/jquery.dimensions.min.js' type='text/javascript'></script>
+<script src='../javascript/jquery.mousewheel.min.js' type='text/javascript'></script>
+<script src='../javascript/jScrollPane.js' type='text/javascript'></script>
+<script src='../javascript/FunctionBrowser.js' type='text/javascript'></script>
+<script src='../javascript/VirtualBook.js' type='text/javascript'></script>
+<script src='../javascript/Navigator.js' type='text/javascript'></script>
+<script language='JavaScript' type='text/javascript'>baselang='TeXEnvironment';</script>
+</head>
+<body style='margin:35px 0px 0px 0px; background:#ffffff'>
+<!-- saved from url=(0014)about:internet -->
+
+
+
+
+
+    <div class="FlShdBar">
+ <a name="1"></a>
+ <div class="Flt">
+  <a name="1"></a>
+  <img src="../images/images/body_shdwspcr.gif"
+      width="8"
+      height="15"
+      alt="" />
+ </div>
+ <div id="CntTabTop"
+     class="en">
+  <a name="1"></a>
+  <div class="infoHeader">
+   <a name="1"></a>
+   <table class="infoHeaderTable">
+    <tr><td align="left" style="width:90% important!;width:77%;"><span class="contextName"><i>TeX Utilities</i> Package Symbol</span></td><td align="right" nowrap="true" style=""><span class=""><span name="parent_Tutorials" id="parent_Tutorials"><div class="TutorialsMenu"
+            id="Layer_Tutorials"
+            onmouseover="javascript:showMenu('Layer_Tutorials')"
+            onmouseout="javascript:hideMenu('Layer_Tutorials')">
+         <div class="TutorialsRaw">
+          <a href="../tutorial/CustomizingTeXConversion.html">Customizing TeX conversion</a>
+          <a href="../tutorial/TeXUtilitiesOverview.html">TeX Utilities overview</a>
+         </div>
+        </div></span><a onmouseover="javascript:showMenu('Layer_Tutorials');return(true);" onmouseout="javascript:hideMenu('Layer_Tutorials');return(true);" id="head_Tutorials" href="#TutorialsSection" class="anchorLink"><span class="AnchorBarText">Tutorials &#187;</span></a><span class='vertBar'>|</span><span name="parent_SeeAlso" id="parent_SeeAlso"><div class="SeeAlsoMenu"
+            id="Layer_SeeAlso"
+            onmouseover="javascript:showMenu('Layer_SeeAlso')"
+            onmouseout="javascript:hideMenu('Layer_SeeAlso')">
+         <div class="SeeAlsoRaw">
+          <a href="../ref/TeXVerbatim.html">TeXVerbatim</a>
+          <a href="../ref/TeXDelimited.html">TeXDelimited</a>
+          <a href="../ref/TeXCommand.html">TeXCommand</a>
+         </div>
+        </div></span><a onmouseover="javascript:showMenu('Layer_SeeAlso');return(true);" onmouseout="javascript:hideMenu('Layer_SeeAlso');return(true);" id="head_SeeAlso" href="#SeeAlsoSection" class="anchorLink"><span class="AnchorBarText">See Also &#187;</span></a><span class='vertBar'>|</span><span name="parent_MoreAbout" id="parent_MoreAbout"><div class="MoreAboutMenu"
+            id="Layer_MoreAbout"
+            onmouseover="javascript:showMenu('Layer_MoreAbout')"
+            onmouseout="javascript:hideMenu('Layer_MoreAbout')">
+         <div class="MoreAboutRaw">
+          <a href="../guide/TeXUtilities.html">TeX Utilities</a>
+         </div>
+        </div></span><a onmouseover="javascript:showMenu('Layer_MoreAbout');return(true);" onmouseout="javascript:hideMenu('Layer_MoreAbout');return(true);" id="head_MoreAbout" href="#MoreAboutSection" class="anchorLink"><span class="AnchorBarText">More About &#187;</span></a></span></td></tr>
+   </table>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <a name="1224892054"></a>
+ <div id="CntTabMid"
+     class="en">
+  <a name="1224892054"></a>
+  <h1 class="ObjectName"><a name="1224892054"></a>TeXEnvironment</h1>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div id="UT">
+   <table class="Table"
+       width="100%"
+       cellpadding="5"
+       style="border-collapse: collapse;">
+    <col width="95%" />
+    <col width="5%" />
+    <tr class="" style=""><td class="UM"><span class="MBookTableText"><span class="IF">TeXEnvironment[&quot;<span class="TI">name</span>&quot;, <span class="TI"><span class="TI">expr</span><sub><span class="TR">1</span></sub></span>, <span class="TI"><span class="TI">expr</span><sub><span class="TR">2</span></sub></span>, ...]</span> or <span class="IF">TeXEnvironment[{&quot;<span class="TI">name</span>&quot;}, <span class="TI"><span class="TI">expr</span><sub><span class="TR">1</span></sub></span>, <span class="TI"><span class="TI">expr</span><sub><span class="TR">2</span></sub></span>, ...]</span><br />represents TeX environment:<br /><span class="InlineCode"><span class="IF"><span class="TI">\begin{name} </span></span></span><span class="InlineCode"><br />    </span><span class="InlineCode"><span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">1</span></sub></span></span></span><span class="InlineCode"><br />    </span><span class="InlineCode"><span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">2</span></sub></span></span></span><span class="InlineCode"><br />    ...<br /></span><span class="IF"><span class="TI">\end{name} </span></span><br />with <span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">i</span></sub></span></span> converted to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a></span>.</span></td></tr>
+    <tr style="" class=" lineAbove"><td class="UM"><span class="MBookTableText"><span class="IF">TeXEnvironment[{&quot;<span class="TI">name</span>&quot;, {{<span class="TI"><span class="TI">opt</span><sub><span class="TR">1</span></sub></span>&#8594;<span class="TI">val</span><sub><span class="TR">1</span></sub>, <span class="TI">opt</span><sub><span class="TR">2</span></sub>, <span class="TI"><span class="TI">opt</span><sub><span class="TR">3</span></sub></span>&#8594;<span class="TI">val</span><sub><span class="TR">3</span></sub>, ...}, <span class="TI"><span class="TI">arg</span><sub><span class="TR">1</span></sub></span>, <span class="TI"><span class="TI">arg</span><sub><span class="TR">2</span></sub></span>, ...}}, <span class="TI"><span class="TI">expr</span><sub><span class="TR">1</span></sub></span>, <span class="TI"><span class="TI">expr</span><sub><span class="TR">2</span></sub></span>, ...]</span><br />represents TeX environment:<br /><span class="InlineCode"><span class="IF"><span class="TI">\begin{name}[<span class="TI">opt</span><sub><span class="TR">1</span></sub>=<span class="TI">val</span><sub><span class="TR">1</span></sub>, <span class="TI">opt</span><sub><span class="TR">2</span></sub>, <span class="TI">opt</span><sub><span class="TR">3</span></sub>=<span class="TI">val</span><sub><span class="TR">3</span></sub>, ...]{<span class="TI">arg</span><sub><span class="TR">1</span></sub>}{<span class="TI">arg</span><sub><span class="TR">2</span></sub>}... </span></span></span><span class="InlineCode"><br />    </span><span class="InlineCode"><span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">1</span></sub></span></span></span><span class="InlineCode"><br />    </span><span class="InlineCode"><span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">2</span></sub></span></span></span><span class="InlineCode"><br />    ...<br /></span><span class="IF"><span class="TI">\end{name} </span></span><br />with <span class="IF"><span class="TI"><span class="TI">expr</span><sub><span class="TR">i</span></sub></span></span>, <span class="IF"><span class="TI"><span class="TI">arg</span><sub><span class="TR">i</span></sub></span></span>, <span class="IF"><span class="TI"><span class="TI">opt</span><sub><span class="TR">i</span></sub></span></span> and <span class="IF"><span class="TI">val</span><sub><span class="TR">i</span></sub></span> converted to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a></span>.</span></td></tr>
+   </table>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="NS_Co"
+      id="NS">
+   <a name="NotesSection"><div class="NSH"
+        id="ModInfo_8"
+        name="ModInfo_8">
+     <a name="581411989"></a>
+     <a href="javascript:toggle('NS')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedSectionGroup.gif" id="NS_" border="0" width="8" height="8" alt="" /> <span class="NSSpan">MORE INFORMATION</span></a>
+    </div></a>
+   <div class="NS"
+       name="NSG"
+       id="NSG">
+    <ul class="Notes"><li>The following options can be given: </li></ul>
+    <div class="FunctionTable"
+        name="3ColumnTableMod"
+        id="ThreeColumnTableMod">
+     <a name="1785415327"></a>
+     <table class="Table"
+         width="100%"
+         cellpadding="5"
+         style="border-collapse: collapse;">
+      <col width="5%" />
+      <col width="28%" />
+      <col width="28%" />
+      <col width="43%" />
+      <tr class="lineAbove" style=""><td class="IconColumn" /><td>&quot;ArgumentConverter&quot;</td><td>ToString[#1,TeXForm]&amp; </td><td><span class="TT" id="TableText">function used to convert begin command arguments, optional argument names and values, to <span class="MBookTableText"><img src="Files/TeXEnvironment/1.gif" height="16" width="25" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>. This function should accept one argument and return a string</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td>&quot;BodyConverter&quot;</td><td>ToString[#1,TeXForm]&amp; </td><td><span class="TT" id="TableText">function used to convert expressions, given as body of environment, to <span class="MBookTableText"><img src="Files/TeXEnvironment/2.gif" height="16" width="25" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>. This function should accept one argument and return a string</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td>&quot;BodySeparator&quot;</td><td>&quot;\n&quot;</td><td><span class="TT" id="TableText">string inserted between expressions given as body of environment</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td>&quot;DelimSeparator&quot;</td><td>&quot;\n&quot;</td><td><span class="TT" id="TableText">string inserted between body of environment and &quot;begin&quot; and &quot;end&quot; commands</span></td></tr>
+      <tr class="" style=""><td class="IconColumn" /><td>&quot;Indentation&quot;</td><td>&quot;    &quot;</td><td><span class="TT" id="TableText">string added after each newline character inside body of environment</span></td></tr>
+     </table>
+    </div>
+   </div>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="PES_Ex"
+      name="PES"
+      id="PES">
+   <a name="PES"><div class="PESH"
+        name="PES">
+     <a name="PrimaryExamplesSection"></a>
+     <a name="2073887719"></a>
+     <table width="100%">
+      <tr><td><a href="javascript:toggle('PES')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openSectionGroup.gif" id="PES_" border="0" width="8" height="8" /> EXAMPLES</a></td><td style="text-align: right"><a class="oclink" name="oclink" id="oclink" href="javascript:close_ES()" onmouseover="javascript:return(true);">CLOSE ALL</a></td></tr>
+     </table>
+    </div></a>
+   <div class="PES">
+    <div class="ES_Ex"
+        id="ES_1">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="1944637017"></a><a name="ExampleSection" href="javascript:toggle('ES_1')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openGroup.gif" id="ES_1_" alt="" /> Basic Examples&#160;&#160;</a> <span class="excount">(2)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_1')" /></tr>
+     </table>
+     <div class="ETG">
+      <div class="ExampleText" id="1189277203"><a name="1189277203"></a>Environment without arguments:</div>
+      <div class="ExampleText" id="1715900981"><a name="1715900981"></a>Environment with optional arguments:</div>
+     </div>
+     <div class="ES">
+      <table class="EST">
+       <tr><td><div class="ExampleText" id="1189277203"><a name="1189277203"></a>Environment without arguments:</div><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_1')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+             <a name="1323670272"></a>
+             <a href="javascript:input('i_1')" onmouseover="javascript:return(true);"><img src="Files/TeXEnvironment/I_2.gif" height="15" width="177" alt="Click for copyable input" /></a>
+            </div><div name="i_1_out" id="i_1_out" class="IFL"><a name="1323670272"></a></div></td></tr>
+         </table><a name="1406218119" /><a name="1984884767" /><div class="IO">
+          <table class="InCell">
+           <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_3')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+              <a name="1406218119"></a>
+              <a href="javascript:input('i_3')" onmouseover="javascript:return(true);"><img src="Files/TeXEnvironment/I_4.gif" height="15" width="398" alt="Click for copyable input" /></a>
+             </div><div name="i_3_out" id="i_3_out" class="IFL"><a name="1406218119"></a></div></td></tr>
+          </table>
+          <table class="OCell">
+           <tr><td colspan="2"><div class="celllabelTableForm">Out[2]//TeXForm=</div></td></tr>
+           <tr><td class="lab"> </td><td class="Output"><img src="Files/TeXEnvironment/O_1.gif" width="104" height="63" alt="" /></td></tr>
+          </table>
+         </div><div class="ExLine"><a name="346950878"></a>&nbsp;</div><div class="ExampleText" id="1715900981"><a name="1715900981"></a>Environment with optional arguments:</div><table class="InCell">
+          <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_5')" onmouseover="javascript:return(true);">In[1]:=</a></td><td class="Input"><div>
+             <a name="1917287582"></a>
+             <a href="javascript:input('i_5')" onmouseover="javascript:return(true);"><img src="Files/TeXEnvironment/I_6.gif" height="15" width="177" alt="Click for copyable input" /></a>
+            </div><div name="i_5_out" id="i_5_out" class="IFL"><a name="1917287582"></a></div></td></tr>
+         </table><a name="622467443" /><a name="1457299885" /><div class="IO">
+          <table class="InCell">
+           <tr><td class="lab"><a name="inoutlink" href="javascript:input('i_7')" onmouseover="javascript:return(true);">In[2]:=</a></td><td class="Input"><div>
+              <a name="622467443"></a>
+              <a href="javascript:input('i_7')" onmouseover="javascript:return(true);"><img src="Files/TeXEnvironment/I_8.gif" height="15" width="543" alt="Click for copyable input" /></a>
+             </div><div name="i_7_out" id="i_7_out" class="IFL"><a name="622467443"></a></div></td></tr>
+          </table>
+          <table class="OCell">
+           <tr><td colspan="2"><div class="celllabelTableForm">Out[2]//TeXForm=</div></td></tr>
+           <tr><td class="lab"> </td><td class="Output"><img src="Files/TeXEnvironment/O_2.gif" width="184" height="63" alt="" /></td></tr>
+          </table>
+         </div></td><td class="CBG" width="5px" onclick="toggle('ES_1')" /></tr>
+      </table>
+     </div>
+    </div>
+    <div class="ES_Co"
+        id="ES_2">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="1293636265"></a><a name="ExampleSection" href="javascript:toggle('ES_2')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedGroup.gif" id="ES_2_" alt="" /> Scope&#160;&#160;</a> <span class="excount">(1)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_2')" /></tr>
+     </table>
+     <div class="ETG">
+      <div class="ExampleText" id="1311951073"><a name="1311951073"></a><span class="IF">TeXEnvironment</span> can be nested:</div>
+     </div>
+     <div class="ES"></div>
+    </div>
+    <div class="ES_Co"
+        id="ES_3">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="ExampleSection" href="javascript:toggle('ES_3')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedGroup.gif" id="ES_3_" alt="" /> Options&#160;&#160;</a> <span class="excount">(10)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_3')" /></tr>
+     </table>
+     <div class="ETG">
+      <div class="ExampleText" id="18900439"><a name="18900439"></a>With <span class="InlineCode">&quot;ArgumentConverter&quot;</span> set to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/ToString.html">ToString</a>[#1, <a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a>]&amp;</span> (default value) arguments are converted to <span class="MBookTableText"><img src="Files/TeXEnvironment/3.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+      <div class="ExampleText" id="448392044"><a name="448392044"></a>With <span class="InlineCode">&quot;ArgumentConverter&quot;</span> set to any function, arguments are passed to this function before joining with other strings building <span class="MBookTableText"><img src="Files/TeXEnvironment/4.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> form of expression:</div>
+      <div class="ExampleText" id="332822800"><a name="332822800"></a>With <span class="InlineCode">&quot;BodyConverter&quot;</span> set to <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/ToString.html">ToString</a>[#1, <a href="http://reference.wolfram.com/mathematica/ref/TeXForm.html">TeXForm</a>]&amp;</span> (default value) expressions given as body of environment are converted to <span class="MBookTableText"><img src="Files/TeXEnvironment/5.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+      <div class="ExampleText" id="1880524673"><a name="1880524673"></a>With <span class="InlineCode">&quot;BodyConverter&quot;</span> set to any function, expressions given as body of environment are passed to this function before joining with other strings building <span class="MBookTableText"><img src="Files/TeXEnvironment/6.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> form of expression:</div>
+      <div class="ExampleText" id="248964326"><a name="248964326"></a>With <span class="InlineCode">&quot;BodySeparator&quot;</span> set to <span class="InlineCode">&quot;\n&quot;</span> (default value) expressions given as body of environment are separated by newline characters:</div>
+      <div class="ExampleText" id="1948629125"><a name="1948629125"></a>With <span class="InlineCode">&quot;BodySeparator&quot;</span> set to any string, expressions given as body of environment are separated by this string:</div>
+      <div class="ExampleText" id="918621932"><a name="918621932"></a>With <span class="InlineCode">&quot;DelimSeparator&quot;</span> set to <span class="InlineCode">&quot;\n&quot;</span> (default value) &quot;begin&quot; and &quot;end&quot; commands are separated from body of environment by newline characters:</div>
+      <div class="ExampleText" id="160245054"><a name="160245054"></a>With <span class="InlineCode">&quot;DelimSeparator&quot;</span> set to any string, &quot;begin&quot; and &quot;end&quot; commands are separated from body of environment by this string:</div>
+      <div class="ExampleText" id="160678906"><a name="160678906"></a>With <span class="InlineCode">&quot;Indentation&quot;</span> set to <span class="InlineCode">&quot;    &quot;</span> (4 spaces - default value) all newline characters inside body of environment have added 4 spaces:</div>
+      <div class="ExampleText" id="263101137"><a name="263101137"></a>With <span class="InlineCode">&quot;Indentation&quot;</span> set to any string, all newline characters inside body of environment have this string added behind them:</div>
+     </div>
+     <div class="ES"></div>
+    </div>
+    <div class="ES_Co"
+        id="ES_4">
+     <table class="ESHT">
+      <tr><td valign="top"><div class="ESH"><a name="258228157"></a><a name="ExampleSection" href="javascript:toggle('ES_4')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/closedGroup.gif" id="ES_4_" alt="" /> Applications&#160;&#160;</a> <span class="excount">(1)</span></div></td><td class="CB" width="5px" onclick="toggle('ES_4')" /></tr>
+     </table>
+     <div class="ETG">
+      <div class="ExampleText" id="908547004"><a name="908547004"></a><span class="IF">TeXEnvironment</span> can be used to define formatting using <span class="IF"><a href="http://reference.wolfram.com/mathematica/ref/Format.html">Format</a></span>:</div>
+      <div class="ExampleText" id="1565222199"><a name="1565222199"></a>Assign <span class="MBookTableText"><img src="Files/TeXEnvironment/7.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span> formatting for a function:</div>
+      <div class="ExampleText" id="1137687184"><a name="1137687184"></a>Formatting is used when function is converted to <span class="MBookTableText"><img src="Files/TeXEnvironment/8.gif" height="14" width="28" style="vertical-align:middle;" alt="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" title="TAdjustmentBox[E, BoxBaselineShift -&gt; 0.5, BoxMargins -&gt; {{-0.3, 0}, {0, 0}}]X" /></span>:</div>
+     </div>
+     <div class="ES"></div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="SAS_Ex"
+      id="SAS">
+   <a name="SeeAlsoSection"><div class="SASH">
+     <a name="1255426704"></a>
+     <a href="javascript:toggle('SAS')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openSectionGroup.gif" id="SAS_" border="0" width="8" height="8" alt="" /> <span class="SASSpan">SEE ALSO</span></a>
+    </div></a>
+   <div class="SAS"
+       name="SASG"
+       id="SASG">
+    <ul class="SeeAlso"><li><a name="929782353"></a><span class="IF"><a href="../ref/TeXVerbatim.html">TeXVerbatim</a></span>&#160;<span class="inlineSeparator"><img src="../images/mathematicaImages/bullet.gif" style="vertical-align:middle;" width="4" height="4" alt="bullet" title="bullet" /></span> <span class="IF"><a href="../ref/TeXDelimited.html">TeXDelimited</a></span>&#160;<span class="inlineSeparator"><img src="../images/mathematicaImages/bullet.gif" style="vertical-align:middle;" width="4" height="4" alt="bullet" title="bullet" /></span> <span class="IF"><a href="../ref/TeXCommand.html">TeXCommand</a></span></li></ul>
+   </div>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="TS_Ex"
+      id="TS">
+   <a name="TutorialsSection"><div class="TSH">
+     <a name="250839057"></a>
+     <a href="javascript:toggle('TS')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openSectionGroup.gif" id="TS_" border="0" width="8" height="8" alt="" /> <span class="TSSpan">TUTORIALS</span></a>
+    </div></a>
+   <div class="TS"
+       name="TSG"
+       id="TSG">
+    <ul class="IndentedNote"><li><a name="341631938"></a><a href="../tutorial/CustomizingTeXConversion.html">Customizing TeX conversion</a></li></ul>
+    <ul class="IndentedNote"><li><a name="434404830"></a><a href="../tutorial/TeXUtilitiesOverview.html">TeX Utilities overview</a></li></ul>
+   </div>
+  </div>
+ </div>
+</div><div class="FlShdBar">
+ <div id="CntTabMid"
+     class="en">
+  <div class="MAS_Ex"
+      id="MAS">
+   <a name="MoreAboutSection"><div class="MASH">
+     <a name="38303248"></a>
+     <a href="javascript:toggle('MAS')" onmouseover="javascript:return(true);"><img src="../images/mathematicaImages/openSectionGroup.gif" id="MAS_" border="0" width="8" height="8" alt="" /> <span class="MASSpan">MORE ABOUT</span></a>
+    </div></a>
+   <div class="MAS"
+       name="MASG"
+       id="MASG">
+    <ul class="IndentedNote"><li><a name="553947204"></a><a href="../guide/TeXUtilities.html">TeX Utilities</a></li></ul>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="FlShdBar"><div id="CntTabBtm"> </div></div>
+
+ <img class="crnr" src="../images/images/body_shadow_corner.gif" width="25" height="9" alt=" "/>
+ 
+<div class="BmShdw"><img class="cornerbottomright" src="../images/images/body_shadow_bottomright.gif" width="23" height="9" alt=""/></div>
+
+ <!--#include virtual="/includes/footer2010.cgi"-->
+    
+<div class="dashboard" />
+

@@ -1,0 +1,1 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>TeXDelimited[&quot;\\left(&quot;, 1 + alpha, x - 2 y, &quot;\\right)&quot;] // TeXForm</pre><div class='IFU'><a name='1406218119'></a>http://wolfram.com/xid/0npxxwof3b3rvc0qurau8bvelmp-xjie4p</div>

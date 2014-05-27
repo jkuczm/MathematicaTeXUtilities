@@ -1,0 +1,6 @@
+<pre name='i_3_in' id='i_3_in' class='IFT'>Format[something, TeXForm] = 
+  TeXVerbatim[&quot;\\macro $1+1$ \\command[a=b]{c}&quot;];
+Format[f[x__], TeXForm] := 
+ TeXDelimited[&quot;\\left(&quot;, x, &quot;\\right)&quot;, &quot;DelimSeparator&quot; -&gt; &quot;&quot;]
+Format[g[x__], TeXForm] := TeXCommand[&quot;g&quot;, {{a -&gt; b}, x}]
+Format[h[x__], TeXForm] := TeXEnvironment[&quot;myEnv&quot;, x]</pre><div class='IFU'><a name='2058623809'></a>http://wolfram.com/xid/0o62qz5i4sq2tj9tkd9y675hat6jjnwa-8bxqkz</div>

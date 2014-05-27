@@ -1,0 +1,5 @@
+<pre name='i_39_in' id='i_39_in' class='IFT'>TeXEnvironment[
+  {&quot;env&quot;, &quot;DelimSeparator&quot; -&gt; &quot;\n&quot;},
+  &quot;expr1&quot;,
+  &quot;expr2&quot;
+  ] // TeXForm</pre><div class='IFU'><a name='824541795'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-nw62s1</div>

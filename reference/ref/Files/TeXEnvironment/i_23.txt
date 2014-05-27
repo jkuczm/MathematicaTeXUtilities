@@ -1,0 +1,5 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>TeXEnvironment[
+  {&quot;env&quot;, &quot;BodyConverter&quot; -&gt; (ToString[#, TeXForm] &amp;)},
+  &quot;str&quot;,
+  sym
+  ] // TeXForm</pre><div class='IFU'><a name='1285649735'></a>http://wolfram.com/xid/04iiifn5cndmupftkcklf1tmdu-vjp7yx</div>

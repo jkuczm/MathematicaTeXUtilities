@@ -1,0 +1,1 @@
+<pre name='i_43_in' id='i_43_in' class='IFT'>Format[f[x__], TeXForm] := TeXDelimited[&quot;\\left(&quot;, x, &quot;\\right)&quot;]</pre><div class='IFU'><a name='828485488'></a>http://wolfram.com/xid/0npxxwof3b3rvc0qurau8bvelmp-nzjlr2</div>

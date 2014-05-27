@@ -1,0 +1,2 @@
+<pre name='i_23_in' id='i_23_in' class='IFT'>TeXCommand[&quot;comm&quot;, {{opt1 -&gt; alpha, opt2}, arg, beta}, 
+  &quot;ArgumentConverter&quot; -&gt; ToString] // TeXForm</pre><div class='IFU'><a name='1986887612'></a>http://wolfram.com/xid/0cesu3wwz1m6dyy457mtmozw2-6476ku</div>
