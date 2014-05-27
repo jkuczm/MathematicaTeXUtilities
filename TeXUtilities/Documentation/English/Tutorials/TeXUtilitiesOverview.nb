@@ -34,7 +34,7 @@ Cell["TeXUtilities`", "Categorization",
 
 Cell["TeXUtilities/tutorial/TeXUtilitiesOverview", "Categorization",
  CellLabel->"URI"]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -51,9 +51,9 @@ Cell["Keywords", "KeywordsSection",
  CellID->1427428552],
 
 Cell["TeX", "Keywords",
- CellChangeTimes->{{3.6094024037496033`*^9, 3.60940240444665*^9}},
+ CellChangeTimes->{{3.6101840625330563`*^9, 3.61018406324277*^9}},
  CellID->1251852827]
-}, Open  ]],
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -109,31 +109,27 @@ Cell[TextData[ButtonBox["Customizing TeX conversion",
 
 Cell[CellGroupData[{
 
-Cell[TextData[ButtonBox["Guides",
- BaseStyle->"Link",
- ButtonData->
-  "paclet:TeXUtilities/guide/CustomizingTeXConversion"]], "TOCChapter"],
+Cell["Guides", "TOCChapter"],
 
-Cell[TextData[ButtonBox["Customizing TeX conversion",
+Cell[TextData[ButtonBox["TeX Utilities",
  BaseStyle->"Link",
- ButtonData->
-  "paclet:TeXUtilities/guide/CustomizingTeXConversion"]], "TOCSection",
- CellChangeTimes->{{3.609402432552495*^9, 3.609402435446479*^9}}]
+ ButtonData->"paclet:TeXUtilities/guide/TeXUtilities"]], "TOCSection",
+ CellChangeTimes->{3.610183044638404*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
 
-Cell[TextData[ButtonBox["ReferencePages/Symbols",
- BaseStyle->"Link",
- ButtonData->"paclet:TeXUtilities/ref/TeXVerbatim"]], "TOCChapter"],
+Cell["ReferencePages/Symbols", "TOCChapter"],
 
 Cell[TextData[ButtonBox["TeXVerbatim",
  BaseStyle->"Link",
- ButtonData->"paclet:TeXUtilities/ref/TeXVerbatim"]], "TOCSection"],
+ ButtonData->"paclet:TeXUtilities/ref/TeXVerbatim"]], "TOCSection",
+ CellID->1320254598],
 
 Cell[TextData[ButtonBox["TeXDelimited",
  BaseStyle->"Link",
- ButtonData->"paclet:TeXUtilities/ref/TeXDelimited"]], "TOCSection"],
+ ButtonData->"paclet:TeXUtilities/ref/TeXDelimited"]], "TOCSection",
+ CellID->1865650855],
 
 Cell[TextData[ButtonBox["TeXCommand",
  BaseStyle->"Link",
@@ -152,3 +148,4 @@ FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+

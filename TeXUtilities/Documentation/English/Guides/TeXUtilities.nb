@@ -32,7 +32,8 @@ Cell["TeXUtilities`", "Categorization",
  CellLabel->"Context",
  CellID->468444828],
 
-Cell["TeXUtilities/guide/Customizing TeX conversion", "Categorization",
+Cell["TeXUtilities/guide/TeXUtilities", "Categorization",
+ CellChangeTimes->{{3.6101843901730433`*^9, 3.6101843925124817`*^9}},
  CellLabel->"URI"]
 }, Closed]],
 
@@ -89,13 +90,28 @@ Cell["XXXX", "Details",
 
 Cell[CellGroupData[{
 
-Cell["Customizing TeX conversion", "GuideTitle",
- CellChangeTimes->{{3.609402207189868*^9, 3.609402207418435*^9}},
+Cell["TeX Utilities", "GuideTitle",
+ CellChangeTimes->{{3.609402207189868*^9, 3.609402207418435*^9}, {
+  3.6101822555860863`*^9, 3.610182259492381*^9}},
  CellID->942062912],
 
-Cell["Functions that can be used to customize TeX conversion.", \
-"GuideAbstract",
- CellChangeTimes->{3.609401245114415*^9},
+Cell[TextData[{
+ "TeX Utilities package provide following functions, that can be used to \
+customize conversion of expressions to ",
+ Cell[BoxData[
+  FormBox[
+   StyleBox[
+    StyleBox[
+     RowBox[{"T", 
+      AdjustmentBox["E",
+       BoxBaselineShift->0.5,
+       BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}]], "TR",
+    SingleLetterItalics->False], TraditionalForm]]],
+ "."
+}], "GuideAbstract",
+ CellChangeTimes->{
+  3.609401245114415*^9, {3.6101822940799303`*^9, 3.610182421083585*^9}, {
+   3.6101845726034517`*^9, 3.61018457279292*^9}},
  CellID->2001916300]
 }, Open  ]],
 
@@ -239,7 +255,12 @@ Cell[TextData[ButtonBox["Customizing TeX conversion",
   3.6094012559459867`*^9, {3.609401314857707*^9, 3.6094013149244337`*^9}},
  CellID->806871991],
 
-Cell["XXXX", "GuideTutorial",
+Cell[TextData[ButtonBox["TeX Utilities overview",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "GuideTutorial",
+ CellChangeTimes->{{3.610182452881237*^9, 3.610182471261407*^9}, {
+   3.610182510141745*^9, 3.610182512745434*^9}, 3.610183581923978*^9},
  CellID->1885805579]
 }, Open  ]],
 
@@ -265,3 +286,4 @@ FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+

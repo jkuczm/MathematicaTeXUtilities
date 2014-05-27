@@ -32,7 +32,11 @@ Cell["TeXUtilities`", "Categorization",
  CellLabel->"Context",
  CellID->468444828],
 
-Cell["TeXUtilities/tutorial/Customizing TeX conversion", "Categorization",
+Cell["\<\
+TeXUtilities/tutorial/CustomizingTeXConversion\
+\>", "Categorization",
+ CellChangeTimes->{
+  3.6101844759395514`*^9, {3.61018459180965*^9, 3.610184598513262*^9}},
  CellLabel->"URI"]
 }, Closed]],
 
@@ -305,13 +309,12 @@ Cell[CellGroupData[{
 Cell["More About", "TutorialMoreAboutSection",
  CellID->23220180],
 
-Cell[TextData[ButtonBox["Customizing TeX conversion",
+Cell[TextData[ButtonBox["TeX Utilities",
  BaseStyle->"Link",
- ButtonData->
-  "paclet:TeXUtilities/guide/CustomizingTeXConversion"]], "TutorialMoreAbout",
- 
- CellChangeTimes->{{3.609401369728722*^9, 3.609401392140505*^9}},
- CellID->1567025153]
+ ButtonData->"paclet:TeXUtilities/guide/TeXUtilities"]], "TutorialMoreAbout",
+ CellChangeTimes->{{3.610182642170095*^9, 3.610182658874107*^9}, {
+  3.6101827010213423`*^9, 3.610182709570943*^9}},
+ CellID->375831125]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -319,7 +322,12 @@ Cell[CellGroupData[{
 Cell["Related Tutorials", "RelatedTutorialsSection",
  CellID->415694126],
 
-Cell["XXXX", "RelatedTutorials",
+Cell[TextData[ButtonBox["TeX Utilities overview",
+ BaseStyle->"Link",
+ ButtonData->
+  "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "RelatedTutorials",
+ CellChangeTimes->{{3.610182756066597*^9, 3.6101827973681498`*^9}, 
+   3.6101836132511597`*^9},
  CellID->806871991]
 }, Open  ]],
 
@@ -341,3 +349,4 @@ FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
+
