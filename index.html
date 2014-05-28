@@ -48,60 +48,30 @@ formatting defined using <code>Format[expr, TeXForm]</code>.</p>
 <a href="#installation">Installation</a>
 
 <ul>
-<li><a href="#automatic-installation-using-projectinstaller">Automatic installation (using ProjectInstaller)</a></li>
-<li><a href="#semi-automatic-installation">Semi-automatic installation</a></li>
+<li><a href="#automatic-installation">Automatic installation</a></li>
 <li><a href="#manual-installation">Manual installation</a></li>
 <li><a href="#no-installation">No installation</a></li>
 </ul>
 </li>
 <li><a href="#documentation">Documentation</a></li>
 <li><a href="#usage-example">Usage example</a></li>
+<li><a href="#license">License</a></li>
 </ul><h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <h3>
-<a name="automatic-installation-using-projectinstaller" class="anchor" href="#automatic-installation-using-projectinstaller"><span class="octicon octicon-link"></span></a>Automatic installation (using ProjectInstaller)</h3>
-
-<p>To use this method you need to have
-<a href="https://github.com/lshifr/ProjectInstaller">ProjectInstaller</a>
-package installed.</p>
+<a name="automatic-installation" class="anchor" href="#automatic-installation"><span class="octicon octicon-link"></span></a>Automatic installation</h3>
 
 <p>To install TeXUtilities package evaluate:</p>
 
-<pre lang="Mathematica"><code>Needs["ProjectInstaller`"]
-
-ProjectInstall[URL["https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip"]]
+<pre lang="Mathematica"><code>Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/BootstrapInstall.m"]
 </code></pre>
 
-<p>To load the package evaluate:</p>
+<p>Note that this will also install
+<a href="https://github.com/lshifr/ProjectInstaller">ProjectInstaller</a> package, if you
+don't have it already installed.</p>
 
-<pre lang="Mathematica"><code>Needs["TeXUtilities`"]
-</code></pre>
-
-<h3>
-<a name="semi-automatic-installation" class="anchor" href="#semi-automatic-installation"><span class="octicon octicon-link"></span></a>Semi-automatic installation</h3>
-
-<ol>
-<li><p>Download latest released
-<a href="https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip">TeXUtilities.zip</a>
-file.</p></li>
-<li><p>Open Mathematica and choose <code>File &gt; Install...</code></p></li>
-<li>
-<p>In "Install Mathematica Item" window, which should open, choose:</p>
-
-<ul>
-<li>Type of Item to Install: Application</li>
-<li>Source: From File (file chooser should open, choose downloaded <code>TeXUtilities.zip</code>)</li>
-<li>Install Name: TeXUtilities (this field should be automatically filled after choosing file)</li>
-<li>choose whether application should be installed for current user or for all users
-(to install for all users you may need root/administrator privileges)</li>
-<li>click OK</li>
-</ul>
-</li>
-</ol><p>To load the package evaluate:</p>
-
-<pre lang="Mathematica"><code>Needs["TeXUtilities`"]
-</code></pre>
+<p>To load TeXUtilities package evaluate: <code>Needs["TeXUtilities`"]</code>.</p>
 
 <h3>
 <a name="manual-installation" class="anchor" href="#manual-installation"><span class="octicon octicon-link"></span></a>Manual installation</h3>
@@ -112,12 +82,8 @@ file.</p></li>
 file.</p></li>
 <li><p>Extract downloaded <code>TeXUtilities.zip</code> to any directory which is on Mathematica <code>$Path</code>,
 e.g. to one obtained by evaluating <code>FileNameJoin[{$UserBaseDirectory,"Applications"}]</code>.</p></li>
-</ol><p>To load the package evaluate:</p>
-
-<pre lang="Mathematica"><code>Needs["TeXUtilities`"]
-</code></pre>
-
-<h3>
+<li><p>To load the package evaluate: <code>Needs["TeXUtilities`"]</code>.</p></li>
+</ol><h3>
 <a name="no-installation" class="anchor" href="#no-installation"><span class="octicon octicon-link"></span></a>No installation</h3>
 
 <p>To use package directly from the Web, without installation, evaluate:</p>
@@ -177,7 +143,8 @@ Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
 <h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>This package is released under <a href="https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE">The MIT License</a>.</p>
+<p>This package is released under
+<a href="https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE">The MIT License</a>.</p>
       </section>
 
     </div>
