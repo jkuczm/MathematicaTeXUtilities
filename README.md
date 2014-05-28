@@ -1,4 +1,4 @@
-# TeXUtilities
+# TeX Utilities
 
 
 Set of tools useful for customizing TeX output of Mathematica.
@@ -8,57 +8,30 @@ formatting defined using `Format[expr, TeXForm]`.
 
 
 * [Installation](#installation)
-    * [Automatic installation (using ProjectInstaller)](#automatic-installation-using-projectinstaller)
-    * [Semi-automatic installation](#semi-automatic-installation)
+    * [Automatic installation](#automatic-installation)
     * [Manual installation](#manual-installation)
     * [No installation](#no-installation)
 * [Documentation](#documentation)
 * [Usage example](#usage-example)
+* [License](#license)
 
 
 
 ## Installation
 
 
-### Automatic installation (using ProjectInstaller)
-
-To use this method you need to have
-[ProjectInstaller](https://github.com/lshifr/ProjectInstaller)
-package installed.
+### Automatic installation
 
 To install TeXUtilities package evaluate:
 ```Mathematica
-Needs["ProjectInstaller`"]
-
-ProjectInstall[URL["https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip"]]
+Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/BootstrapInstall.m"]
 ```
 
-To load the package evaluate:
-```Mathematica
-Needs["TeXUtilities`"]
-```
+Note that this will also install
+[ProjectInstaller](https://github.com/lshifr/ProjectInstaller) package, if you
+don't have it already installed.
 
-
-### Semi-automatic installation
-
-1. Download latest released
-   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
-   file.
-
-2. Open Mathematica and choose `File > Install...`
-
-3. In "Install Mathematica Item" window, which should open, choose:
-    * Type of Item to Install: Application
-    * Source: From File (file chooser should open, choose downloaded `TeXUtilities.zip`)
-    * Install Name: TeXUtilities (this field should be automatically filled after choosing file)
-    * choose whether application should be installed for current user or for all users
-      (to install for all users you may need root/administrator privileges)
-    * click OK
-
-To load the package evaluate:
-```Mathematica
-Needs["TeXUtilities`"]
-```
+To load TeXUtilities package evaluate: ``Needs["TeXUtilities`"]``.
 
 
 ### Manual installation
@@ -71,10 +44,7 @@ Needs["TeXUtilities`"]
    e.g. to one obtained by evaluating `FileNameJoin[{$UserBaseDirectory,"Applications"}]`.
 
 
-To load the package evaluate:
-```Mathematica
-Needs["TeXUtilities`"]
-```
+3. To load the package evaluate: ``Needs["TeXUtilities`"]``.
 
 
 ### No installation
@@ -140,4 +110,5 @@ Output is:
 
 ## License
 
-This package is released under [The MIT License](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE).
+This package is released under
+[The MIT License](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE).
