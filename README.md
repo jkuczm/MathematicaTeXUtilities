@@ -14,6 +14,7 @@ formatting defined using `Format[expr, TeXForm]`.
 * [Documentation](#documentation)
 * [Usage example](#usage-example)
 * [License](#license)
+* [Versioning](#versioning)
 
 
 
@@ -112,3 +113,10 @@ Output is:
 
 This package is released under
 [The MIT License](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE).
+
+
+
+## Versioning
+
+Releases of this package will be numbered using
+[Semantic Versioning guidelines](http://semver.org/).
