@@ -1,4 +1,7 @@
 # TeX Utilities
+[![release](http://img.shields.io/github/release/jkuczm/MathematicaTeXUtilities.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/releases/latest)
+[![Semantic Versioning](http://img.shields.io/SemVer/2.0.0.png)](http://semver.org/spec/v2.0.0.html)
+[![license MIT](http://img.shields.io/:license-MIT-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE)
 
 
 Set of tools useful for customizing TeX output of Mathematica.
