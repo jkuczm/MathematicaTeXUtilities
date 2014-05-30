@@ -10,16 +10,56 @@ Contains also patch fixing behavior of `TeXForm` for expressions with custom
 formatting defined using `Format[expr, TeXForm]`.
 
 
+* [Usage example](#usage-example)
 * [Installation](#installation)
     * [Automatic installation](#automatic-installation)
     * [Manual installation](#manual-installation)
     * [No installation](#no-installation)
 * [Documentation](#documentation)
-* [Usage example](#usage-example)
 * [Compatibility](#compatibility)
 * [Feedback](#feedback)
 * [License](#license)
 * [Versioning](#versioning)
+
+
+
+## Usage example
+
+Define custom TeX formatting for some symbols:
+
+```Mathematica
+Format[something, TeXForm] = TeXVerbatim["\\macro $1+1$ \\command[a=b]{c}"];
+
+Format[f[x__], TeXForm] := TeXDelimited["\\left(", x, "\\right)", "DelimSeparator" -> ""]
+
+Format[g[x__], TeXForm] := TeXCommand["g", {{a -> b}, x}]
+
+Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
+```
+
+Use `TeXForm` as usual:
+
+```Mathematica
+TeXForm[
+    h[
+        f[1 + alpha],
+        5 - g[3, g[2]],
+        something
+    ]
+]
+```
+
+Output is:
+```TeX
+\begin{myEnv}
+    \left(\alpha +1\right)
+    5-\g[a=b]{3}{\g[a=b]{2}}
+    \macro $1+1$ \command[a=b]{c}
+\end{myEnv}
+```
+
+You can find more usage examples in
+[package documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 
@@ -74,46 +114,6 @@ or press `F1` key with cursor on name of any of symbols introduced by this appli
 
 There's also
 [online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
-
-
-
-## Usage example
-
-Define custom TeX formatting for some symbols:
-
-```Mathematica
-Format[something, TeXForm] = TeXVerbatim["\\macro $1+1$ \\command[a=b]{c}"];
-
-Format[f[x__], TeXForm] := TeXDelimited["\\left(", x, "\\right)", "DelimSeparator" -> ""]
-
-Format[g[x__], TeXForm] := TeXCommand["g", {{a -> b}, x}]
-
-Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
-```
-
-Use `TeXForm` as usual:
-
-```Mathematica
-TeXForm[
-    h[
-        f[1 + alpha],
-        5 - g[3, g[2]],
-        something
-    ]
-]
-```
-
-Output is:
-```TeX
-\begin{myEnv}
-    \left(\alpha +1\right)
-    5-\g[a=b]{3}{\g[a=b]{2}}
-    \macro $1+1$ \command[a=b]{c}
-\end{myEnv}
-```
-
-You can find more usage examples in
-[package documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 
