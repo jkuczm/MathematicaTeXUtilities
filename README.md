@@ -61,7 +61,7 @@ Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/NoI
 Note that, with this method of initialization,
 package documentation will not be available in Mathematica Documentation Center,
 but you can use
-[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html).
+[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 ## Documentation
@@ -71,7 +71,7 @@ To use it search for "TeXUtilities" in documentation center
 or press `F1` key with cursor on name of any of symbols introduced by this application.
 
 There's also
-[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html).
+[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 
@@ -110,6 +110,8 @@ Output is:
 \end{myEnv}
 ```
 
+You can find more usage examples in
+[package documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 ## License
