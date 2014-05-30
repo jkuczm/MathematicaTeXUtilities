@@ -16,6 +16,8 @@ formatting defined using `Format[expr, TeXForm]`.
     * [No installation](#no-installation)
 * [Documentation](#documentation)
 * [Usage example](#usage-example)
+* [Compatibility](#compatibility)
+* [Feedback](#feedback)
 * [License](#license)
 * [Versioning](#versioning)
 
@@ -112,6 +114,27 @@ Output is:
 
 You can find more usage examples in
 [package documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
+
+
+
+## Compatibility
+
+This package contains extensive automatic test suite. Package is being tested
+with Mathematica versions 8.0 and 9.0 on Linux. Since it doesn't contain any
+OS specific code it should work with above versions on all operating systems.
+
+There's also no obvious reason for package not to work on earlier (6.0+)
+versions of Mathematica.
+
+
+
+## Feedback
+
+If you find any bugs or have feature request please create an
+[issue on GitHub](https://github.com/jkuczm/MathematicaTeXUtilities/issues).
+
+Also feel free to fork and send pull requests.
+
 
 
 ## License
