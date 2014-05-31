@@ -5,7 +5,7 @@ Resources[
     ],
     ExecutionBuildCommand["\"No build command\""],
     Paclet[
-        DocumentationFolder["TeXUtilities/Documentation"],
+        DocumentationBuildFile["buildScripts/docbuild.xml"],
         FunctionPaclet[False]
     ]
 ]
