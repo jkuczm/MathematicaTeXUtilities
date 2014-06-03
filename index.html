@@ -38,8 +38,7 @@
           <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
         </div>
 
-        <p><a href="https://github.com/jkuczm/MathematicaTeXUtilities/releases/latest"><img src="http://img.shields.io/github/release/jkuczm/MathematicaTeXUtilities.svg" alt="release"></a>
-<a href="http://semver.org/spec/v2.0.0.html"><img src="http://img.shields.io/SemVer/2.0.0.png" alt="Semantic Versioning"></a>
+        <p><a href="http://semver.org/spec/v2.0.0.html"><img src="http://img.shields.io/badge/SemVer-2.0.0-brightgreen.svg" alt="Semantic Versioning"></a>
 <a href="https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE"><img src="http://img.shields.io/:license-MIT-blue.svg" alt="license MIT"></a></p>
 
 <p>Set of tools useful for customizing TeX output of Mathematica.</p>
@@ -48,6 +47,7 @@
 formatting defined using <code>Format[expr, TeXForm]</code>.</p>
 
 <ul>
+<li><a href="#usage-example">Usage example</a></li>
 <li>
 <a href="#installation">Installation</a>
 
@@ -58,10 +58,49 @@ formatting defined using <code>Format[expr, TeXForm]</code>.</p>
 </ul>
 </li>
 <li><a href="#documentation">Documentation</a></li>
-<li><a href="#usage-example">Usage example</a></li>
+<li><a href="#compatibility">Compatibility</a></li>
+<li><a href="#bugs-and-requests">Bugs and requests</a></li>
+<li><a href="#contributing">Contributing</a></li>
 <li><a href="#license">License</a></li>
 <li><a href="#versioning">Versioning</a></li>
 </ul><h2>
+<a name="usage-example" class="anchor" href="#usage-example"><span class="octicon octicon-link"></span></a>Usage example</h2>
+
+<p>Define custom TeX formatting for some symbols:</p>
+
+<pre lang="Mathematica"><code>Format[something, TeXForm] = TeXVerbatim["\\macro $1+1$ \\command[a=b]{c}"];
+
+Format[f[x__], TeXForm] := TeXDelimited["\\left(", x, "\\right)", "DelimSeparator" -&gt; ""]
+
+Format[g[x__], TeXForm] := TeXCommand["g", {{a -&gt; b}, x}]
+
+Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
+</code></pre>
+
+<p>Use <code>TeXForm</code> as usual:</p>
+
+<pre lang="Mathematica"><code>TeXForm[
+    h[
+        f[1 + alpha],
+        5 - g[3, g[2]],
+        something
+    ]
+]
+</code></pre>
+
+<p>Output is:</p>
+
+<div class="highlight highlight-TeX"><pre><span class="k">\begin</span><span class="nb">{</span>myEnv<span class="nb">}</span>
+    <span class="k">\left</span>(<span class="k">\alpha</span> +1<span class="k">\right</span>)
+    5-<span class="k">\g</span><span class="na">[a=b]</span><span class="nb">{</span>3<span class="nb">}{</span><span class="k">\g</span><span class="na">[a=b]</span><span class="nb">{</span>2<span class="nb">}}</span>
+    <span class="k">\macro</span> <span class="s">$</span><span class="m">1</span><span class="o">+</span><span class="m">1</span><span class="s">$</span> <span class="k">\command</span><span class="na">[a=b]</span><span class="nb">{</span>c<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>myEnv<span class="nb">}</span>
+</pre></div>
+
+<p>You can find more usage examples in
+<a href="http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html">package documentation</a>.</p>
+
+<h2>
 <a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <h3>
@@ -99,7 +138,7 @@ e.g. to one obtained by evaluating <code>FileNameJoin[{$UserBaseDirectory,"Appli
 <p>Note that, with this method of initialization,
 package documentation will not be available in Mathematica Documentation Center,
 but you can use
-<a href="http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html">online version of documentation</a>.</p>
+<a href="http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html">online version of documentation</a>.</p>
 
 <h2>
 <a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
@@ -109,41 +148,33 @@ To use it search for "TeXUtilities" in documentation center
 or press <code>F1</code> key with cursor on name of any of symbols introduced by this application.</p>
 
 <p>There's also
-<a href="http://jkuczm.github.io/MathematicaTeXUtilities/reference/tutorial/TeXUtilitiesOverview.html">online version of documentation</a>.</p>
+<a href="http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html">online version of documentation</a>.</p>
 
 <h2>
-<a name="usage-example" class="anchor" href="#usage-example"><span class="octicon octicon-link"></span></a>Usage example</h2>
+<a name="compatibility" class="anchor" href="#compatibility"><span class="octicon octicon-link"></span></a>Compatibility</h2>
 
-<p>Define custom TeX formatting for some symbols:</p>
+<p>This package contains extensive automatic test suite. Package is being tested
+with Mathematica versions 8.0 and 9.0 on Linux. Since it doesn't contain any
+OS specific code it should work with above versions on all operating systems.</p>
 
-<pre lang="Mathematica"><code>Format[something, TeXForm] = TeXVerbatim["\\macro $1+1$ \\command[a=b]{c}"];
+<p>There's also no obvious reason for package not to work on earlier (6.0+)
+versions of Mathematica.</p>
 
-Format[f[x__], TeXForm] := TeXDelimited["\\left(", x, "\\right)", "DelimSeparator" -&gt; ""]
+<h2>
+<a name="bugs-and-requests" class="anchor" href="#bugs-and-requests"><span class="octicon octicon-link"></span></a>Bugs and requests</h2>
 
-Format[g[x__], TeXForm] := TeXCommand["g", {{a -&gt; b}, x}]
+<p>If you find any bugs or have feature request please create an
+<a href="https://github.com/jkuczm/MathematicaTeXUtilities/issues">issue on GitHub</a>.</p>
 
-Format[h[x__], TeXForm] := TeXEnvironment["myEnv", x]
-</code></pre>
+<h2>
+<a name="contributing" class="anchor" href="#contributing"><span class="octicon octicon-link"></span></a>Contributing</h2>
 
-<p>Use <code>TeXForm</code> as usual:</p>
+<p>Feel free to fork and send pull requests.</p>
 
-<pre lang="Mathematica"><code>TeXForm[
-    h[
-        f[1 + alpha],
-        5 - g[3, g[2]],
-        something
-    ]
-]
-</code></pre>
+<p>If you want to use Ant scripts from this repository you will also need to
+install <a href="https://github.com/jkuczm/WWBCommon">WWBCommon</a> project.</p>
 
-<p>Output is:</p>
-
-<div class="highlight highlight-TeX"><pre><span class="k">\begin</span><span class="nb">{</span>myEnv<span class="nb">}</span>
-    <span class="k">\left</span>(<span class="k">\alpha</span> +1<span class="k">\right</span>)
-    5-<span class="k">\g</span><span class="na">[a=b]</span><span class="nb">{</span>3<span class="nb">}{</span><span class="k">\g</span><span class="na">[a=b]</span><span class="nb">{</span>2<span class="nb">}}</span>
-    <span class="k">\macro</span> <span class="s">$</span><span class="m">1</span><span class="o">+</span><span class="m">1</span><span class="s">$</span> <span class="k">\command</span><span class="na">[a=b]</span><span class="nb">{</span>c<span class="nb">}</span>
-<span class="k">\end</span><span class="nb">{</span>myEnv<span class="nb">}</span>
-</pre></div>
+<p>All contributions are welcome!</p>
 
 <h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
