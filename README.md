@@ -122,8 +122,9 @@ There's also
 ## Compatibility
 
 This package contains extensive automatic test suite. Package is being tested
-with Mathematica versions 8.0 and 9.0 on Linux. Since it doesn't contain any
-OS specific code it should work with above versions on all operating systems.
+with Mathematica versions 8.0, 9.0 and 10.0 on Linux. Since it doesn't contain
+any OS specific code it should work with above versions on all operating
+systems.
 
 There's also no obvious reason for package not to work on earlier (6.0+)
 versions of Mathematica.
