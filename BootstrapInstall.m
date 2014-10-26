@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaBootstrapInstaller/v0.1.0/BootstrapInstaller.m"]
+Get["https://raw.githubusercontent.com/jkuczm/MathematicaBootstrapInstaller/v0.1.1/BootstrapInstaller.m"]
 
 
 BootstrapInstall[
