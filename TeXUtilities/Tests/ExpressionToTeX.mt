@@ -202,7 +202,7 @@ ClearAll[a, b];
 
 Format[h[x__], TeXForm] :=
 	TeXVerbatim["\\h" <> ("{" <> ToString[#, TeXForm] <> "}" & /@ {x})];
-Format[myEnv[x__], TeXForm] := 
+Format[myEnv[x__], TeXForm] :=
 	TeXVerbatim[
 		"\\begin{myEnv}" <>
 		("\n    " <> ToString[#, TeXForm] <> "\\\\" & /@ {x}) <>

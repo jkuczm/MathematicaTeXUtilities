@@ -6,11 +6,11 @@ Get["https://raw.githubusercontent.com/jkuczm/MathematicaBootstrapInstaller/v0.1
 BootstrapInstall[
 	"TeXUtilities",
 	"https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip",
-	"AdditionalFailureMessage" -> 
+	"AdditionalFailureMessage" ->
 		Sequence[
-			"You can ", 
+			"You can ",
 			Hyperlink[
-				"install TeXUtilities package manually", 
+				"install TeXUtilities package manually",
 				"https://github.com/jkuczm/MathematicaTeXUtilities#manual-installation"
 			],
 			"."

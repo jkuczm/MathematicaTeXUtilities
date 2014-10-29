@@ -128,8 +128,8 @@ TeXVerbatim[args___] :=
 System`Convert`TeXFormDump`maketex[
 	RowBox[{
 		"TeXVerbatim",
-		"(" | "[", 
-		arg_String?(StringMatchQ[#, "\"" ~~ ___ ~~ "\""] &), 
+		"(" | "[",
+		arg_String?(StringMatchQ[#, "\"" ~~ ___ ~~ "\""] &),
 		")" | "]"
 	}]] :=
 		ToExpression[arg]
@@ -250,7 +250,7 @@ TeXCommandArgument[optArgs_List, argConverter_] :=
 				,
 				{1}
 			]
-			, 
+			,
 			","
 		]
 		,
