@@ -3,7 +3,7 @@
 [![release v1.0.0](http://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/releases/latest)
 [![Semantic Versioning](http://jkuczm.github.io/media/images/SemVer-2.0.0-brightgreen.svg)](http://semver.org/spec/v2.0.0.html)
 [![license MIT](http://jkuczm.github.io/media/images/license-MIT-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE)
-![Mathematica 8.0 9.0 10.0](http://jkuczm.github.io/media/images/Mathematica-8.0_9.0_10.0-brightgreen.svg)
+[![Mathematica 8.0 9.0 10.0](http://jkuczm.github.io/media/images/Mathematica-8.0_9.0_10.0-brightgreen.svg)](#compatibility)
 
 
 Set of tools useful for customizing TeX output of Mathematica.
