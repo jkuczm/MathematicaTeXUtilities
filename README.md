@@ -1,12 +1,12 @@
 # TeX Utilities
 
-[![release v1.0.0](http://img.shields.io/badge/release-v1.0.0-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/releases/latest)
-[![Semantic Versioning](http://jkuczm.github.io/media/images/SemVer-2.0.0-brightgreen.svg)](http://semver.org/spec/v2.0.0.html)
-[![license MIT](http://jkuczm.github.io/media/images/license-MIT-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE)
-[![Mathematica 8.0 9.0 10.0](http://jkuczm.github.io/media/images/Mathematica-8.0_9.0_10.0-brightgreen.svg)](#compatibility)
+[![releases](https://img.shields.io/github/release/jkuczm/MathematicaTeXUtilities.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/releases)
+[![SemVer 2.0.0](https://img.shields.io/badge/SemVer-2.0.0-brightgreen.svg)](https://semver.org/spec/v2.0.0.html)
+[![license MIT](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/jkuczm/MathematicaTeXUtilities/blob/master/LICENSE)
+[![Mathematica 8.0 - 11.0](https://img.shields.io/badge/Mathematica-8.0%20--%2011.0-brightgreen.svg)](#compatibility)
 
 
-Set of tools useful for customizing TeX output of Mathematica.
+Set of tools useful for customizing TeX output of *Mathematica*.
 
 Contains also patch fixing behavior of `TeXForm` for expressions with custom
 formatting defined using `Format[expr, TeXForm]`.
@@ -62,7 +62,7 @@ Output is:
 ```
 
 You can find more usage examples in
-[package documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
+[package documentation](https://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 
@@ -73,7 +73,7 @@ You can find more usage examples in
 
 To install TeXUtilities package evaluate:
 ```Mathematica
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/BootstrapInstall.m"]
+Import["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/BootstrapInstall.m"]
 ```
 
 Note that this will also install
@@ -89,8 +89,9 @@ To load TeXUtilities package evaluate: ``Needs["TeXUtilities`"]``.
    [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
    file.
 
-2. Extract downloaded `TeXUtilities.zip` to any directory which is on Mathematica `$Path`,
-   e.g. to one obtained by evaluating `FileNameJoin[{$UserBaseDirectory,"Applications"}]`.
+2. Extract downloaded `TeXUtilities.zip` to any directory which is on
+   *Mathematica* `$Path`, e.g. to one obtained by evaluating
+   `FileNameJoin[{$UserBaseDirectory,"Applications"}]`.
 
 
 3. To load the package evaluate: ``Needs["TeXUtilities`"]``.
@@ -100,35 +101,38 @@ To load TeXUtilities package evaluate: ``Needs["TeXUtilities`"]``.
 
 To use package directly from the Web, without installation, evaluate:
 ```Mathematica
-Get["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/NoInstall.m"]
+Import["https://raw.githubusercontent.com/jkuczm/MathematicaTeXUtilities/master/NoInstall.m"]
 ```
 
 Note that, with this method of initialization,
-package documentation will not be available in Mathematica Documentation Center,
+package documentation will not be available in *Mathematica* Documentation Center,
 but you can use
-[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
+[online version of documentation](https://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 ## Documentation
 
-This application comes with documentation integrated with Mathematica Documentation Center.
-To use it search for "TeXUtilities" in documentation center
-or press `F1` key with cursor on name of any of symbols introduced by this application.
+This application comes with documentation integrated with *Mathematica*
+Documentation Center. To use it search for "TeXUtilities" in documentation
+center or press `F1` key with cursor on name of any of symbols introduced by
+this application.
 
 There's also
-[online version of documentation](http://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
+[online version of documentation](https://jkuczm.github.io/MathematicaTeXUtilities/reference/guide/TeXUtilities.html).
 
 
 
 ## Compatibility
 
-This package contains extensive automatic test suite. Package is being tested
-with Mathematica versions 8.0, 9.0 and 10.0 on Linux. Since it doesn't contain
-any OS specific code it should work with above versions on all operating
-systems.
+This package contains extensive
+[automatic test suite](https://github.com/jkuczm/MathematicaTeXUtilities/tree/master/PatternUtilities/Tests).
+Package is tested with all *Mathematica* major and minor versions from 8.0 to
+11.0 on Linux. Since it doesn't contain any OS specific code it should work
+with above versions on all operating systems.
 
-There's also no obvious reason for package not to work on earlier (6.0+)
-versions of Mathematica.
+There's also no obvious reason for package not to work on older (6.0+) and
+newer (11.1+) versions of *Mathematica*, but it was not tested with these
+versions.
 
 
 
