@@ -134,6 +134,15 @@ There's also no obvious reason for package not to work on older (6.0+) and
 newer (11.1+) versions of *Mathematica*, but it was not tested with these
 versions.
 
+If you want to test TeXUtilities in your setup, you can, in *Mathematica*
+versions 10.0+, run test suite by evaluating:
+```Mathematica
+Needs["MUnit`"]
+TestRun@FileNameJoin[{$UserBaseDirectory, "Applications/TeXUtilities/Tests/suite.mt"}]
+```
+if you installed TeXUtilities in non-standard location, above path to test
+suite file should be adapted.
+
 
 
 ## Bugs and requests
