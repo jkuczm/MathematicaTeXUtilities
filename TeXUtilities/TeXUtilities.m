@@ -1,6 +1,10 @@
 (* ::Package:: *)
 
-BeginPackage["TeXUtilities`"]
+BeginPackage@"TeXUtilities`"
+
+
+Unprotect@"`*"
+ClearAll@"`*"
 
 
 (* ::Section:: *)
@@ -74,27 +78,23 @@ with expri, argi, opti and vali converted to TeXForm."
 (*Implementation*)
 
 
-(*
-	Unprotect all symbols in this context
-	(all public symbols provided by this package)
-*)
-Unprotect["`*"]
+Begin@"`Private`"
 
 
-Begin["`Private`"]
+ClearAll@"`*"
 
 
 (* ::Subsection:: *)
 (*Private symbols usage*)
 
 
-TeXCommandArgument::usage =
+teXCommandArgument::usage =
 "\
-TeXCommandArgument[arg, argConverter]\
+teXCommandArgument[arg, argConverter]\
 returns string representing argument of TeX command i.e. arg convetred to TeX \
 using argConverter, wrapped in curly bracket.\
 
-TeXCommandArgument[{opt1, opt2 -> val2, ...}, argConverter]\
+teXCommandArgument[{opt1, opt2 -> val2, ...}, argConverter]\
 returns string representing list of optional arguments of TeX command i.e. \
 \"[opt1,opt2=val2,...]\" with opti and vali converted to TeX using \
 argConverter."
@@ -104,42 +104,33 @@ argConverter."
 (*TeXVerbatim*)
 
 
-TeXVerbatim[arg:Except[_String]] := (
-	Message[TeXVerbatim::string, 1, HoldForm[TeXVerbatim[arg]]];
+TeXVerbatim[arg : Except@_String] := (
+	Message[TeXVerbatim::string, HoldForm@1, HoldForm@TeXVerbatim@arg];
 	$Failed
 )
 
-TeXVerbatim[args___] :=
-	With[
-		{argsNo = Length[{args}]}
-		,
-		(
-			Message[
-				TeXVerbatim::argx,
-				HoldForm[TeXVerbatim],
-				HoldForm[argsNo]
-			];
-			$Failed
-		)
-			/; argsNo =!= 1
-	]
+TeXVerbatim@args___ := With[{argsNo = Length@{args}},
+	(
+		Message[TeXVerbatim::argx, HoldForm@TeXVerbatim, HoldForm@argsNo];
+		$Failed
+	) /; argsNo =!= 1
+]
 
 
-System`Convert`TeXFormDump`maketex[
-	RowBox[{
-		"TeXVerbatim",
-		"(" | "[",
-		arg_String?(StringMatchQ[#, "\"" ~~ ___ ~~ "\""] &),
-		")" | "]"
-	}]] :=
-		ToExpression[arg]
+System`Convert`TeXFormDump`maketex@RowBox@{
+	"TeXVerbatim",
+	"(" | "[",
+	arg_String?(StringMatchQ[#, "\"" ~~ ___ ~~ "\""]&),
+	")" | "]"
+} :=
+	ToExpression@arg
 
 
 (* ::Subsection:: *)
 (*TeXDelimited*)
 
 
-Options[TeXDelimited] = {
+TeXDelimited // Options = {
 	"BodyConverter" -> (ToString[#, TeXForm]&),
 	"BodySeparator" -> "\n",
 	"DelimSeparator" -> "\n",
@@ -147,162 +138,116 @@ Options[TeXDelimited] = {
 }
 
 
-TeXDelimited[arg:Repeated[_, {0, 1}]] := (
-	Message[TeXDelimited::argm, HoldForm[TeXDelimited], Length[{arg}], 2];
+TeXDelimited[arg : Repeated[_, {0, 1}]] := (
+	Message[TeXDelimited::argm,
+		HoldForm@TeXDelimited, HoldForm@Evaluate@Length@{arg}, HoldForm@2
+	];
 	$Failed
 )
 
-TeXDelimited[start:Except[_String], rest__] := (
-	Message[TeXDelimited::string, 1, HoldForm[TeXDelimited[start, rest]]];
+TeXDelimited[start : Except@_String, rest__] := (
+	Message[TeXDelimited::string,
+		HoldForm@1, HoldForm@TeXDelimited[start, rest]
+	];
 	$Failed
 )
 
 TeXDelimited[
 	rest__,
-	end:Except[_String | _?OptionQ],
-	opts:Longest[OptionsPattern[]]
+	end : Except[_String | _?OptionQ],
+	opts : Longest@OptionsPattern[]
 ] := (
-	Message[
-		TeXDelimited::string,
-		Length[{rest}] + 1,
-		HoldForm[TeXDelimited[rest, end, opts]]
+	Message[TeXDelimited::string,
+		HoldForm@Evaluate[Length@{rest} + 1],
+		HoldForm@TeXDelimited[rest, end, opts]
 	];
 	$Failed
 )
 
 
-TeXDelimited /:
-	MakeBoxes[
-		TeXDelimited[
-			start_String,
-			body___,
-			end_String,
-			opts:OptionsPattern[]
+TeXDelimited /: MakeBoxes[
+	TeXDelimited[start_String, body___, end_String, opts : OptionsPattern[]],
+	TraditionalForm
+] := Module[{bodyConv, bodySep, delSep, indent},
+	{bodyConv, bodySep, delSep, indent} = OptionValue[TeXDelimited, opts,
+		{"BodyConverter", "BodySeparator", "DelimSeparator", "Indentation"}
+	];
+	ToBoxes[
+		TeXVerbatim@StringJoin[
+			start,
+			StringReplace[
+				StringJoin[
+					If[Length@{body} > 0, delSep, ""],
+					Riffle[bodyConv /@ {body}, bodySep]
+				],
+				"\n" -> "\n" <> indent
+			],
+			delSep,
+			end
 		]
 		,
 		TraditionalForm
-	] :=
-		With[
-			{
-				delimSeparator =
-					OptionValue[TeXDelimited, opts, "DelimSeparator"]
-			}
-			,
-			ToBoxes[
-				TeXVerbatim @ StringJoin[
-					start
-					,
-					StringReplace[
-						StringJoin[
-							If[Length[{body}] > 0,
-								delimSeparator
-							(* else *),
-								""
-							]
-							,
-							Riffle[
-								OptionValue[
-									TeXDelimited, opts, "BodyConverter"
-								] /@
-									{body}
-								,
-								OptionValue[
-									TeXDelimited, opts, "BodySeparator"
-								]
-							]
-						]
-						,
-						"\n" ->
-							"\n" <>
-							OptionValue[TeXDelimited, opts, "Indentation"]
-					]
-					,
-					delimSeparator
-					,
-					end
-				]
-				,
-				TraditionalForm
-			]
-		]
+	]
+]
 
 
 (* ::Subsection:: *)
-(*TeXCommandArgument*)
+(*teXCommandArgument*)
 
 
-TeXCommandArgument[optArgs_List, argConverter_] :=
-	StringJoin[
-		"["
-		,
-		Riffle[
-			Replace[
-				optArgs
-				,
-				{
-					(Rule | RuleDelayed)[argName_, value_] :>
-						argConverter[argName] <>
-						"=" <>
-						argConverter[value]
-					,
-					arg_ :> argConverter[arg]
-				}
-				,
-				{1}
-			]
-			,
-			","
-		]
-		,
-		"]"
-	]
+teXCommandArgument[optArgs_List, argConverter_] := StringJoin["[",
+	Riffle[
+		Replace[optArgs,
+			{
+				(Rule | RuleDelayed)[argName_, value_] :>
+					argConverter@argName <> "=" <> argConverter@value,
+				arg_ :> argConverter@arg
+			},
+			{1}
+		],
+		","
+	],
+"]"]
 	
-TeXCommandArgument[arg_, argConverter_] := "{" <> argConverter[arg] <> "}"
+teXCommandArgument[arg_, argConverter_] := "{" <> argConverter@arg <> "}"
 
 
 (* ::Subsection:: *)
 (*TeXCommand*)
 
 
-Options[TeXCommand] = {"ArgumentConverter" -> (ToString[#, TeXForm]&)}
+TeXCommand // Options = {"ArgumentConverter" -> (ToString[#, TeXForm]&)}
 
 
 TeXCommand[] := (
-	Message[TeXCommand::argm, HoldForm[TeXCommand], 0, 1];
+	Message[TeXCommand::argm, HoldForm@TeXCommand, HoldForm@0, HoldForm@1];
 	$Failed
 )
 
-TeXCommand[name:Except[_String], rest___] := (
-	Message[TeXCommand::string, 1, HoldForm[TeXCommand[name, rest]]];
+TeXCommand[name : Except@_String, rest___] := (
+	Message[TeXCommand::string, HoldForm@1, HoldForm@TeXCommand[name, rest]];
 	$Failed
 )
 
-TeXCommand[name_, args:Except[_List], rest___] := (
-	Message[TeXCommand::list, HoldForm[TeXCommand[name, args, rest]], 2];
+TeXCommand[name_, args : Except@_List, rest___] := (
+	Message[TeXCommand::list,
+		HoldForm@TeXCommand[name, args, rest], HoldForm@2
+	];
 	$Failed
 )
 
 
-TeXCommand /:
-	MakeBoxes[
-		TeXCommand[name_String, args_List:{}, opts:OptionsPattern[]],
+TeXCommand /: MakeBoxes[
+	TeXCommand[name_String, args_List : {}, opts : OptionsPattern[]],
+	TraditionalForm
+] := With[{argConv = OptionValue[TeXCommand, opts, "ArgumentConverter"]},
+	ToBoxes[
+		TeXVerbatim@StringJoin["\\", name,
+			teXCommandArgument[#, argConv]& /@ args
+		],
 		TraditionalForm
-	] :=
-		ToBoxes[
-			TeXVerbatim @ StringJoin[
-				"\\"
-				,
-				name
-				,
-				TeXCommandArgument[
-					#,
-					OptionValue[TeXCommand, opts, "ArgumentConverter"]
-				]& /@
-					args
-			]
-			,
-			TraditionalForm
-		]
+	]
+]
 
 
 (* ::Subsection:: *)
@@ -313,72 +258,53 @@ TeXEnvironment::StrOrListWithStr =
 "String or List with first element being String expected at position 1 in `1`."
 
 
-Options[TeXEnvironment] = Join[Options[TeXCommand], Options[TeXDelimited]]
+TeXEnvironment // Options = Join[Options@TeXCommand, Options@TeXDelimited]
 
 
 TeXEnvironment[] := (
-	Message[TeXEnvironment::argm, HoldForm[TeXEnvironment], 0, 1];
-	$Failed
-)
-
-TeXEnvironment[name:Except[_String | {_String, ___}], rest___] := (
-	Message[
-		TeXEnvironment::StrOrListWithStr,
-		HoldForm[TeXEnvironment[name, rest]]
+	Message[TeXEnvironment::argm,
+		HoldForm@TeXEnvironment, HoldForm@0, HoldForm@1
 	];
 	$Failed
 )
 
-TeXEnvironment[name:_String, rest___] := TeXEnvironment[{name}, rest]
+TeXEnvironment[name : Except[_String | {_String, ___}], rest___] := (
+	Message[TeXEnvironment::StrOrListWithStr,
+		HoldForm@TeXEnvironment[name, rest]
+	];
+	$Failed
+)
+
+TeXEnvironment[name_String, rest___] := TeXEnvironment[{name}, rest]
 
 
-TeXEnvironment /:
-	MakeBoxes[
-		TeXEnvironment[
-			{name_String, args_List:{}, opts:OptionsPattern[]},
-			body___
-		]
-		,
+TeXEnvironment /: MakeBoxes[
+	TeXEnvironment[
+		{name_String, args_List : {}, opts : OptionsPattern[]},
+		body___
+	]
+	,
+	TraditionalForm
+] := With[{argConv = OptionValue[TeXEnvironment, opts, "ArgumentConverter"]},
+	ToBoxes[
+		TeXDelimited[
+			StringJoin[
+				"\\begin{", name, "}",
+				teXCommandArgument[#, argConv]& /@ args
+			],
+			body,
+			"\\end{" <> name <> "}",
+			FilterRules[{opts, Options@TeXEnvironment}, Options@TeXDelimited]
+		],
 		TraditionalForm
-	] :=
-		ToBoxes[
-			TeXDelimited[
-				StringJoin[
-					"\\begin{", name, "}"
-					,
-					TeXCommandArgument[
-						#,
-						OptionValue[TeXEnvironment, opts, "ArgumentConverter"]
-					]& /@
-						args
-				]
-				,
-				body
-				,
-				"\\end{" <> name <> "}"
-				,
-				FilterRules[
-					Join[Flatten[{opts}], Options[TeXEnvironment]],
-					Options[TeXDelimited]
-				]
-			]
-			,
-			TraditionalForm
-		]
+	]
+]
 
 
 End[]
 
 
-(* ::Section:: *)
-(*Public symbols protection*)
-
-
-(*
-	Protect all symbols in this context
-	(all public symbols provided by this package)
-*)
-Protect["`*"]
+Protect@"`*"
 
 
 EndPackage[]

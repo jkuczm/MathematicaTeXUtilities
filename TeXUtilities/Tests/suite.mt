@@ -3,13 +3,13 @@ TestSuite[{
 	,
 	"TeXDelimited.mt"
 	,
-	"TeXCommandArgument.mt"
+	"teXCommandArgument.mt"
 	,
 	"TeXCommand.mt"
 	,
 	"TeXEnvironment.mt"
 	,
-	"ApplyTeXFormFormat.mt"
+	"applyTeXFormFormat.mt"
 	,
 	"ExpressionToTeX.mt"
 }]

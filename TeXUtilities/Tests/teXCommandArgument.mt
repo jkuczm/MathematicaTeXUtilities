@@ -4,11 +4,11 @@
 (*SetUp*)
 
 
-Begin["TestEnvironment`TeXCommandArgument`"];
+BeginPackage["TeXUtilities`Tests`teXCommandArgument`", {"MUnit`"}]
 
 
-Get["TeXUtilities`TeXUtilities`"];
-AppendTo[$ContextPath, "TeXUtilities`Private`"];
+<<TeXUtilities`TeXUtilities`
+AppendTo[$ContextPath, "TeXUtilities`Private`"]
 
 
 (* ::Section:: *)
@@ -19,21 +19,21 @@ AppendTo[$ContextPath, "TeXUtilities`Private`"];
 (*Wrong argument patterns*)
 
 
-TestMatch[
-	TeXCommandArgument[],
-	HoldPattern[TeXCommandArgument[]],
+Test[
+	teXCommandArgument[] // HoldComplete@#&,
+	teXCommandArgument[] // HoldComplete,
 	TestID -> "no args"
-];
-TestMatch[
-	TeXCommandArgument[a],
-	HoldPattern[TeXCommandArgument[a]],
+]
+Test[
+	teXCommandArgument@a // HoldComplete@#&,
+	teXCommandArgument@a // HoldComplete,
 	TestID -> "one arg"
-];
-TestMatch[
-	TeXCommandArgument[a, b, c],
-	HoldPattern[TeXCommandArgument[a, b, c]],
+]
+Test[
+	teXCommandArgument[a, b, c] // HoldComplete@#&,
+	teXCommandArgument[a, b, c] // HoldComplete,
 	TestID -> "three args"
-];
+]
 
 
 (* ::Subsection:: *)
@@ -41,15 +41,15 @@ TestMatch[
 
 
 Test[
-	TeXCommandArgument["str", ToString],
+	teXCommandArgument["str", ToString],
 	"{str}",
 	TestID -> "two args: String, ToString"
-];
+]
 Test[
-	TeXCommandArgument[a, ToString],
+	teXCommandArgument[a, ToString],
 	"{a}",
 	TestID -> "two args: Symbol, ToString"
-];
+]
 
 
 (* ::Subsection:: *)
@@ -57,25 +57,25 @@ Test[
 
 
 Test[
-	TeXCommandArgument[{}, ToString],
+	teXCommandArgument[{}, ToString],
 	"[]",
 	TestID -> "two args: empty List, ToString"
-];
+]
 Test[
-	TeXCommandArgument[{a, b, c}, ToString],
+	teXCommandArgument[{a, b, c}, ToString],
 	"[a,b,c]",
 	TestID -> "two args: List of symbols, ToString"
-];
+]
 Test[
-	TeXCommandArgument[{a -> b, c -> d}, ToString],
+	teXCommandArgument[{a -> b, c -> d}, ToString],
 	"[a=b,c=d]",
 	TestID -> "two args: List of rules, ToString"
-];
+]
 Test[
-	TeXCommandArgument[{a -> b, c, d -> e, f}, ToString],
+	teXCommandArgument[{a -> b, c, d -> e, f}, ToString],
 	"[a=b,c,d=e,f]",
 	TestID -> "two args: List of rules and symbols, ToString"
-];
+]
 
 
 (* ::Subsection:: *)
@@ -83,23 +83,26 @@ Test[
 
 
 Test[
-	TeXCommandArgument[a, ToString[f[#]]&],
+	teXCommandArgument[a, ToString@f@#&],
 	"{f[a]}",
 	TestID -> "two args: Symbol, custom function"
-];
+]
 Test[
-	TeXCommandArgument[{a -> b, c, d -> e, f}, ToString[f[#]]&],
+	teXCommandArgument[
+		{a -> b, c, d -> e, f}, ToString@f@#&
+	],
 	"[f[a]=f[b],f[c],f[d]=f[e],f[f]]",
 	TestID -> "two args: List of rules and symbols, custom function"
-];
+]
 
 
 (* ::Section:: *)
 (*TearDown*)
 
 
-Unprotect["`*"];
-Quiet[Remove["`*"], {Remove::rmnsm}];
+Unprotect["`*", "`*`*"]
+Quiet[Remove["`*", "`*`*"], {Remove::rmnsm}]
 
 
-End[];
+EndPackage[]
+$ContextPath = Rest@$ContextPath

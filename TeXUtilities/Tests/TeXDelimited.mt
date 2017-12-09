@@ -4,10 +4,10 @@
 (*SetUp*)
 
 
-Begin["TestEnvironment`TeXDelimited`"];
+BeginPackage["TeXUtilities`Tests`TeXDelimited`", {"MUnit`"}]
 
 
-Get["TeXUtilities`TeXUtilities`"];
+<<TeXUtilities`TeXUtilities`
 
 
 (* ::Section:: *)
@@ -21,78 +21,68 @@ Get["TeXUtilities`TeXUtilities`"];
 Test[
 	TeXDelimited[],
 	$Failed,
-	{HoldForm[Message[TeXDelimited::argm, HoldForm[TeXDelimited], 0, 2]]},
+	Message[TeXDelimited::argm, TeXDelimited, 0, 2],
 	TestID -> "0 args"
-];
+]
 
 Test[
-	TeXDelimited["str"],
+	TeXDelimited@"str",
 	$Failed,
-	{HoldForm[Message[TeXDelimited::argm, HoldForm[TeXDelimited], 1, 2]]},
+	Message[TeXDelimited::argm, TeXDelimited, 1, 2],
 	TestID -> "1 arg: String"
-];
+]
 
 
 Test[
 	TeXDelimited["str", a],
 	$Failed,
-	{HoldForm @ Message[
-		TeXDelimited::string, 2, HoldForm[TeXDelimited["str", a]]
-	]},
+	Message[TeXDelimited::string, 2, TeXDelimited["str", a]],
 	TestID -> "2 args: String Symbol"
-];
+]
 Test[
 	TeXDelimited[a, "str"],
 	$Failed,
-	{HoldForm @ Message[
-		TeXDelimited::string, 1, HoldForm[TeXDelimited[a, "str"]]
-	]},
+	Message[TeXDelimited::string, 1, TeXDelimited[a, "str"]],
 	TestID -> "2 args: Symbol String"
-];
-TestMatch[
-	TeXDelimited["str1", "str2"],
-	HoldPattern[TeXDelimited["str1", "str2"]],
+]
+Test[
+	TeXDelimited["str1", "str2"] // HoldComplete@#&,
+	TeXDelimited["str1", "str2"] // HoldComplete,
 	TestID -> "2 args: Strings"
-];
+]
 
 
 Test[
 	TeXDelimited["str", a, b],
 	$Failed,
-	{HoldForm @ Message[
-		TeXDelimited::string, 3, HoldForm[TeXDelimited["str", a, b]]
-	]},
+	Message[TeXDelimited::string, 3, TeXDelimited["str", a, b]],
 	TestID -> "3 args: String Symbol Symbol"
-];
+]
 Test[
 	TeXDelimited[a, b, "str"],
 	$Failed,
-	{HoldForm @ Message[
-		TeXDelimited::string, 1, HoldForm[TeXDelimited[a, b, "str"]]
-	]},
+	Message[TeXDelimited::string, 1, TeXDelimited[a, b, "str"]],
 	TestID -> "3 args: Symbol Symbol String"
-];
-TestMatch[
-	TeXDelimited["str1", a, "str2"],
-	HoldPattern[TeXDelimited["str1", a, "str2"]],
+]
+Test[
+	TeXDelimited["str1", a, "str2"] // HoldComplete@#&,
+	TeXDelimited["str1", a, "str2"] // HoldComplete,
 	TestID -> "3 args: String Symbol String"
-];
+]
 
 
 Test[
 	TeXDelimited["str", a, b, "Indentation" -> ""],
 	$Failed,
-	{HoldForm @ Message[
-		TeXDelimited::string,
-		3,
-		HoldForm[TeXDelimited["str", a, b, "Indentation" -> ""]]
-	]},
+	Message[TeXDelimited::string,
+		3, TeXDelimited["str", a, b, "Indentation" -> ""]
+	],
 	TestID -> "4 args: String Symbol Symbol, explicit option"
-];
+]
 
 
 (* ::Subsection:: *)
-(*TeX converion*)
+(*TeX conversion*)
 
 
 (* ::Subsubsection:: *)
@@ -106,8 +96,8 @@ Test[
 \\left
 \\right"
 	,
-	TestID -> "TeX converion: no body"
-];
+	TestID -> "TeX conversion: no body"
+]
 
 Test[
 	ToString[TeXDelimited["\\left", "body", "\\right"], TeXForm]
@@ -117,8 +107,8 @@ Test[
     \\text{body}
 \\right"
 	,
-	TestID -> "TeX converion: 1 body expression"
-];
+	TestID -> "TeX conversion: 1 body expression"
+]
 
 Test[
 	ToString[TeXDelimited["\\left", "str", sym, "\\right"], TeXForm]
@@ -129,8 +119,8 @@ Test[
     \\text{sym}
 \\right"
 	,
-	TestID -> "TeX converion: 2 body expressions"
-];
+	TestID -> "TeX conversion: 2 body expressions"
+]
 
 
 (* ::Subsubsection:: *)
@@ -153,8 +143,8 @@ Test[
     \\right2
 \\right1"
 	,
-	TestID -> "TeX converion: nested: 2 levels"
-];
+	TestID -> "TeX conversion: nested: 2 levels"
+]
 Test[
 	ToString[
 		TeXDelimited["\\left1",
@@ -181,8 +171,8 @@ Test[
     \\text{expr4}
 \\right1"
 	,
-	TestID -> "TeX converion: nested: 3 levels with other expressions"
-];
+	TestID -> "TeX conversion: nested: 3 levels with other expressions"
+]
 
 
 (* ::Subsubsection:: *)
@@ -207,8 +197,8 @@ Test[
     expr2
 \\right"
 	,
-	TestID -> "TeX converion: \"BodyConverter\" option: ToString"
-];
+	TestID -> "TeX conversion: \"BodyConverter\" option: ToString"
+]
 
 Test[
 	ToString[
@@ -229,8 +219,8 @@ Test[
     \\text{expr1} \\text{expr2} \\text{expr3}
 \\right"
 	,
-	TestID -> "TeX converion: \"BodySeparator\" option: space"
-];
+	TestID -> "TeX conversion: \"BodySeparator\" option: space"
+]
 
 Test[
 	ToString[
@@ -251,8 +241,8 @@ Test[
     \\text{expr2}
     \\text{expr3} \\right"
 	,
-	TestID -> "TeX converion: \"DelimSeparator\" option: space"
-];
+	TestID -> "TeX conversion: \"DelimSeparator\" option: space"
+]
 
 Test[
 	ToString[
@@ -280,16 +270,17 @@ Test[
 \t\\text{expr3}
 \\right1"
 	,
-	TestID -> "TeX converion: \"Indentation\" option: \t, two spaces"
-];
+	TestID -> "TeX conversion: \"Indentation\" option: \t, two spaces"
+]
 
 
 (* ::Section:: *)
 (*TearDown*)
 
 
-Unprotect["`*"];
-Quiet[Remove["`*"], {Remove::rmnsm}];
+Unprotect["`*", "`*`*"]
+Quiet[Remove["`*", "`*`*"], {Remove::rmnsm}]
 
 
-End[];
+EndPackage[]
+$ContextPath = Rest@$ContextPath

@@ -3,7 +3,7 @@ Resources[
     Sources[
         Directory["~"]
     ],
-    ExecutionBuildCommand["\"No build command\""],
+    ExecutionBuildCommand["None"],
     Paclet[
         DocumentationBuildFile["buildScripts/docbuild.xml"],
         FunctionPaclet[False]
