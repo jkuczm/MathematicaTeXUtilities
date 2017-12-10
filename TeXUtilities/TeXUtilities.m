@@ -169,7 +169,7 @@ TeXDelimited /: MakeBoxes[
 	TeXDelimited[start_String, body___, end_String, opts : OptionsPattern[]],
 	TraditionalForm
 ] := Module[{bodyConv, bodySep, delSep, indent},
-	{bodyConv, bodySep, delSep, indent} = OptionValue[TeXDelimited, opts,
+	{bodyConv, bodySep, delSep, indent} = OptionValue[TeXDelimited, {opts},
 		{"BodyConverter", "BodySeparator", "DelimSeparator", "Indentation"}
 	];
 	ToBoxes[
@@ -240,7 +240,7 @@ TeXCommand[name_, args : Except@_List, rest___] := (
 TeXCommand /: MakeBoxes[
 	TeXCommand[name_String, args_List : {}, opts : OptionsPattern[]],
 	TraditionalForm
-] := With[{argConv = OptionValue[TeXCommand, opts, "ArgumentConverter"]},
+] := With[{argConv = OptionValue[TeXCommand, {opts}, "ArgumentConverter"]},
 	ToBoxes[
 		TeXVerbatim@StringJoin["\\", name,
 			teXCommandArgument[#, argConv]& /@ args
@@ -285,7 +285,7 @@ TeXEnvironment /: MakeBoxes[
 	]
 	,
 	TraditionalForm
-] := With[{argConv = OptionValue[TeXEnvironment, opts, "ArgumentConverter"]},
+] := With[{argConv = OptionValue[TeXEnvironment, {opts}, "ArgumentConverter"]},
 	ToBoxes[
 		TeXDelimited[
 			StringJoin[
