@@ -43,6 +43,24 @@ Test[
 	Message[TeXVerbatim::argx, TeXVerbatim, 2],
 	TestID -> "two args"
 ]
+Module[{leaked1 = False, leaked2 = False},
+	Test[
+		TeXVerbatim[Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]],
+		$Failed,
+		Message[TeXVerbatim::argx, TeXVerbatim, 2],
+		TestID -> "two args: evaluation leaks"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "two args: evaluation leaks: first arg leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "two args: evaluation leaks: second arg leak"
+	]
+]
 
 
 (* ::Subsection:: *)

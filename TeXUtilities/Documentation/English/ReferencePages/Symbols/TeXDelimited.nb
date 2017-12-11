@@ -191,8 +191,20 @@ Cell[BoxData[GridBox[{
    {Cell["   ", "ModInfo"], "\"\<BodyConverter\>\"", 
     RowBox[{
      RowBox[{
-      RowBox[{"ToString", "[", 
-       RowBox[{"#1", ",", "TeXForm"}], "]"}], "&"}], " "}], Cell[TextData[{
+      ButtonBox["Function",
+       BaseStyle->"Link"], "[", 
+      RowBox[{",", 
+       RowBox[{
+        ButtonBox["ToString",
+         BaseStyle->"Link"], "[", 
+        RowBox[{
+         RowBox[{
+          ButtonBox["Unevaluated",
+           BaseStyle->"Link"], "@", "#"}], ",", 
+         ButtonBox["TeXForm",
+          BaseStyle->"Link"]}], "]"}], ",", 
+       ButtonBox["HoldAllComplete",
+        BaseStyle->"Link"]}], "]"}], " "}], Cell[TextData[{
      "function used to convert expressions, between delimiters, to ",
      Cell[BoxData[
       FormBox[
@@ -427,12 +439,20 @@ Cell[TextData[{
  " set to ",
  Cell[BoxData[
   RowBox[{
-   RowBox[{
-    ButtonBox["ToString",
-     BaseStyle->"Link"], "[", 
-    RowBox[{"#1", ",", 
-     ButtonBox["TeXForm",
-      BaseStyle->"Link"]}], "]"}], "&"}]], "InlineFormula",
+   ButtonBox["Function",
+    BaseStyle->"Link"], "[", 
+   RowBox[{",", 
+    RowBox[{
+     ButtonBox["ToString",
+      BaseStyle->"Link"], "[", 
+     RowBox[{
+      RowBox[{
+       ButtonBox["Unevaluated",
+        BaseStyle->"Link"], "@", "#"}], ",", 
+      ButtonBox["TeXForm",
+       BaseStyle->"Link"]}], "]"}], ",", 
+    ButtonBox["HoldAllComplete",
+     BaseStyle->"Link"]}], "]"}]], "InlineFormula",
   ShowStringCharacters->False],
  " (default value) expressions given as body of delimited environment are \
 converted to ",

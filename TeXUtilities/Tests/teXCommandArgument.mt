@@ -16,83 +16,95 @@ AppendTo[$ContextPath, "TeXUtilities`Private`"]
 
 
 (* ::Subsection:: *)
-(*Wrong argument patterns*)
-
-
-Test[
-	teXCommandArgument[] // HoldComplete@#&,
-	teXCommandArgument[] // HoldComplete,
-	TestID -> "no args"
-]
-Test[
-	teXCommandArgument@a // HoldComplete@#&,
-	teXCommandArgument@a // HoldComplete,
-	TestID -> "one arg"
-]
-Test[
-	teXCommandArgument[a, b, c] // HoldComplete@#&,
-	teXCommandArgument[a, b, c] // HoldComplete,
-	TestID -> "three args"
-]
-
-
-(* ::Subsection:: *)
 (*Non-List command argument*)
 
 
 Test[
-	teXCommandArgument["str", ToString],
+	teXCommandArgument[ToString]@"str",
 	"{str}",
-	TestID -> "two args: String, ToString"
+	TestID -> "String"
 ]
 Test[
-	teXCommandArgument[a, ToString],
+	teXCommandArgument[ToString]@a,
 	"{a}",
-	TestID -> "two args: Symbol, ToString"
+	TestID -> "Symbol"
 ]
 
-
-(* ::Subsection:: *)
-(*List command argument*)
-
-
 Test[
-	teXCommandArgument[{}, ToString],
-	"[]",
-	TestID -> "two args: empty List, ToString"
-]
-Test[
-	teXCommandArgument[{a, b, c}, ToString],
-	"[a,b,c]",
-	TestID -> "two args: List of symbols, ToString"
-]
-Test[
-	teXCommandArgument[{a -> b, c -> d}, ToString],
-	"[a=b,c=d]",
-	TestID -> "two args: List of rules, ToString"
-]
-Test[
-	teXCommandArgument[{a -> b, c, d -> e, f}, ToString],
-	"[a=b,c,d=e,f]",
-	TestID -> "two args: List of rules and symbols, ToString"
-]
-
-
-(* ::Subsection:: *)
-(*List command argument*)
-
-
-Test[
-	teXCommandArgument[a, ToString@f@#&],
+	teXCommandArgument[ToString@f@#&]@a,
 	"{f[a]}",
-	TestID -> "two args: Symbol, custom function"
+	TestID -> "Custom function: Symbol"
+]
+
+Block[{leaked = False},
+	Test[
+		teXCommandArgument[Function[Null, ToString@Unevaluated@#, HoldFirst]][
+			leaked = True
+		],
+		"{leaked = True}",
+		TestID -> "held ToString: evaluation leak"
+	];
+	Test[
+		leaked,
+		False,
+		TestID -> "held ToString: evaluation leak: leak"
+	]
+]
+
+
+(* ::Subsection:: *)
+(*List command argument*)
+
+
+Test[
+	teXCommandArgument[ToString]@{},
+	"[]",
+	TestID -> "empty List"
 ]
 Test[
-	teXCommandArgument[
-		{a -> b, c, d -> e, f}, ToString@f@#&
-	],
+	teXCommandArgument[ToString]@{a, b, c},
+	"[a,b,c]",
+	TestID -> "List of symbols"
+]
+Test[
+	teXCommandArgument[ToString]@{a -> b, c -> d},
+	"[a=b,c=d]",
+	TestID -> "List of rules"
+]
+Test[
+	teXCommandArgument[ToString]@{a -> b, c, d -> e, f},
+	"[a=b,c,d=e,f]",
+	TestID -> "List of rules and symbols"
+]
+
+Test[
+	teXCommandArgument[ToString@f@#&]@{a -> b, c, d -> e, f},
 	"[f[a]=f[b],f[c],f[d]=f[e],f[f]]",
-	TestID -> "two args: List of rules and symbols, custom function"
+	TestID -> "Custom function: List of rules and symbols"
+]
+
+Block[{leaked = False, leakedLHS = False, leakedRHS = False},
+	Test[
+		teXCommandArgument[Function[Null, ToString@Unevaluated@#, HoldFirst]]@
+			{leaked = True, (leakedLHS = True) -> (leakedRHS = True)},
+		"[leaked = True,leakedLHS = True=leakedRHS = True]",
+		TestID -> "held ToString: List evaluation leak"
+	];
+	Test[
+		leaked,
+		False,
+		TestID -> "held ToString: List evaluation leak: non-rule arg leak"
+	];
+	Test[
+		leakedLHS,
+		False,
+		TestID -> "held ToString: List evaluation leak: rule arg LHS leak"
+	];
+	Test[
+		leakedRHS,
+		False,
+		TestID -> "held ToString: List evaluation leak: rule arg RHS leak"
+	]
 ]
 
 

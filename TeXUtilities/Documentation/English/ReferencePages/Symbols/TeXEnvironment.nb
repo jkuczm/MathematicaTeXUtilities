@@ -345,8 +345,20 @@ Cell[BoxData[GridBox[{
    {Cell["      ", "ModInfo"], "\"\<ArgumentConverter\>\"", 
     RowBox[{
      RowBox[{
-      RowBox[{"ToString", "[", 
-       RowBox[{"#1", ",", "TeXForm"}], "]"}], "&"}], " "}], Cell[TextData[{
+      ButtonBox["Function",
+       BaseStyle->"Link"], "[", 
+      RowBox[{",", 
+       RowBox[{
+        ButtonBox["ToString",
+         BaseStyle->"Link"], "[", 
+        RowBox[{
+         RowBox[{
+          ButtonBox["Unevaluated",
+           BaseStyle->"Link"], "@", "#"}], ",", 
+         ButtonBox["TeXForm",
+          BaseStyle->"Link"]}], "]"}], ",", 
+       ButtonBox["HoldAllComplete",
+        BaseStyle->"Link"]}], "]"}], " "}], Cell[TextData[{
      "function used to convert begin command arguments, optional argument \
 names and values, to ",
      Cell[BoxData[
@@ -362,8 +374,20 @@ names and values, to ",
    {Cell["   ", "ModInfo"], "\"\<BodyConverter\>\"", 
     RowBox[{
      RowBox[{
-      RowBox[{"ToString", "[", 
-       RowBox[{"#1", ",", "TeXForm"}], "]"}], "&"}], " "}], Cell[TextData[{
+      ButtonBox["Function",
+       BaseStyle->"Link"], "[", 
+      RowBox[{",", 
+       RowBox[{
+        ButtonBox["ToString",
+         BaseStyle->"Link"], "[", 
+        RowBox[{
+         RowBox[{
+          ButtonBox["Unevaluated",
+           BaseStyle->"Link"], "@", "#"}], ",", 
+         ButtonBox["TeXForm",
+          BaseStyle->"Link"]}], "]"}], ",", 
+       ButtonBox["HoldAllComplete",
+        BaseStyle->"Link"]}], "]"}], " "}], Cell[TextData[{
      "function used to convert expressions, given as body of environment, to ",
      Cell[BoxData[
       FormBox[
@@ -671,12 +695,20 @@ Cell[TextData[{
  " set to ",
  Cell[BoxData[
   RowBox[{
-   RowBox[{
-    ButtonBox["ToString",
-     BaseStyle->"Link"], "[", 
-    RowBox[{"#1", ",", 
-     ButtonBox["TeXForm",
-      BaseStyle->"Link"]}], "]"}], "&"}]], "InlineFormula",
+   ButtonBox["Function",
+    BaseStyle->"Link"], "[", 
+   RowBox[{",", 
+    RowBox[{
+     ButtonBox["ToString",
+      BaseStyle->"Link"], "[", 
+     RowBox[{
+      RowBox[{
+       ButtonBox["Unevaluated",
+        BaseStyle->"Link"], "@", "#"}], ",", 
+      ButtonBox["TeXForm",
+       BaseStyle->"Link"]}], "]"}], ",", 
+    ButtonBox["HoldAllComplete",
+     BaseStyle->"Link"]}], "]"}]], "InlineFormula",
   ShowStringCharacters->False],
  " (default value) arguments are converted to ",
  Cell[BoxData[
@@ -838,12 +870,20 @@ Cell[TextData[{
  " set to ",
  Cell[BoxData[
   RowBox[{
-   RowBox[{
-    ButtonBox["ToString",
-     BaseStyle->"Link"], "[", 
-    RowBox[{"#1", ",", 
-     ButtonBox["TeXForm",
-      BaseStyle->"Link"]}], "]"}], "&"}]], "InlineFormula",
+   ButtonBox["Function",
+    BaseStyle->"Link"], "[", 
+   RowBox[{",", 
+    RowBox[{
+     ButtonBox["ToString",
+      BaseStyle->"Link"], "[", 
+     RowBox[{
+      RowBox[{
+       ButtonBox["Unevaluated",
+        BaseStyle->"Link"], "@", "#"}], ",", 
+      ButtonBox["TeXForm",
+       BaseStyle->"Link"]}], "]"}], ",", 
+    ButtonBox["HoldAllComplete",
+     BaseStyle->"Link"]}], "]"}]], "InlineFormula",
   ShowStringCharacters->False],
  " (default value) expressions given as body of environment are converted to ",
  Cell[BoxData[

@@ -33,7 +33,7 @@ Test[
 ]
 Test[
 	TeXEnvironment@"str" // HoldComplete@#&,
-	TeXEnvironment@{"str"} // HoldComplete,
+	TeXEnvironment@"str" // HoldComplete,
 	TestID -> "one arg: String"
 ]
 Test[
@@ -56,13 +56,57 @@ Test[
 
 Test[
 	TeXEnvironment["str", a] // HoldComplete@#&,
-	TeXEnvironment[{"str"}, a] // HoldComplete,
+	TeXEnvironment["str", a] // HoldComplete,
 	TestID -> "two args: String Symbol"
 ]
+Module[{leaked1 = False, leaked2 = False},
+	Test[
+		TeXEnvironment[
+			Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]
+		],
+		$Failed,
+		Message[TeXEnvironment::StrOrListWithStr,
+			TeXEnvironment[leaked1 = True, leaked2 = True]
+		],
+		TestID -> "two args: non-strings: evaluation leak"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "two args: non-strings: evaluation leak: first arg leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "two args: non-strings: evaluation leak: second arg leak"
+	]
+]
+
 Test[
 	TeXEnvironment["str", a, b] // HoldComplete@#&,
-	TeXEnvironment[{"str"}, a, b] // HoldComplete,
+	TeXEnvironment["str", a, b] // HoldComplete,
 	TestID -> "three args: String Symbol Symbol"
+]
+Module[{leaked1 = False, leaked2 = False},
+	Test[
+		TeXEnvironment["name",
+			Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]
+		] // HoldComplete@#&,
+		TeXEnvironment["name",
+			Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]
+		] // HoldComplete,
+		TestID -> "three args: first String: evaluation leak"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "three args: first String: evaluation leak: first body leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "three args: first String: evaluation leak: second body leak"
+	]
 ]
 
 
@@ -297,6 +341,69 @@ Test[
 \\end{myEnv}"
 	,
 	TestID -> "TeX conversion: all options"
+]
+
+
+(* ::Subsubsection:: *)
+(*Evaluation leaks*)
+
+
+Block[
+	{
+		leakedLHS = False, leakedRHS = False, leakedOpt = False,
+		leakedMand = False, leakedBody1 = False, leakedBody2 = False
+	},
+	Test[
+		ToString[Unevaluated@TeXEnvironment[
+			{"env", {
+				{(leakedLHS = True) -> (leakedRHS = True), leakedOpt = True},
+				leakedMand = True
+			}},
+			leakedBody1 = True,
+			leakedBody2 = True
+		], TeXForm]
+		,
+		"\
+\\begin{env}[\
+\\text{leakedLHS}=\\text{True}=\\text{leakedRHS}=\\text{True},\
+\\text{leakedOpt}=\\text{True}\
+]{\\text{leakedMand}=\\text{True}}
+    \\text{leakedBody1}=\\text{True}
+    \\text{leakedBody2}=\\text{True}
+\\end{env}"
+		,
+		TestID -> "TeX conversion: evaluation leak"
+	];
+	Test[
+		leakedLHS,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional rule arg LHS leak"
+	];
+	Test[
+		leakedRHS,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional rule arg RHS leak"
+	];
+	Test[
+		leakedOpt,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional non-rule arg leak"
+	];
+	Test[
+		leakedMand,
+		False,
+		TestID -> "TeX conversion: evaluation leak: mandatory arg leak"
+	];
+	Test[
+		leakedBody1,
+		False,
+		TestID -> "TeX conversion: evaluation leak: first body expr leak"
+	];
+	Test[
+		leakedBody2,
+		False,
+		TestID -> "TeX conversion: evaluation leak: second body expr leak"
+	]
 ]
 
 
