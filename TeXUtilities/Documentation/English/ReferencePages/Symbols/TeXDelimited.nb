@@ -173,17 +173,7 @@ Cell[TextData[{
    BaseStyle->"Link"]], "InlineFormula",
   ShowStringCharacters->False],
  "."
-}], "Usage",
- CellChangeTimes->{
-  3.609340263734275*^9, {3.6093421831199837`*^9, 3.609342363098131*^9}, {
-   3.609342410412366*^9, 3.609342416852366*^9}, {3.609342451518074*^9, 
-   3.609342692604431*^9}, {3.609349950445075*^9, 3.609349950445303*^9}, {
-   3.609350935132657*^9, 3.6093509528830853`*^9}, {3.609351144913409*^9, 
-   3.609351144913624*^9}, {3.609352382039542*^9, 3.6093523829567223`*^9}, {
-   3.609352414631213*^9, 3.6093524489049397`*^9}, {3.60935273916055*^9, 
-   3.609352755936226*^9}, {3.6093548774456167`*^9, 3.6093550450127993`*^9}, {
-   3.609392894148931*^9, 3.609392961691538*^9}, {3.609393136542831*^9, 
-   3.6093931365430717`*^9}, {3.609393284318668*^9, 3.609393293643162*^9}}],
+}], "Usage"],
 
 Cell["The following options can be given: ", "Notes"],
 
@@ -191,8 +181,20 @@ Cell[BoxData[GridBox[{
    {Cell["   ", "ModInfo"], "\"\<BodyConverter\>\"", 
     RowBox[{
      RowBox[{
-      RowBox[{"ToString", "[", 
-       RowBox[{"#1", ",", "TeXForm"}], "]"}], "&"}], " "}], Cell[TextData[{
+      ButtonBox["Function",
+       BaseStyle->"Link"], "[", 
+      RowBox[{",", 
+       RowBox[{
+        ButtonBox["ToString",
+         BaseStyle->"Link"], "[", 
+        RowBox[{
+         RowBox[{
+          ButtonBox["Unevaluated",
+           BaseStyle->"Link"], "@", "#"}], ",", 
+         ButtonBox["TeXForm",
+          BaseStyle->"Link"]}], "]"}], ",", 
+       ButtonBox["HoldAllComplete",
+        BaseStyle->"Link"]}], "]"}], " "}], Cell[TextData[{
      "function used to convert expressions, between delimiters, to ",
      Cell[BoxData[
       FormBox[
@@ -214,13 +216,7 @@ string inserted between delimiters and body of delimited environment\
    {Cell["   ", "ModInfo"], "\"\<Indentation\>\"", "\"\<    \>\"", Cell["\<\
 string added after each newline character inside body of delimited environment\
 \>", "TableText"]}
-  }]], "3ColumnTableMod",
- CellChangeTimes->{{3.6093427003688717`*^9, 3.609342726161723*^9}, {
-  3.6093428586392393`*^9, 3.6093429111872253`*^9}, {3.609342982301812*^9, 
-  3.6093430639380903`*^9}, {3.6093431241601973`*^9, 3.6093431266642103`*^9}, {
-  3.6093431674806147`*^9, 3.609343204700758*^9}, {3.6093435222785187`*^9, 
-  3.609343602598549*^9}, {3.609344855067836*^9, 3.609344881244617*^9}, {
-  3.609345437183239*^9, 3.609345440335503*^9}}]
+  }]], "3ColumnTableMod"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -232,15 +228,12 @@ Cell[TextData[ButtonBox["Customizing TeX conversion",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/CustomizingTeXConversion"]], "Tutorials",
- CellChangeTimes->{{3.6101833910276747`*^9, 3.610183463782742*^9}},
  CellID->341631938],
 
 Cell[TextData[ButtonBox["TeX Utilities overview",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "Tutorials",
- CellChangeTimes->{{3.6101833910276747`*^9, 3.6101833953827553`*^9}, {
-  3.6101834672185163`*^9, 3.6101834987320747`*^9}},
  CellID->434404830]
 }, Open  ]],
 
@@ -283,7 +276,6 @@ Cell[TextData[{
    BaseStyle->"Link",
    ButtonData->"paclet:TeXUtilities/ref/TeXEnvironment"]], "InlineFormula"]
 }], "SeeAlso",
- CellChangeTimes->{3.609341072058158*^9, 3.609341705572052*^9},
  CellID->929782353]
 }, Open  ]],
 
@@ -313,7 +305,6 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1323670272],
 
@@ -327,8 +318,6 @@ Cell[BoxData[
     RowBox[{"x", " ", "-", 
      RowBox[{"2", "y"}]}], ",", "\"\<\\\\right)\>\""}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
-  3.6093445253491993`*^9, 3.6093445478906927`*^9}},
  CellLabel->"In[1]:=",
  CellID->1406218119],
 
@@ -338,7 +327,6 @@ Cell["\<\
     x-2 y
 \\right)\
 \>", "Output",
- CellChangeTimes->{{3.609344530652169*^9, 3.609344560868579*^9}},
  CellLabel->"Out[1]//TeXForm=",
  CellID->790442832]
 }, Open  ]]
@@ -362,7 +350,6 @@ Cell[TextData[{
   ShowStringCharacters->False],
  " can be nested:"
 }], "ExampleText",
- CellChangeTimes->{{3.6093461088892717`*^9, 3.6093461207285547`*^9}},
  CellID->1311951073],
 
 Cell[BoxData[
@@ -384,7 +371,6 @@ Cell[BoxData[
     RowBox[{"1", "+", "beta"}], ",", "\[IndentingNewLine]", 
     "\"\<\\\\right]\>\""}], "\[IndentingNewLine]", "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609346152940382*^9, 3.6093461914314213`*^9}},
  CellLabel->"In[1]:=",
  CellID->1908431843],
 
@@ -397,7 +383,6 @@ Cell["\<\
     \\beta +1
 \\right]\
 \>", "Output",
- CellChangeTimes->{{3.609346192428653*^9, 3.609346204846438*^9}},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1078500038]
 }, Open  ]]
@@ -418,8 +403,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[Cell["\"BodyConverter\"", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellChangeTimes->{{3.609351788811928*^9, 3.609351791283649*^9}}],
+  $Line = 0; Null]], "ExampleSubsection"],
 
 Cell[TextData[{
  "With ",
@@ -427,12 +411,20 @@ Cell[TextData[{
  " set to ",
  Cell[BoxData[
   RowBox[{
-   RowBox[{
-    ButtonBox["ToString",
-     BaseStyle->"Link"], "[", 
-    RowBox[{"#1", ",", 
-     ButtonBox["TeXForm",
-      BaseStyle->"Link"]}], "]"}], "&"}]], "InlineFormula",
+   ButtonBox["Function",
+    BaseStyle->"Link"], "[", 
+   RowBox[{",", 
+    RowBox[{
+     ButtonBox["ToString",
+      BaseStyle->"Link"], "[", 
+     RowBox[{
+      RowBox[{
+       ButtonBox["Unevaluated",
+        BaseStyle->"Link"], "@", "#"}], ",", 
+      ButtonBox["TeXForm",
+       BaseStyle->"Link"]}], "]"}], ",", 
+    ButtonBox["HoldAllComplete",
+     BaseStyle->"Link"]}], "]"}]], "InlineFormula",
   ShowStringCharacters->False],
  " (default value) expressions given as body of delimited environment are \
 converted to ",
@@ -446,9 +438,6 @@ converted to ",
     SingleLetterItalics->False], TraditionalForm]]],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
-  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
-  3.6093440648182096`*^9}},
  CellID->18900439],
 
 Cell[BoxData[
@@ -465,14 +454,12 @@ Cell[BoxData[
    "\"\<\\\\left(\>\"", ",", "\"\<str\>\"", ",", "sym", ",", 
     "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<BodyConverter\>\"", "\[Rule]", 
-     RowBox[{"(", 
-      RowBox[{
+     RowBox[{"Function", "[", 
+      RowBox[{",", 
        RowBox[{"ToString", "[", 
-        RowBox[{"#", ",", "TeXForm"}], "]"}], "&"}], ")"}]}]}], "]"}], "//", 
-  "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-  3.609344980202814*^9, 3.609344997574271*^9}, {3.609345856161788*^9, 
-  3.60934585970538*^9}},
+        RowBox[{
+         RowBox[{"Unevaluated", "@", "#"}], ",", "TeXForm"}], "]"}], ",", 
+       "HoldAllComplete"}], "]"}]}]}], "]"}], "//", "TeXForm"}]], "Input",
  CellLabel->"In[1]:=",
  CellID->671180129],
 
@@ -482,8 +469,6 @@ Cell["\<\
     \\text{sym}
 \\right)\
 \>", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093447935435762`*^9, 
-  3.609345003740848*^9, 3.609345976055354*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1011365131]
 }, Open  ]],
@@ -510,7 +495,6 @@ are passed to this function before joining with other strings building ",
     SingleLetterItalics->False], TraditionalForm]]],
  " form of expression:"
 }], "ExampleText",
- CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}},
  CellID->448392044],
 
 Cell[BoxData[
@@ -528,9 +512,6 @@ Cell[BoxData[
     "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<BodyConverter\>\"", "\[Rule]", "ToString"}]}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-  3.609344779920292*^9, 3.609344780281618*^9}, {3.6093458942754498`*^9, 
-  3.609345897652382*^9}},
  CellLabel->"In[1]:=",
  CellID->1128079066],
 
@@ -540,8 +521,6 @@ Cell["\<\
     sym
 \\right)\
 \>", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093448043234673`*^9, 
-  3.6093459855668097`*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1474484689]
 }, Open  ]]
@@ -552,8 +531,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[Cell["\"BodySeparator\"", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellChangeTimes->{{3.609351807954232*^9, 3.609351810785399*^9}}],
+  $Line = 0; Null]], "ExampleSubsection"],
 
 Cell[TextData[{
  "With ",
@@ -563,10 +541,6 @@ Cell[TextData[{
  " (default value) expressions given as body of delimited environment are \
 separated by newline characters:"
 }], "ExampleText",
- CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
-  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
-  3.6093440648182096`*^9}, {3.60934491222861*^9, 3.60934496188198*^9}, {
-  3.609345263475191*^9, 3.609345269375516*^9}},
  CellID->248964326],
 
 Cell[BoxData[
@@ -584,9 +558,6 @@ Cell[BoxData[
     "\"\<expr3\>\"", ",", "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<BodySeparator\>\"", "\[Rule]", "\"\<\\n\>\""}]}], "]"}], "//",
    "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-  3.609345017805916*^9, 3.6093450228238993`*^9}, {3.6093450601815577`*^9, 
-  3.609345086222279*^9}, {3.609345900394314*^9, 3.609345902523587*^9}},
  CellLabel->"In[1]:=",
  CellID->2036896914],
 
@@ -597,8 +568,6 @@ Cell["\<\
     \\text{expr3}
 \\right)\
 \>", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093447935435762`*^9, 
-  3.6093451000969753`*^9, 3.6093459950780687`*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->86182534]
 }, Open  ]],
@@ -616,8 +585,6 @@ Cell[TextData[{
  " set to any string, expressions given as body of delimited environment are \
 separated by this string:"
 }], "ExampleText",
- CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}, 
-   3.609344914556649*^9, {3.6093451136992407`*^9, 3.609345135002914*^9}},
  CellID->1948629125],
 
 Cell[BoxData[
@@ -635,10 +602,6 @@ Cell[BoxData[
     "\"\<expr3\>\"", ",", "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<BodySeparator\>\"", "\[Rule]", "\"\< \>\""}]}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609344779920292*^9, 3.609344780281618*^9}, 3.609345013174356*^9, {
-   3.609345075618606*^9, 3.6093450963678007`*^9}, {3.60934590516129*^9, 
-   3.609345907240911*^9}},
  CellLabel->"In[1]:=",
  CellID->1846041725],
 
@@ -647,8 +610,6 @@ Cell["\<\
     \\text{expr1} \\text{expr2} \\text{expr3}
 \\right)\
 \>", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093448043234673`*^9, 
-  3.609345140549621*^9, 3.609346005499303*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->2023951718]
 }, Open  ]]
@@ -659,8 +620,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[Cell["\"DelimSeparator\"", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellChangeTimes->{{3.609351815201783*^9, 3.609351825536767*^9}}],
+  $Line = 0; Null]], "ExampleSubsection"],
 
 Cell[TextData[{
  "With ",
@@ -670,11 +630,6 @@ Cell[TextData[{
  " (default value) delimiters are separated from body of delimited \
 environment by newline characters:"
 }], "ExampleText",
- CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
-  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
-  3.6093440648182096`*^9}, {3.60934491222861*^9, 3.60934496188198*^9}, {
-  3.609345188522772*^9, 3.60934523201537*^9}, {3.609345326060196*^9, 
-  3.609345326412765*^9}},
  CellID->918621932],
 
 Cell[BoxData[
@@ -692,10 +647,6 @@ Cell[BoxData[
     "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<DelimSeparator\>\"", "\[Rule]", "\"\<\\n\>\""}]}], "]"}], "//",
    "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609345017805916*^9, 3.6093450228238993`*^9}, {3.6093450601815577`*^9, 
-   3.609345086222279*^9}, 3.609345191052882*^9, {3.609345351231338*^9, 
-   3.609345351476193*^9}, {3.609345910242311*^9, 3.609345911939858*^9}},
  CellLabel->"In[1]:=",
  CellID->824541795],
 
@@ -705,9 +656,6 @@ Cell["\<\
     \\text{expr2}
 \\right)\
 \>", "Output",
- CellChangeTimes->{
-  3.609344176166902*^9, 3.6093447935435762`*^9, 3.6093451000969753`*^9, {
-   3.6093453399065657`*^9, 3.609345363426763*^9}, 3.609346016308813*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1373846469]
 }, Open  ]],
@@ -725,9 +673,6 @@ Cell[TextData[{
  " set to any string, delimiters are separated from body of delimited \
 environment by this string:"
 }], "ExampleText",
- CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}, 
-   3.609344914556649*^9, {3.6093451136992407`*^9, 3.609345135002914*^9}, 
-   3.609345197183578*^9, {3.609351698469043*^9, 3.609351702503097*^9}},
  CellID->160245054],
 
 Cell[BoxData[
@@ -745,11 +690,6 @@ Cell[BoxData[
     "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<DelimSeparator\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609344779920292*^9, 3.609344780281618*^9}, 3.609345013174356*^9, {
-   3.609345075618606*^9, 3.6093450963678007`*^9}, {3.609345192892467*^9, 
-   3.609345194958397*^9}, {3.609345366503071*^9, 3.609345366725769*^9}, {
-   3.609345914852893*^9, 3.609345916339065*^9}},
  CellLabel->"In[1]:=",
  CellID->381902259],
 
@@ -757,8 +697,6 @@ Cell["\<\
 \\left(\\text{expr1}
     \\text{expr2}\\right)\
 \>", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093448043234673`*^9, 
-  3.609345140549621*^9, 3.6093453759290333`*^9, 3.609346032043192*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1393191759]
 }, Open  ]]
@@ -769,8 +707,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[Cell["\"Indentation\"", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellChangeTimes->{{3.609351831392174*^9, 3.609351833462696*^9}}],
+  $Line = 0; Null]], "ExampleSubsection"],
 
 Cell[TextData[{
  "With ",
@@ -780,12 +717,6 @@ Cell[TextData[{
  " (4 spaces - default value) all newline characters inside body of delimited \
 environment have added 4 spaces:"
 }], "ExampleText",
- CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
-  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
-  3.6093440648182096`*^9}, {3.60934491222861*^9, 3.60934496188198*^9}, {
-  3.609345188522772*^9, 3.60934523201537*^9}, {3.609345326060196*^9, 
-  3.609345326412765*^9}, {3.609345420609193*^9, 3.609345529598242*^9}, {
-  3.60934563257126*^9, 3.60934566304538*^9}},
  CellID->160678906],
 
 Cell[BoxData[
@@ -803,11 +734,6 @@ Cell[BoxData[
     ",", "\"\<expr3\>\"", ",", "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<Indentation\>\"", "\[Rule]", "\"\<    \>\""}]}], "]"}], "//",
    "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609345017805916*^9, 3.6093450228238993`*^9}, {3.6093450601815577`*^9, 
-   3.609345086222279*^9}, 3.609345191052882*^9, {3.609345351231338*^9, 
-   3.609345351476193*^9}, {3.609345673503146*^9, 3.6093457446621637`*^9}, {
-   3.609345919191186*^9, 3.6093459226830673`*^9}},
  CellLabel->"In[1]:=",
  CellID->1035716862],
 
@@ -819,10 +745,6 @@ Cell["\<\
     \\text{expr3}
 \\right)\
 \>", "Output",
- CellChangeTimes->{
-  3.609344176166902*^9, 3.6093447935435762`*^9, 3.6093451000969753`*^9, {
-   3.6093453399065657`*^9, 3.609345363426763*^9}, {3.60934573130475*^9, 
-   3.609345757501441*^9}, 3.609346044364818*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1620397598]
 }, Open  ]],
@@ -840,9 +762,6 @@ Cell[TextData[{
  " set to any string, all newline characters inside body of delimited \
 environment have this string added behind them:"
 }], "ExampleText",
- CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}, 
-   3.609344914556649*^9, {3.6093451136992407`*^9, 3.609345135002914*^9}, 
-   3.609345197183578*^9, {3.609345781188507*^9, 3.609345832387385*^9}},
  CellID->263101137],
 
 Cell[BoxData[
@@ -860,12 +779,6 @@ Cell[BoxData[
     ",", "\"\<expr3\>\"", ",", "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<Indentation\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609344779920292*^9, 3.609344780281618*^9}, 3.609345013174356*^9, {
-   3.609345075618606*^9, 3.6093450963678007`*^9}, {3.609345192892467*^9, 
-   3.609345194958397*^9}, {3.609345366503071*^9, 3.609345366725769*^9}, 
-   3.6093458424925747`*^9, {3.609345925335762*^9, 3.609345945583625*^9}, {
-   3.609346066943758*^9, 3.60934608406435*^9}},
  CellLabel->"In[1]:=",
  CellID->494245678],
 
@@ -877,9 +790,6 @@ expr2 line2
 \\text{expr3}
 \\right)\
 \>", "Output",
- CellChangeTimes->{
-  3.609344176166902*^9, 3.6093448043234673`*^9, 3.609345140549621*^9, 
-   3.6093453759290333`*^9, {3.609346069558063*^9, 3.609346086805029*^9}},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1814358316]
 }, Open  ]]
@@ -904,14 +814,10 @@ Cell[TextData[{
   ShowStringCharacters->False],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609344229968511*^9, 3.609344260694563*^9}, {
-  3.609344369727129*^9, 3.6093443703821983`*^9}, {3.609344436099107*^9, 
-  3.609344454979224*^9}},
  CellID->908547004],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1920081157],
 
@@ -927,9 +833,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  " formatting for a function:"
 }], "ExampleText",
- CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
-   3.609341567441502*^9, 3.609341568835944*^9}, 3.609342936319825*^9, {
-   3.609344464939361*^9, 3.609344466075178*^9}},
  CellID->1565222199],
 
 Cell[BoxData[
@@ -940,7 +843,6 @@ Cell[BoxData[
   RowBox[{"TeXDelimited", "[", 
    RowBox[{"\"\<\\\\left(\>\"", ",", "x", ",", "\"\<\\\\right)\>\""}], 
    "]"}]}]], "Input",
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}},
  CellLabel->"In[1]:=",
  CellID->828485488],
 
@@ -956,9 +858,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
-  3.609341567441502*^9, 3.609341568835944*^9}, {3.609341603184952*^9, 
-  3.60934162103139*^9}, {3.609344478213131*^9, 3.60934447940843*^9}},
  CellID->1137687184],
 
 Cell[CellGroupData[{
@@ -970,8 +869,6 @@ Cell[BoxData[
     RowBox[{"1", "+", "alpha"}], ",", " ", 
     RowBox[{"x", " ", "-", 
      RowBox[{"2", "y"}]}]}], "]"}], "//", "TeXForm"}]], "Input",
- CellChangeTimes->{{3.6093414344094276`*^9, 3.60934143664952*^9}, {
-  3.6093437107736197`*^9, 3.6093437602938766`*^9}},
  CellLabel->"In[2]:=",
  CellID->1497456338],
 
@@ -981,8 +878,6 @@ Cell["\<\
     x-2 y
 \\right)\
 \>", "Output",
- CellChangeTimes->{{3.609343730401766*^9, 3.609343761207244*^9}, 
-   3.609344085864707*^9},
  CellLabel->"Out[2]//TeXForm=",
  CellID->58675451]
 }, Open  ]]
@@ -1010,11 +905,12 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{692, 770},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{4, Automatic}, {Automatic, 29}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 ShowSelection->True,
 CellContext->"Global`",
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

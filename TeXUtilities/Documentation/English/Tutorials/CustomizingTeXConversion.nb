@@ -32,11 +32,7 @@ Cell["TeXUtilities`", "Categorization",
  CellLabel->"Context",
  CellID->468444828],
 
-Cell["\<\
-TeXUtilities/tutorial/CustomizingTeXConversion\
-\>", "Categorization",
- CellChangeTimes->{
-  3.6101844759395514`*^9, {3.61018459180965*^9, 3.610184598513262*^9}},
+Cell["TeXUtilities/tutorial/CustomizingTeXConversion", "Categorization",
  CellLabel->"URI"]
 }, Closed]],
 
@@ -94,7 +90,6 @@ Cell["XXXX", "Details",
 Cell[CellGroupData[{
 
 Cell["Customizing TeX conversion", "Title",
- CellChangeTimes->{{3.609402199141115*^9, 3.609402199519375*^9}},
  CellID->509267359],
 
 Cell["XXXX", "Text",
@@ -190,24 +185,18 @@ Cell[BoxData[GridBox[{
      " "
     }], "TableText"]}
   }]], "DefinitionBox",
- CellChangeTimes->{{3.6094000921272984`*^9, 3.609400237741057*^9}, {
-  3.609400286533133*^9, 3.609400429966531*^9}},
  CellID->2096742444],
 
 Cell["Functions that can be used to customize TeX conversion.", "Caption",
- CellChangeTimes->{{3.609400053335705*^9, 3.609400077513815*^9}},
  CellID->1891092685],
 
 Cell[CellGroupData[{
 
 Cell["Import package:", "MathCaption",
- CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}, {
-  3.609400645775673*^9, 3.609400658204232*^9}},
  CellID->819791414],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.609400573904091*^9, 3.60940058931909*^9}},
  CellLabel->"In[14]:=",
  CellID->287674000]
 }, Open  ]],
@@ -215,7 +204,6 @@ Cell[BoxData[
 Cell[CellGroupData[{
 
 Cell["Define custom TeX formatting for some symbols:", "MathCaption",
- CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}},
  CellID->836781195],
 
 Cell[BoxData[{
@@ -226,7 +214,7 @@ Cell[BoxData[{
      RowBox[{"something", ",", "TeXForm"}], "]"}], "=", 
     RowBox[{
     "TeXVerbatim", "[", "\"\<\\\\macro $1+1$ \\\\command[a=b]{c}\>\"", 
-     "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"Format", "[", 
@@ -235,7 +223,7 @@ Cell[BoxData[{
    RowBox[{"TeXDelimited", "[", 
     RowBox[{"\"\<\\\\left(\>\"", ",", "x", ",", "\"\<\\\\right)\>\"", ",", 
      RowBox[{"\"\<DelimSeparator\>\"", "\[Rule]", "\"\<\>\""}]}], "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{
    RowBox[{"Format", "[", 
@@ -247,14 +235,13 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{"{", 
         RowBox[{"a", "\[Rule]", "b"}], "}"}], ",", "x"}], "}"}]}], "]"}]}], 
-  "\n"}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}], "\n", 
  RowBox[{
   RowBox[{"Format", "[", 
    RowBox[{
     RowBox[{"h", "[", "x__", "]"}], ",", "TeXForm"}], "]"}], ":=", 
   RowBox[{"TeXEnvironment", "[", 
    RowBox[{"\"\<myEnv\>\"", ",", "x"}], "]"}]}]}], "Input",
- CellChangeTimes->{{3.609400511368061*^9, 3.609400519865382*^9}},
  CellLabel->"In[10]:=",
  CellID->2058623809]
 }, Open  ]],
@@ -269,8 +256,6 @@ Cell[TextData[{
   ShowStringCharacters->False],
  " to convert expressions to TeX:"
 }], "MathCaption",
- CellChangeTimes->{{3.609400534806882*^9, 3.609400548573393*^9}, {
-  3.6094006818900967`*^9, 3.609400747949689*^9}},
  CellID->1028391188],
 
 Cell[CellGroupData[{
@@ -286,8 +271,6 @@ Cell[BoxData[
       RowBox[{"3", ",", 
        RowBox[{"g", "[", "2", "]"}]}], "]"}]}], ",", "something"}], "]"}], "//",
    "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609400511368061*^9, 3.609400519865382*^9}, {
-  3.609400761421857*^9, 3.609400772802739*^9}},
  CellLabel->"In[15]:=",
  CellID->2084343758],
 
@@ -298,7 +281,6 @@ Cell["\<\
     \\macro $1+1$ \\command[a=b]{c}
 \\end{myEnv}\
 \>", "Output",
- CellChangeTimes->{3.609400775290262*^9},
  CellLabel->"Out[15]//TeXForm=",
  CellID->1839196167]
 }, Open  ]]
@@ -312,8 +294,6 @@ Cell["More About", "TutorialMoreAboutSection",
 Cell[TextData[ButtonBox["TeX Utilities",
  BaseStyle->"Link",
  ButtonData->"paclet:TeXUtilities/guide/TeXUtilities"]], "TutorialMoreAbout",
- CellChangeTimes->{{3.610182642170095*^9, 3.610182658874107*^9}, {
-  3.6101827010213423`*^9, 3.610182709570943*^9}},
  CellID->375831125]
 }, Open  ]],
 
@@ -326,8 +306,6 @@ Cell[TextData[ButtonBox["TeX Utilities overview",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "RelatedTutorials",
- CellChangeTimes->{{3.610182756066597*^9, 3.6101827973681498`*^9}, 
-   3.6101836132511597`*^9},
  CellID->806871991]
 }, Open  ]],
 
@@ -343,9 +321,10 @@ Cell["XXXX", "TutorialRelatedLinks",
 }, Open  ]]
 },
 WindowSize->{700, 770},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{4, Automatic}, {Automatic, 29}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

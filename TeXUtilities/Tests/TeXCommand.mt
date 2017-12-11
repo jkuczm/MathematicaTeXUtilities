@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`TeXCommand`", {"MUnit`"}]
 
 
-<<TeXUtilities`TeXUtilities`
+<<TeXUtilities`
 
 
 (* ::Section:: *)
@@ -48,6 +48,26 @@ Test[
 	TeXCommand["str", {a, b}] // HoldComplete,
 	TestID -> "two args: String List"
 ]
+Module[{leaked1 = False, leaked2 = False},
+	Test[
+		TeXCommand[Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]],
+		$Failed,
+		Message[TeXCommand::string,
+			1, TeXCommand[leaked1 = True, leaked2 = True]
+		],
+		TestID -> "two args: evaluation leak"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "two args: evaluation leak: first arg leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "two args: evaluation leak: second arg leak"
+	]
+]
 
 
 (* ::Subsection:: *)
@@ -55,7 +75,7 @@ Test[
 
 
 (* ::Subsubsection:: *)
-(*No command argumentss*)
+(*No command arguments*)
 
 
 Test[
@@ -167,6 +187,53 @@ Test[
 	"\\name{\\f{a}}[\\f{b}=\\f{c}]{\\f{d}}"
 	,
 	TestID -> "TeX conversion: \"ArgumentConverter\" option: two values"
+]
+
+
+(* ::Subsubsection:: *)
+(*Evaluation leaks*)
+
+
+Block[
+	{
+		leakedLHS = False, leakedRHS = False,
+		leakedOpt = False, leakedMand = False
+	}
+	,
+	Test[
+		ToString[Unevaluated@TeXCommand["name", {
+			{(leakedLHS = True) -> (leakedRHS = True), leakedOpt = True},
+			leakedMand = True
+		}], TeXForm]
+		,
+		"\
+\\name[\
+\\text{leakedLHS}=\\text{True}=\\text{leakedRHS}=\\text{True},\
+\\text{leakedOpt}=\\text{True}\
+]{\\text{leakedMand}=\\text{True}}"
+		,
+		TestID -> "TeX conversion: evaluation leak"
+	];
+	Test[
+		leakedLHS,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional rule arg LHS leak"
+	];
+	Test[
+		leakedRHS,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional rule arg RHS leak"
+	];
+	Test[
+		leakedOpt,
+		False,
+		TestID -> "TeX conversion: evaluation leak: optional non-rule arg leak"
+	];
+	Test[
+		leakedMand,
+		False,
+		TestID -> "TeX conversion: evaluation leak: mandatory arg leak"
+	]
 ]
 
 

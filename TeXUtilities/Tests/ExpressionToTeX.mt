@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`ExpressionToTeX`", {"MUnit`"}]
 
 
-<<"TeXUtilities`"
+<<TeXUtilities`
 
 
 (* ::Section:: *)
@@ -36,6 +36,19 @@ Block[{a},
 	]
 ]
 
+Block[{leaked = False},
+	Test[
+		Convert`TeX`ExpressionToTeX@Unevaluated[leaked = True],
+		"\\text{leaked}=\\text{True}",
+		TestID -> "No format values: evaluation leak"
+	];
+	Test[
+		leaked,
+		False,
+		TestID -> "No format values: evaluation leak: leaked"
+	]
+]
+
 
 (* ::Subsection:: *)
 (*1 TeXForm format value*)
@@ -58,6 +71,21 @@ Block[{a},
 		Convert`TeX`ExpressionToTeX@a@a,
 		"\\a(\\a)",
 		TestID -> "1 TeXForm format value: nested"
+	]
+]
+
+Block[{leaked = False},
+	Format[HoldPattern@leaked, TeXForm] = TeXVerbatim@"\\leaked";
+	
+	Test[
+		Convert`TeX`ExpressionToTeX@Unevaluated[leaked = True],
+		"\\leaked=\\text{True}",
+		TestID -> "1 TeXForm format value: evaluation leak"
+	];
+	Test[
+		leaked,
+		False,
+		TestID -> "1 TeXForm format value: evaluation leak: leaked"
 	]
 ]
 
@@ -188,7 +216,7 @@ Block[{a, b},
 (*Complicated*)
 
 
-Block[{h, myEnv},
+Module[{h, myEnv},
 	Format[h@x__, TeXForm] :=
 		TeXVerbatim["\\h" <> ("{" <> ToString[#, TeXForm] <> "}" & /@ {x})];
 	Format[myEnv@x__, TeXForm] :=

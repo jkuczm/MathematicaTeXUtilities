@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`TeXDelimited`", {"MUnit`"}]
 
 
-<<TeXUtilities`TeXUtilities`
+<<TeXUtilities`
 
 
 (* ::Section:: *)
@@ -31,6 +31,19 @@ Test[
 	Message[TeXDelimited::argm, TeXDelimited, 1, 2],
 	TestID -> "1 arg: String"
 ]
+Module[{leaked = False},
+	Test[
+		TeXDelimited@Unevaluated[leaked = True],
+		$Failed,
+		Message[TeXDelimited::argm, TeXDelimited, 1, 2],
+		TestID -> "1 arg: evaluation leak"
+	];
+	Test[
+		leaked,
+		False,
+		TestID -> "1 arg: evaluation leak: leak"
+	]
+]
 
 
 Test[
@@ -50,6 +63,26 @@ Test[
 	TeXDelimited["str1", "str2"] // HoldComplete,
 	TestID -> "2 args: Strings"
 ]
+Module[{leaked1 = False, leaked2 = False},
+	Test[
+		TeXDelimited[Unevaluated[leaked1 = True], Unevaluated[leaked2 = True]],
+		$Failed,
+		Message[TeXDelimited::string,
+			1, TeXDelimited[leaked1 = True, leaked2 = True]
+		],
+		TestID -> "2 args: evaluation leak"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "2 args: evaluation leak: first arg leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "2 args: evaluation leak: second arg leak"
+	]
+]
 
 
 Test[
@@ -68,6 +101,28 @@ Test[
 	TeXDelimited["str1", a, "str2"] // HoldComplete@#&,
 	TeXDelimited["str1", a, "str2"] // HoldComplete,
 	TestID -> "3 args: String Symbol String"
+]
+Module[{leaked2 = False, leaked3 = False},
+	Test[
+		TeXDelimited["str",
+			Unevaluated[leaked2 = True], Unevaluated[leaked3 = True]
+		],
+		$Failed,
+		Message[TeXDelimited::string,
+			3, TeXDelimited["str", leaked2 = True, leaked3 = True]
+		],
+		TestID -> "3 args: evaluation leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "3 args: evaluation leak: second arg leak"
+	];
+	Test[
+		leaked3,
+		False,
+		TestID -> "3 args: evaluation leak: third arg leak"
+	]
 ]
 
 
@@ -299,6 +354,39 @@ Test[
 \\right"
 	,
 	TestID -> "TeX conversion: all options"
+]
+
+
+(* ::Subsubsection:: *)
+(*Evaluation leaks*)
+
+
+Block[{leaked1 = False, leaked2 = False},
+	Test[
+		ToString[Unevaluated@TeXDelimited[
+			"\\left",
+			leaked1 = True,
+			leaked2 = True,
+			"\\right"
+		], TeXForm]
+		,
+		"\
+\\left
+    \\text{leaked1}=\\text{True}
+    \\text{leaked2}=\\text{True}
+\\right",
+		TestID -> "TeX conversion: evaluation leak"
+	];
+	Test[
+		leaked1,
+		False,
+		TestID -> "TeX conversion: evaluation leak: first body expr leak"
+	];
+	Test[
+		leaked2,
+		False,
+		TestID -> "TeX conversion: evaluation leak: second body expr leak"
+	]
 ]
 
 

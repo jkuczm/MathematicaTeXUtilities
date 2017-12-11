@@ -33,7 +33,6 @@ Cell["TeXUtilities`", "Categorization",
  CellID->468444828],
 
 Cell["TeXUtilities/guide/TeXUtilities", "Categorization",
- CellChangeTimes->{{3.6101843901730433`*^9, 3.6101843925124817`*^9}},
  CellLabel->"URI"]
 }, Closed]],
 
@@ -91,8 +90,6 @@ Cell["XXXX", "Details",
 Cell[CellGroupData[{
 
 Cell["TeX Utilities", "GuideTitle",
- CellChangeTimes->{{3.609402207189868*^9, 3.609402207418435*^9}, {
-  3.6101822555860863`*^9, 3.610182259492381*^9}},
  CellID->942062912],
 
 Cell[TextData[{
@@ -109,9 +106,6 @@ customize conversion of expressions to ",
     SingleLetterItalics->False], TraditionalForm]]],
  "."
 }], "GuideAbstract",
- CellChangeTimes->{
-  3.609401245114415*^9, {3.6101822940799303`*^9, 3.610182421083585*^9}, {
-   3.6101845726034517`*^9, 3.61018457279292*^9}},
  CellID->2001916300]
 }, Open  ]],
 
@@ -137,8 +131,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  "  returns its argument verbatim"
 }], "GuideText",
- CellChangeTimes->{{3.609401165050495*^9, 3.609401168753367*^9}, 
-   3.609401204748136*^9},
  CellID->203374175],
 
 Cell[TextData[{
@@ -167,8 +159,6 @@ Cell[TextData[{
       BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
     SingleLetterItalics->False], TraditionalForm]]]
 }], "GuideText",
- CellChangeTimes->{{3.6094011715504913`*^9, 3.609401175564969*^9}, 
-   3.609401212370141*^9},
  CellID->1463276848],
 
 Cell[TextData[{
@@ -198,8 +188,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  " command possibly with arguments"
 }], "GuideText",
- CellChangeTimes->{{3.6094011778700323`*^9, 3.609401189249343*^9}, 
-   3.609401222022633*^9},
  CellID->719544643],
 
 Cell[TextData[{
@@ -228,8 +216,6 @@ Cell[TextData[{
       BoxMargins->{{-0.3, 0}, {0, 0}}], "X"}], "TR",
     SingleLetterItalics->False], TraditionalForm]]]
 }], "GuideText",
- CellChangeTimes->{{3.6094011916457357`*^9, 3.609401196441226*^9}, 
-   3.60940122789071*^9},
  CellID->192362843],
 
 Cell[CellGroupData[{
@@ -251,16 +237,12 @@ Cell[TextData[ButtonBox["Customizing TeX conversion",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/CustomizingTeXConversion"]], "GuideTutorial",
- CellChangeTimes->{
-  3.6094012559459867`*^9, {3.609401314857707*^9, 3.6094013149244337`*^9}},
  CellID->806871991],
 
 Cell[TextData[ButtonBox["TeX Utilities overview",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "GuideTutorial",
- CellChangeTimes->{{3.610182452881237*^9, 3.610182471261407*^9}, {
-   3.610182510141745*^9, 3.610182512745434*^9}, 3.610183581923978*^9},
  CellID->1885805579]
 }, Open  ]],
 
@@ -280,9 +262,10 @@ Cell["Related Links", "GuideRelatedLinksSection",
  CellID->415694148]
 },
 WindowSize->{700, 770},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{4, Automatic}, {Automatic, 29}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "GuidePageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

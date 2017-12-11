@@ -85,22 +85,213 @@ ClearAll@"`*"
 
 
 (* ::Subsection:: *)
-(*Private symbols usage*)
+(*Private symbols*)
+
+
+(* ::Subsubsection:: *)
+(*heldToTeXString*)
+
+
+heldToTeXString::usage =
+"\
+heldToTeXString[expr]\
+returns string corresponding to TeX form of given expression expr. \
+expr is not evaluated."
+
+
+heldToTeXString =
+	Function[Null, ToString[Unevaluated@#, TeXForm], HoldAllComplete]
+
+
+(* ::Subsubsection:: *)
+(*heldOptionQ*)
+
+
+heldOptionQ::usage =
+"\
+heldOptionQ[e]\
+returns True if e can be considered an option or list of options, and False \
+otherwise. e is not evaluated."
+
+
+heldOptionQ = Function[Null, OptionQ@Unevaluated@#, HoldAllComplete]
+
+
+(* ::Subsubsection:: *)
+(*teXCommandArgument*)
 
 
 teXCommandArgument::usage =
 "\
-teXCommandArgument[arg, argConverter]\
+teXCommandArgument[argConverter][arg]\
 returns string representing argument of TeX command i.e. arg convetred to TeX \
 using argConverter, wrapped in curly bracket.\
 
-teXCommandArgument[{opt1, opt2 -> val2, ...}, argConverter]\
+teXCommandArgument[argConverter][{opt1, opt2 -> val2, ...}]\
 returns string representing list of optional arguments of TeX command i.e. \
 \"[opt1,opt2=val2,...]\" with opti and vali converted to TeX using \
 argConverter."
 
 
+teXCommandArgument = Function[argConverter, Function[Null,
+	If[ListQ@Unevaluated@#,
+		StringJoin["[",
+			Riffle[
+				Replace[Unevaluated@#,
+					{
+						(Rule | RuleDelayed)[argName_, value_] :>
+							argConverter@argName <> "=" <> argConverter@value,
+						arg_ :> argConverter@arg
+					},
+					{1}
+				],
+				","
+			],
+		"]"]
+	(* else *),
+		"{" <> argConverter@# <> "}"
+	],
+	HoldAllComplete
+]]
+
+
+(* ::Subsubsection:: *)
+(*teXRelevantQ*)
+
+
+teXRelevantQ::usage =
+"\
+teXRelevantQ[sym] \
+returns True if given symbol sym has TeXForm format values and is not Locked, \
+returns False otherwise."
+
+
+teXRelevantQ = Function[Null,
+	Not@MemberQ[Attributes@Unevaluated@#, Locked] &&
+		MemberQ[FormatValues@Unevaluated@#,
+			_[lhs_ /; Not@FreeQ[lhs, HoldPattern@Format[_, TeXForm]] , _]
+		],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*getTeXRelevantSymbols*)
+
+
+getTeXRelevantSymbols::usage =
+"\
+getTeXRelevantSymbols[expr] \
+returns HoldComplete[sym1, sym2, ...] where symi are non-Locked symbols with \
+TeXForm format values."
+
+
+getTeXRelevantSymbols = Function[Null,
+	HoldComplete @@ Union @@ Cases[
+		Unevaluated@#,
+		s : Except[HoldPattern@Symbol@___, _Symbol]?teXRelevantQ :>
+			HoldComplete@s
+		,
+		{0, Infinity},
+		Heads -> True
+	],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*teXToTraditionalFormat*)
+
+
+teXToTraditionalFormat::usage =
+"\
+teXToTraditionalFormat[sym] \
+replaces TeXForm format values, of given symbol sym, with TraditionalForm \
+format values."
+
+
+teXToTraditionalFormat = Function[Null,
+	FormatValues@Unevaluated@# = Replace[FormatValues@Unevaluated@#,
+		h_[lhs_ /; Not@FreeQ[lhs, HoldPattern@Format[_, TeXForm]], rhs_] :> h[
+			lhs /. HoldPattern@Format[x_, TeXForm] :>
+				MakeBoxes[x, TraditionalForm],
+			Format[rhs, TraditionalForm]
+		],
+		{1}
+	],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*expressionToTeX*)
+
+
+expressionToTeX::usage =
+"\
+expressionToTeX[arg1, arg2, ...] \
+returns same result as Convert`TeX`ExpressionToTeX[arg1, arg2, ...] with down \
+values not modified by this package."
+
+
+expressionToTeX // Attributes = HoldAllComplete
+
+
+(* ::Subsubsection:: *)
+(*$expressionToTeXDV*)
+
+
+$expressionToTeXDV::usage =
+"\
+$expressionToTeXDV \
+is a down value for Convert`TeX`ExpressionToTeX, calling original \
+Convert`TeX`ExpressionToTeX down value, except this one, in environment with \
+TeXForm format values, of symbols from first argument, locally replaced with \
+TraditionalForm format values."
+
+
+$expressionToTeXDV = HoldPattern@Convert`TeX`ExpressionToTeX[expr_, rest___] :>
+	Replace[getTeXRelevantSymbols@expr, HoldComplete@syms___ :>
+		Internal`InheritedBlock[{expressionToTeX, syms},
+			Unprotect@{syms};
+			Scan[teXToTraditionalFormat, Unevaluated@{syms}];
+			expressionToTeX // DownValues = DeleteCases[
+				DownValues@Convert`TeX`ExpressionToTeX,
+				Verbatim@$expressionToTeXDV
+			] /. Convert`TeX`ExpressionToTeX -> expressionToTeX;
+			expressionToTeX[expr, rest]
+		]
+	]
+
+
 (* ::Subsection:: *)
+(*ExpressionToTeX patch*)
+
+
+(* Evaluate symbol to load necessary contexts. *)
+Convert`TeX`ExpressionToTeX
+
+
+With[
+	{
+		protected = Unprotect@Convert`TeX`ExpressionToTeX,
+		dv = DownValues@Convert`TeX`ExpressionToTeX
+	},
+	If[dv === {} || First@dv =!= $expressionToTeXDV,
+		Convert`TeX`ExpressionToTeX // DownValues = Prepend[
+			DeleteCases[dv, Verbatim@$expressionToTeXDV],
+			$expressionToTeXDV
+		]
+	];
+	Protect@protected
+]
+
+
+(* ::Subsection:: *)
+(*Public symbols*)
+
+
+(* ::Subsubsection:: *)
 (*TeXVerbatim*)
 
 
@@ -109,7 +300,7 @@ TeXVerbatim[arg : Except@_String] := (
 	$Failed
 )
 
-TeXVerbatim@args___ := With[{argsNo = Length@{args}},
+TeXVerbatim@args___ := With[{argsNo = Length@HoldComplete@args},
 	(
 		Message[TeXVerbatim::argx, HoldForm@TeXVerbatim, HoldForm@argsNo];
 		$Failed
@@ -126,12 +317,12 @@ System`Convert`TeXFormDump`maketex@RowBox@{
 	ToExpression@arg
 
 
-(* ::Subsection:: *)
+(* ::Subsubsection:: *)
 (*TeXDelimited*)
 
 
 TeXDelimited // Options = {
-	"BodyConverter" -> (ToString[#, TeXForm]&),
+	"BodyConverter" -> heldToTeXString,
 	"BodySeparator" -> "\n",
 	"DelimSeparator" -> "\n",
 	"Indentation" -> "    "
@@ -140,7 +331,9 @@ TeXDelimited // Options = {
 
 TeXDelimited[arg : Repeated[_, {0, 1}]] := (
 	Message[TeXDelimited::argm,
-		HoldForm@TeXDelimited, HoldForm@Evaluate@Length@{arg}, HoldForm@2
+		HoldForm@TeXDelimited,
+		HoldForm@Evaluate@Length@HoldComplete@arg,
+		HoldForm@2
 	];
 	$Failed
 )
@@ -153,13 +346,13 @@ TeXDelimited[start : Except@_String, rest__] := (
 )
 
 TeXDelimited[
-	rest__,
-	end : Except[_String | _?OptionQ],
+	most__,
+	end : Except[_String | _?heldOptionQ],
 	opts : Longest@OptionsPattern[]
 ] := (
 	Message[TeXDelimited::string,
-		HoldForm@Evaluate[Length@{rest} + 1],
-		HoldForm@TeXDelimited[rest, end, opts]
+		HoldForm@Evaluate[Length@HoldComplete@most + 1],
+		HoldForm@TeXDelimited[most, end, opts]
 	];
 	$Failed
 )
@@ -177,8 +370,8 @@ TeXDelimited /: MakeBoxes[
 			start,
 			StringReplace[
 				StringJoin[
-					If[Length@{body} > 0, delSep, ""],
-					Riffle[bodyConv /@ {body}, bodySep]
+					If[Length@HoldComplete@body > 0, delSep, ""],
+					Riffle[bodyConv /@ Unevaluated@{body}, bodySep]
 				],
 				"\n" -> "\n" <> indent
 			],
@@ -191,32 +384,11 @@ TeXDelimited /: MakeBoxes[
 ]
 
 
-(* ::Subsection:: *)
-(*teXCommandArgument*)
-
-
-teXCommandArgument[optArgs_List, argConverter_] := StringJoin["[",
-	Riffle[
-		Replace[optArgs,
-			{
-				(Rule | RuleDelayed)[argName_, value_] :>
-					argConverter@argName <> "=" <> argConverter@value,
-				arg_ :> argConverter@arg
-			},
-			{1}
-		],
-		","
-	],
-"]"]
-	
-teXCommandArgument[arg_, argConverter_] := "{" <> argConverter@arg <> "}"
-
-
-(* ::Subsection:: *)
+(* ::Subsubsection:: *)
 (*TeXCommand*)
 
 
-TeXCommand // Options = {"ArgumentConverter" -> (ToString[#, TeXForm]&)}
+TeXCommand // Options = {"ArgumentConverter" -> heldToTeXString}
 
 
 TeXCommand[] := (
@@ -240,17 +412,17 @@ TeXCommand[name_, args : Except@_List, rest___] := (
 TeXCommand /: MakeBoxes[
 	TeXCommand[name_String, args_List : {}, opts : OptionsPattern[]],
 	TraditionalForm
-] := With[{argConv = OptionValue[TeXCommand, {opts}, "ArgumentConverter"]},
-	ToBoxes[
-		TeXVerbatim@StringJoin["\\", name,
-			teXCommandArgument[#, argConv]& /@ args
-		],
-		TraditionalForm
-	]
+] := ToBoxes[
+	TeXVerbatim@StringJoin["\\", name,
+		teXCommandArgument@OptionValue[
+			TeXCommand, {opts}, "ArgumentConverter"
+		] /@ Unevaluated@args
+	],
+	TraditionalForm
 ]
 
 
-(* ::Subsection:: *)
+(* ::Subsubsection:: *)
 (*TeXEnvironment*)
 
 
@@ -275,29 +447,24 @@ TeXEnvironment[name : Except[_String | {_String, ___}], rest___] := (
 	$Failed
 )
 
-TeXEnvironment[name_String, rest___] := TeXEnvironment[{name}, rest]
-
 
 TeXEnvironment /: MakeBoxes[
 	TeXEnvironment[
-		{name_String, args_List : {}, opts : OptionsPattern[]},
+		{name_String, Repeated[{args___}, {0, 1}], opts : OptionsPattern[]} |
+			name_String,
 		body___
 	]
 	,
 	TraditionalForm
-] := With[{argConv = OptionValue[TeXEnvironment, {opts}, "ArgumentConverter"]},
-	ToBoxes[
-		TeXDelimited[
-			StringJoin[
-				"\\begin{", name, "}",
-				teXCommandArgument[#, argConv]& /@ args
-			],
-			body,
-			"\\end{" <> name <> "}",
-			FilterRules[{opts, Options@TeXEnvironment}, Options@TeXDelimited]
-		],
-		TraditionalForm
-	]
+] := MakeBoxes[TeXDelimited[#1, body, #2, #3], TraditionalForm]&[
+	StringJoin[
+		"\\begin{", name, "}",
+		teXCommandArgument@OptionValue[
+			TeXEnvironment, {opts}, "ArgumentConverter"
+		] /@ Unevaluated@{args}
+	],
+	"\\end{" <> name <> "}",
+	FilterRules[{opts, Options@TeXEnvironment}, Options@TeXDelimited]
 ]
 
 

@@ -86,7 +86,7 @@ To load TeXUtilities package evaluate: ``Needs["TeXUtilities`"]``.
 ### Manual installation
 
 1. Download latest released
-   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
+   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.1/TeXUtilities.zip)
    file.
 
 2. Extract downloaded `TeXUtilities.zip` to any directory which is on
@@ -125,7 +125,7 @@ There's also
 ## Compatibility
 
 This package contains extensive
-[automatic test suite](https://github.com/jkuczm/MathematicaTeXUtilities/tree/master/PatternUtilities/Tests).
+[automatic test suite](https://github.com/jkuczm/MathematicaTeXUtilities/tree/master/TeXUtilities/Tests).
 Package is tested with all *Mathematica* major and minor versions from 8.0 to
 11.0 on Linux. Since it doesn't contain any OS specific code it should work
 with above versions on all operating systems.

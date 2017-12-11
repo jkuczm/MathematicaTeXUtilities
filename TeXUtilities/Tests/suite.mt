@@ -9,7 +9,5 @@ TestSuite[{
 	,
 	"TeXEnvironment.mt"
 	,
-	"applyTeXFormFormat.mt"
-	,
 	"ExpressionToTeX.mt"
 }]
