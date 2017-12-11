@@ -4,10 +4,10 @@
 (*SetUp*)
 
 
-Begin["TestEnvironment`TeXEnvironment`"];
+BeginPackage["TeXUtilities`Tests`TeXEnvironment`", {"MUnit`"}]
 
 
-Get["TeXUtilities`TeXUtilities`"];
+<<TeXUtilities`TeXUtilities`
 
 
 (* ::Section:: *)
@@ -21,62 +21,53 @@ Get["TeXUtilities`TeXUtilities`"];
 Test[
 	TeXEnvironment[],
 	$Failed,
-	{HoldForm @ Message[TeXEnvironment::argm, HoldForm[TeXEnvironment], 0, 1]},
+	Message[TeXEnvironment::argm, TeXEnvironment, 0, 1],
 	TestID -> "no args"
-];
+]
 
 Test[
-	TeXEnvironment[a],
+	TeXEnvironment@a,
 	$Failed,
-	{HoldForm @ Message[
-		TeXEnvironment::StrOrListWithStr,
-		HoldForm[TeXEnvironment[a]]
-	]},
+	Message[TeXEnvironment::StrOrListWithStr, TeXEnvironment@a],
 	TestID -> "one arg: Symbol"
-];
-TestMatch[
-	TeXEnvironment["str"],
-	HoldPattern[TeXEnvironment[{"str"}]],
+]
+Test[
+	TeXEnvironment@"str" // HoldComplete@#&,
+	TeXEnvironment@{"str"} // HoldComplete,
 	TestID -> "one arg: String"
-];
+]
 Test[
-	TeXEnvironment[{}],
+	TeXEnvironment@{},
 	$Failed,
-	{HoldForm @ Message[
-		TeXEnvironment::StrOrListWithStr,
-		HoldForm[TeXEnvironment[{}]]
-	]},
+	Message[TeXEnvironment::StrOrListWithStr, TeXEnvironment@{}],
 	TestID -> "one arg: empty List"
-];
+]
 Test[
-	TeXEnvironment[{a}],
+	TeXEnvironment@{a},
 	$Failed,
-	{HoldForm @ Message[
-		TeXEnvironment::StrOrListWithStr,
-		HoldForm[TeXEnvironment[{a}]]
-	]},
+	Message[TeXEnvironment::StrOrListWithStr, TeXEnvironment@{a}],
 	TestID -> "one arg: List with Symbol"
-];
-TestMatch[
-	TeXEnvironment[{"str"}],
-	HoldPattern[TeXEnvironment[{"str"}]],
+]
+Test[
+	TeXEnvironment@{"str"} // HoldComplete@#&,
+	TeXEnvironment@{"str"} // HoldComplete,
 	TestID -> "one arg: List with String"
-];
+]
 
-TestMatch[
-	TeXEnvironment["str", a],
-	HoldPattern[TeXEnvironment[{"str"}, a]],
+Test[
+	TeXEnvironment["str", a] // HoldComplete@#&,
+	TeXEnvironment[{"str"}, a] // HoldComplete,
 	TestID -> "two args: String Symbol"
-];
-TestMatch[
-	TeXEnvironment["str", a, b],
-	HoldPattern[TeXEnvironment[{"str"}, a, b]],
+]
+Test[
+	TeXEnvironment["str", a, b] // HoldComplete@#&,
+	TeXEnvironment[{"str"}, a, b] // HoldComplete,
 	TestID -> "three args: String Symbol Symbol"
-];
+]
 
 
 (* ::Subsection:: *)
-(*TeX converion*)
+(*TeX conversion*)
 
 
 (* ::Subsubsection:: *)
@@ -91,8 +82,8 @@ Test[
     \\text{body}
 \\end{name}"
 	,
-	TestID -> "TeX converion: name not in List"
-];
+	TestID -> "TeX conversion: name not in List"
+]
 
 Test[
 	ToString[
@@ -105,8 +96,8 @@ Test[
     \\text{body}
 \\end{name}"
 	,
-	TestID -> "TeX converion: command args"
-];
+	TestID -> "TeX conversion: command args"
+]
 
 Test[
 	ToString[TeXEnvironment[{"name"}, "str", sym], TeXForm]
@@ -117,8 +108,8 @@ Test[
     \\text{sym}
 \\end{name}"
 	,
-	TestID -> "TeX converion: 2 body expressions"
-];
+	TestID -> "TeX conversion: 2 body expressions"
+]
 
 
 (* ::Subsubsection:: *)
@@ -141,8 +132,8 @@ Test[
     \\end{env2}
 \\end{env1}"
 	,
-	TestID -> "TeX converion: nested: 2 levels"
-];
+	TestID -> "TeX conversion: nested: 2 levels"
+]
 Test[
 	ToString[
 		TeXEnvironment[{"env1"},
@@ -171,8 +162,8 @@ Test[
     \\text{expr4}
 \\end{env1}"
 	,
-	TestID -> "TeX converion: nested: 3 levels with other expressions"
-];
+	TestID -> "TeX conversion: nested: 3 levels with other expressions"
+]
 
 
 (* ::Subsubsection:: *)
@@ -194,8 +185,8 @@ Test[
     \\text{body}
 \\end{name}"
 	,
-	TestID -> "TeX converion: \"ArgumentConverter\" option: ToString"
-];
+	TestID -> "TeX conversion: \"ArgumentConverter\" option: ToString"
+]
 
 Test[
 	ToString[
@@ -212,8 +203,8 @@ Test[
     body
 \\end{name}"
 	,
-	TestID -> "TeX converion: \"BodyConverter\" option: ToString"
-];
+	TestID -> "TeX conversion: \"BodyConverter\" option: ToString"
+]
 
 Test[
 	ToString[
@@ -232,8 +223,8 @@ Test[
     \\text{expr1} \\text{expr2} \\text{expr3}
 \\end{name}"
 	,
-	TestID -> "TeX converion: \"BodySeparator\" option: space"
-];
+	TestID -> "TeX conversion: \"BodySeparator\" option: space"
+]
 
 Test[
 	ToString[
@@ -252,8 +243,8 @@ Test[
     \\text{expr2}
     \\text{expr3} \\end{name}"
 	,
-	TestID -> "TeX converion: \"DelimSeparator\" option: space"
-];
+	TestID -> "TeX conversion: \"DelimSeparator\" option: space"
+]
 
 Test[
 	ToString[
@@ -276,16 +267,17 @@ Test[
 \t\\text{expr3}
 \\end{env1}"
 	,
-	TestID -> "TeX converion: \"Indentation\" option: \t, two spaces"
-];
+	TestID -> "TeX conversion: \"Indentation\" option: \t, two spaces"
+]
 
 
 (* ::Section:: *)
 (*TearDown*)
 
 
-Unprotect["`*"];
-Quiet[Remove["`*"], {Remove::rmnsm}];
+Unprotect["`*", "`*`*"]
+Quiet[Remove["`*", "`*`*"], {Remove::rmnsm}]
 
 
-End[];
+EndPackage[]
+$ContextPath = Rest@$ContextPath
