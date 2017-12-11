@@ -158,6 +158,16 @@ Test[
 	"\\name[a=$b$,c]{\\d}",
 	TestID -> "TeX conversion: \"ArgumentConverter\" option: ToString"
 ]
+Test[
+	ToString[TeXCommand["name", {a, {b -> c}, d},
+		"ArgumentConverter" -> ("\\f{" <> ToString@# <> "}"&),
+		"ArgumentConverter" -> ToString
+	], TeXForm]
+	,
+	"\\name{\\f{a}}[\\f{b}=\\f{c}]{\\f{d}}"
+	,
+	TestID -> "TeX conversion: \"ArgumentConverter\" option: two values"
+]
 
 
 (* ::Section:: *)

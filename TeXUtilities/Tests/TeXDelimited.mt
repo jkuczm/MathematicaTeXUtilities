@@ -273,6 +273,34 @@ Test[
 	TestID -> "TeX conversion: \"Indentation\" option: \t, two spaces"
 ]
 
+Test[
+	ToString[
+		TeXDelimited[
+			"\\left",
+			"expr1",
+			"expr2",
+			"expr3",
+			"expr4",
+			"\\right",
+			"BodyConverter" -> ("\\macro{" <> ToString@# <> "}" &),
+			"BodySeparator" -> " \\, ",
+			"DelimSeparator" -> "\n\n",
+			"Indentation" -> "  "
+		]
+		,
+		TeXForm
+	]
+	,
+	"\
+\\left
+  
+  \\macro{expr1} \\, \\macro{expr2} \\, \\macro{expr3} \\, \\macro{expr4}
+
+\\right"
+	,
+	TestID -> "TeX conversion: all options"
+]
+
 
 (* ::Section:: *)
 (*TearDown*)

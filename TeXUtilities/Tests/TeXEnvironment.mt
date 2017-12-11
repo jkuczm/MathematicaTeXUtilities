@@ -270,6 +270,35 @@ Test[
 	TestID -> "TeX conversion: \"Indentation\" option: \t, two spaces"
 ]
 
+Test[
+	ToString[
+		TeXEnvironment[
+			{"myEnv", {{x -> y}, z},
+				"ArgumentConverter" -> ("\\arg{" <> ToString@# <> "}" &),
+				"BodyConverter" -> ("\\body{" <> ToString@# <> "}" &),
+				"BodySeparator" -> " \\, ",
+				"DelimSeparator" -> "\n\n",
+				"Indentation" -> "  "
+			}, 
+			"expr1",
+			"expr2",
+			"expr3",
+			"expr4"
+		]
+		,
+		TeXForm
+	]
+	,
+	"\
+\\begin{myEnv}[\\arg{x}=\\arg{y}]{\\arg{z}}
+  
+  \\body{expr1} \\, \\body{expr2} \\, \\body{expr3} \\, \\body{expr4}
+
+\\end{myEnv}"
+	,
+	TestID -> "TeX conversion: all options"
+]
+
 
 (* ::Section:: *)
 (*TearDown*)
