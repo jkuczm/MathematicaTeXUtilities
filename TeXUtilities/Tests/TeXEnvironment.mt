@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`TeXEnvironment`", {"MUnit`"}]
 
 
-<<TeXUtilities`TeXUtilities`
+<<TeXUtilities`
 
 
 (* ::Section:: *)

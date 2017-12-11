@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`teXCommandArgument`", {"MUnit`"}]
 
 
-<<TeXUtilities`TeXUtilities`
+<<TeXUtilities`
 AppendTo[$ContextPath, "TeXUtilities`Private`"]
 
 

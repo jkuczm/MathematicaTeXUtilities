@@ -155,6 +155,138 @@ teXCommandArgument = Function[argConverter, Function[Null,
 ]]
 
 
+(* ::Subsubsection:: *)
+(*teXRelevantQ*)
+
+
+teXRelevantQ::usage =
+"\
+teXRelevantQ[sym] \
+returns True if given symbol sym has TeXForm format values and is not Locked, \
+returns False otherwise."
+
+
+teXRelevantQ = Function[Null,
+	Not@MemberQ[Attributes@Unevaluated@#, Locked] &&
+		MemberQ[FormatValues@Unevaluated@#,
+			_[lhs_ /; Not@FreeQ[lhs, HoldPattern@Format[_, TeXForm]] , _]
+		],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*getTeXRelevantSymbols*)
+
+
+getTeXRelevantSymbols::usage =
+"\
+getTeXRelevantSymbols[expr] \
+returns HoldComplete[sym1, sym2, ...] where symi are non-Locked symbols with \
+TeXForm format values."
+
+
+getTeXRelevantSymbols = Function[Null,
+	HoldComplete @@ Union @@ Cases[
+		Unevaluated@#,
+		s : Except[HoldPattern@Symbol@___, _Symbol]?teXRelevantQ :>
+			HoldComplete@s
+		,
+		{0, Infinity},
+		Heads -> True
+	],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*teXToTraditionalFormat*)
+
+
+teXToTraditionalFormat::usage =
+"\
+teXToTraditionalFormat[sym] \
+replaces TeXForm format values, of given symbol sym, with TraditionalForm \
+format values."
+
+
+teXToTraditionalFormat = Function[Null,
+	FormatValues@Unevaluated@# = Replace[FormatValues@Unevaluated@#,
+		h_[lhs_ /; Not@FreeQ[lhs, HoldPattern@Format[_, TeXForm]], rhs_] :> h[
+			lhs /. HoldPattern@Format[x_, TeXForm] :>
+				MakeBoxes[x, TraditionalForm],
+			Format[rhs, TraditionalForm]
+		],
+		{1}
+	],
+	HoldAllComplete
+]
+
+
+(* ::Subsubsection:: *)
+(*expressionToTeX*)
+
+
+expressionToTeX::usage =
+"\
+expressionToTeX[arg1, arg2, ...] \
+returns same result as Convert`TeX`ExpressionToTeX[arg1, arg2, ...] with down \
+values not modified by this package."
+
+
+expressionToTeX // Attributes = HoldAllComplete
+
+
+(* ::Subsubsection:: *)
+(*$expressionToTeXDV*)
+
+
+$expressionToTeXDV::usage =
+"\
+$expressionToTeXDV \
+is a down value for Convert`TeX`ExpressionToTeX, calling original \
+Convert`TeX`ExpressionToTeX down value, except this one, in environment with \
+TeXForm format values, of symbols from first argument, locally replaced with \
+TraditionalForm format values."
+
+
+$expressionToTeXDV = HoldPattern@Convert`TeX`ExpressionToTeX[expr_, rest___] :>
+	Replace[getTeXRelevantSymbols@expr, HoldComplete@syms___ :>
+		Internal`InheritedBlock[{expressionToTeX, syms},
+			Unprotect@{syms};
+			Scan[teXToTraditionalFormat, Unevaluated@{syms}];
+			expressionToTeX // DownValues = DeleteCases[
+				DownValues@Convert`TeX`ExpressionToTeX,
+				Verbatim@$expressionToTeXDV
+			] /. Convert`TeX`ExpressionToTeX -> expressionToTeX;
+			expressionToTeX[expr, rest]
+		]
+	]
+
+
+(* ::Subsection:: *)
+(*ExpressionToTeX patch*)
+
+
+(* Evaluate symbol to load necessary contexts. *)
+Convert`TeX`ExpressionToTeX
+
+
+With[
+	{
+		protected = Unprotect@Convert`TeX`ExpressionToTeX,
+		dv = DownValues@Convert`TeX`ExpressionToTeX
+	},
+	If[dv === {} || First@dv =!= $expressionToTeXDV,
+		Convert`TeX`ExpressionToTeX // DownValues = Prepend[
+			DeleteCases[dv, Verbatim@$expressionToTeXDV],
+			$expressionToTeXDV
+		]
+	];
+	Protect@protected
+]
+
+
 (* ::Subsection:: *)
 (*Public symbols*)
 

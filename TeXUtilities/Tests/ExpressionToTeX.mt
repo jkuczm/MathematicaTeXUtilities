@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`ExpressionToTeX`", {"MUnit`"}]
 
 
-<<"TeXUtilities`"
+<<TeXUtilities`
 
 
 (* ::Section:: *)

@@ -7,7 +7,7 @@
 BeginPackage["TeXUtilities`Tests`TeXVerbatim`", {"MUnit`"}]
 
 
-<<TeXUtilities`TeXUtilities`
+<<TeXUtilities`
 
 
 (* ::Section:: *)
