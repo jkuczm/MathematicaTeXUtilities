@@ -454,11 +454,12 @@ Cell[BoxData[
    "\"\<\\\\left(\>\"", ",", "\"\<str\>\"", ",", "sym", ",", 
     "\"\<\\\\right)\>\"", ",", 
     RowBox[{"\"\<BodyConverter\>\"", "\[Rule]", 
-     RowBox[{"(", 
-      RowBox[{
+     RowBox[{"Function", "[", 
+      RowBox[{",", 
        RowBox[{"ToString", "[", 
-        RowBox[{"#", ",", "TeXForm"}], "]"}], "&"}], ")"}]}]}], "]"}], "//", 
-  "TeXForm"}]], "Input",
+        RowBox[{
+         RowBox[{"Unevaluated", "@", "#"}], ",", "TeXForm"}], "]"}], ",", 
+       "HoldAllComplete"}], "]"}]}]}], "]"}], "//", "TeXForm"}]], "Input",
  CellLabel->"In[1]:=",
  CellID->671180129],
 
