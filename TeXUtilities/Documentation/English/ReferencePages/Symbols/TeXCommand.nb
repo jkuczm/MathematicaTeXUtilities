@@ -258,14 +258,7 @@ Cell[TextData[{
  Cell[BoxData["\[Ellipsis]"], "InlineFormula",
   ShowStringCharacters->False],
  ". "
-}], "Usage",
- CellChangeTimes->{{3.609340259461516*^9, 3.609340260120801*^9}, {
-   3.6093546434694977`*^9, 3.6093547798236*^9}, {3.609354822433916*^9, 
-   3.60935486164034*^9}, {3.609355207344079*^9, 3.609355523681258*^9}, 
-   3.609355606561653*^9, {3.609355954552918*^9, 3.609355960704936*^9}, {
-   3.609355993859209*^9, 3.609356073570594*^9}, {3.609393486548666*^9, 
-   3.609393587213016*^9}, {3.609393636203949*^9, 3.609393759555851*^9}, {
-   3.609393947944771*^9, 3.609393964132637*^9}}],
+}], "Usage"],
 
 Cell["The following options can be given: ", "Notes"],
 
@@ -299,9 +292,7 @@ values, to ",
         SingleLetterItalics->False], TraditionalForm]]],
      ". This function should accept one argument and return a string"
     }], "TableText"]}
-  }]], "3ColumnTableMod",
- CellChangeTimes->{{3.609354453084193*^9, 3.609354453085925*^9}, {
-  3.60935555253607*^9, 3.6093555946723957`*^9}}]
+  }]], "3ColumnTableMod"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -313,15 +304,12 @@ Cell[TextData[ButtonBox["Customizing TeX conversion",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/CustomizingTeXConversion"]], "Tutorials",
- CellChangeTimes->{{3.6101833910276747`*^9, 3.610183463782742*^9}},
  CellID->341631938],
 
 Cell[TextData[ButtonBox["TeX Utilities overview",
  BaseStyle->"Link",
  ButtonData->
   "paclet:TeXUtilities/tutorial/TeXUtilitiesOverview"]], "Tutorials",
- CellChangeTimes->{{3.6101833910276747`*^9, 3.6101833953827553`*^9}, {
-  3.6101834672185163`*^9, 3.6101834987320747`*^9}},
  CellID->434404830]
 }, Open  ]],
 
@@ -364,9 +352,6 @@ Cell[TextData[{
    BaseStyle->"Link",
    ButtonData->"paclet:TeXUtilities/ref/TeXEnvironment"]], "InlineFormula"]
 }], "SeeAlso",
- CellChangeTimes->{
-  3.609341131736752*^9, 3.609341748641223*^9, {3.6093561015422277`*^9, 
-   3.609356105321467*^9}},
  CellID->929782353]
 }, Open  ]],
 
@@ -395,12 +380,10 @@ Cell[BoxData[
  CellID->880084151],
 
 Cell["Command without arguments:", "ExampleText",
- CellChangeTimes->{{3.609356227173244*^9, 3.609356240418304*^9}},
  CellID->1189277203],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1323670272],
 
@@ -410,15 +393,10 @@ Cell[BoxData[
  RowBox[{
   RowBox[{"TeXCommand", "[", "\"\<comm\>\"", "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
-   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
-   3.6093561903941517`*^9, 3.609356190880807*^9}},
  CellLabel->"In[1]:=",
  CellID->1406218119],
 
 Cell["\\comm", "Output",
- CellChangeTimes->{{3.609344530652169*^9, 3.609344560868579*^9}, 
-   3.609356193932478*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1923042836]
 }, Open  ]],
@@ -431,12 +409,10 @@ Cell[BoxData[
  CellID->417000467],
 
 Cell["Command with arguments:", "ExampleText",
- CellChangeTimes->{{3.609356227173244*^9, 3.609356259904478*^9}},
  CellID->544369607],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1589152665],
 
@@ -449,15 +425,10 @@ Cell[BoxData[
     RowBox[{"{", 
      RowBox[{"alpha", ",", "b"}], "}"}]}], "]"}], "//", "TeXForm"}]], "Input",
  
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
-   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
-   3.6093561903941517`*^9, 3.609356190880807*^9}, {3.609356272420364*^9, 
-   3.609356280069124*^9}, {3.6093567889105797`*^9, 3.6093567915111523`*^9}},
  CellLabel->"In[1]:=",
  CellID->385139934],
 
 Cell["\\comm{\\alpha}{b}", "Output",
- CellChangeTimes->{3.609356298812357*^9, 3.609356801641539*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1709998604]
 }, Open  ]]
@@ -471,13 +442,10 @@ Cell[BoxData[
  CellID->346950878],
 
 Cell["Command with optional arguments:", "ExampleText",
- CellChangeTimes->{{3.609356227173244*^9, 3.609356259904478*^9}, {
-  3.609356821390175*^9, 3.609356824618025*^9}},
  CellID->1715900981],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1917287582],
 
@@ -493,17 +461,10 @@ Cell[BoxData[
        RowBox[{
         RowBox[{"a", "\[Rule]", "alpha"}], ",", "b"}], "}"}], ",", "c", ",", 
       "beta"}], "}"}]}], "]"}], "//", "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, {
-   3.6093445253491993`*^9, 3.6093445478906927`*^9}, 3.609356089100993*^9, {
-   3.6093561903941517`*^9, 3.609356190880807*^9}, {3.609356272420364*^9, 
-   3.609356280069124*^9}, {3.6093567889105797`*^9, 3.6093567915111523`*^9}, {
-   3.609356829469612*^9, 3.609356862240487*^9}},
  CellLabel->"In[1]:=",
  CellID->622467443],
 
 Cell["\\comm[a=\\alpha,b]{c}{\\beta}", "Output",
- CellChangeTimes->{3.609356298812357*^9, 3.609356801641539*^9, 
-  3.609356872584334*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1427207727]
 }, Open  ]]
@@ -528,8 +489,6 @@ Cell[TextData[{
   ShowStringCharacters->False],
  " can be nested:"
 }], "ExampleText",
- CellChangeTimes->{{3.6093461088892717`*^9, 3.6093461207285547`*^9}, {
-  3.609356092709311*^9, 3.6093560927095413`*^9}},
  CellID->1311951073],
 
 Cell[BoxData[
@@ -554,15 +513,10 @@ Cell[BoxData[
        RowBox[{"\"\<comm3\>\"", ",", 
         RowBox[{"{", "beta", "}"}]}], "]"}]}], "}"}]}], "\[IndentingNewLine]",
     "]"}], "//", "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609346152940382*^9, 3.6093461914314213`*^9}, {
-  3.60935609326126*^9, 3.609356097570068*^9}, {3.609356905613686*^9, 
-  3.60935695652415*^9}},
  CellLabel->"In[1]:=",
  CellID->1908431843],
 
 Cell["\\comm1[a=\\comm2,b]{c}{\\comm3{\\beta}}", "Output",
- CellChangeTimes->{{3.609346192428653*^9, 3.609346204846438*^9}, 
-   3.609356971694831*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->758772355]
 }, Open  ]]
@@ -583,8 +537,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[
  InterpretationBox[Cell["\"ArgumentConverter\"", "ExampleSubsection"],
-  $Line = 0; Null]], "ExampleSubsection",
- CellChangeTimes->{{3.6093544926050587`*^9, 3.609354495183316*^9}}],
+  $Line = 0; Null]], "ExampleSubsection"],
 
 Cell[TextData[{
  "With ",
@@ -618,10 +571,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609343925523555*^9, 3.609343930735587*^9}, {
-  3.609343961257359*^9, 3.6093439782667017`*^9}, {3.6093440197988453`*^9, 
-  3.6093440648182096`*^9}, {3.609357275398965*^9, 3.609357286518586*^9}, {
-  3.6093573221395483`*^9, 3.6093573267520723`*^9}},
  CellID->18900439],
 
 Cell[BoxData[
@@ -647,19 +596,10 @@ Cell[BoxData[
        RowBox[{"ToString", "[", 
         RowBox[{"#", ",", "TeXForm"}], "]"}], "&"}], ")"}]}]}], "]"}], "//", 
   "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609344980202814*^9, 3.609344997574271*^9}, {3.609345856161788*^9, 
-   3.60934585970538*^9}, 3.6093560993235826`*^9, {3.6093573445486403`*^9, 
-   3.609357406402883*^9}, {3.609357477191078*^9, 3.609357523735964*^9}, {
-   3.6093575544841337`*^9, 3.609357557572239*^9}},
  CellLabel->"In[1]:=",
  CellID->671180129],
 
 Cell["\\comm[\\text{opt1}=\\alpha,\\text{opt2}]{\\arg}{\\beta}", "Output",
- CellChangeTimes->{
-  3.609344176166902*^9, 3.6093447935435762`*^9, 3.609345003740848*^9, 
-   3.609345976055354*^9, 3.609357422827503*^9, {3.609357507998826*^9, 
-   3.609357524891302*^9}, {3.609357558322873*^9, 3.609357573924182*^9}},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1852935110]
 }, Open  ]],
@@ -686,8 +626,6 @@ with other strings building ",
     SingleLetterItalics->False], TraditionalForm]]],
  " form of expression:"
 }], "ExampleText",
- CellChangeTimes->{{3.609344619799378*^9, 3.609344735833411*^9}, {
-  3.609357440838483*^9, 3.609357457848295*^9}},
  CellID->448392044],
 
 Cell[BoxData[
@@ -709,17 +647,10 @@ Cell[BoxData[
       "arg", ",", "beta"}], "}"}], ",", 
     RowBox[{"\"\<ArgumentConverter\>\"", "\[Rule]", "ToString"}]}], "]"}], "//",
    "TeXForm"}]], "Input",
- CellChangeTimes->{{3.609344143885705*^9, 3.6093441725767508`*^9}, {
-   3.609344980202814*^9, 3.609344997574271*^9}, {3.609345856161788*^9, 
-   3.60934585970538*^9}, 3.6093560993235826`*^9, {3.6093573445486403`*^9, 
-   3.609357406402883*^9}, {3.609357477191078*^9, 3.609357523735964*^9}, {
-   3.6093575544841337`*^9, 3.609357587093286*^9}},
  CellLabel->"In[1]:=",
  CellID->1986887612],
 
 Cell["\\comm[opt1=alpha,opt2]{arg}{beta}", "Output",
- CellChangeTimes->{3.609344176166902*^9, 3.6093448043234673`*^9, 
-  3.6093459855668097`*^9, 3.609357597081773*^9},
  CellLabel->"Out[1]//TeXForm=",
  CellID->1021973108]
 }, Open  ]]
@@ -744,14 +675,10 @@ Cell[TextData[{
   ShowStringCharacters->False],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609344229968511*^9, 3.609344260694563*^9}, {
-  3.609344369727129*^9, 3.6093443703821983`*^9}, {3.609344436099107*^9, 
-  3.609344454979224*^9}, {3.609356100689477*^9, 3.609356100689707*^9}},
  CellID->908547004],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<TeXUtilities`\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.60934126221887*^9, 3.609341271959659*^9}},
  CellLabel->"In[1]:=",
  CellID->1920081157],
 
@@ -767,9 +694,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  " formatting for a function:"
 }], "ExampleText",
- CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
-   3.609341567441502*^9, 3.609341568835944*^9}, 3.609342936319825*^9, {
-   3.609344464939361*^9, 3.609344466075178*^9}},
  CellID->1565222199],
 
 Cell[BoxData[
@@ -785,8 +709,6 @@ Cell[BoxData[
       RowBox[{"{", 
        RowBox[{"x", "\[Rule]", "y"}], "}"}], ",", "z"}], "}"}]}], 
    "]"}]}]], "Input",
- CellChangeTimes->{{3.609343685662046*^9, 3.609343691063818*^9}, 
-   3.609356101165889*^9, {3.609357651871059*^9, 3.6093576966101503`*^9}},
  CellLabel->"In[1]:=",
  CellID->828485488],
 
@@ -802,9 +724,6 @@ Cell[TextData[{
     SingleLetterItalics->False], TraditionalForm]]],
  ":"
 }], "ExampleText",
- CellChangeTimes->{{3.609341412971805*^9, 3.609341425100216*^9}, {
-  3.609341567441502*^9, 3.609341568835944*^9}, {3.609341603184952*^9, 
-  3.60934162103139*^9}, {3.609344478213131*^9, 3.60934447940843*^9}},
  CellID->1137687184],
 
 Cell[CellGroupData[{
@@ -815,15 +734,10 @@ Cell[BoxData[
    RowBox[{"x", ",", "5", ",", 
     RowBox[{"alpha", " ", "-", 
      RowBox[{"2", "y"}]}]}], "]"}], "//", "TeXForm"}]], "Input",
- CellChangeTimes->{{3.6093414344094276`*^9, 3.60934143664952*^9}, {
-  3.6093437107736197`*^9, 3.6093437602938766`*^9}, {3.609357647357254*^9, 
-  3.609357685331163*^9}, {3.609357725439289*^9, 3.609357725879486*^9}},
  CellLabel->"In[2]:=",
  CellID->1497456338],
 
 Cell["\\f[x=5]{\\alpha -2 y}", "Output",
- CellChangeTimes->{{3.609343730401766*^9, 3.609343761207244*^9}, 
-   3.609344085864707*^9, 3.6093577269363413`*^9},
  CellLabel->"Out[2]//TeXForm=",
  CellID->1541786272]
 }, Open  ]]
@@ -851,10 +765,11 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{700, 770},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{4, Automatic}, {Automatic, 29}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
 CellContext->"Global`",
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "FunctionPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]

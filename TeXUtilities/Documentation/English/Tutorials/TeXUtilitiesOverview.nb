@@ -51,7 +51,6 @@ Cell["Keywords", "KeywordsSection",
  CellID->1427428552],
 
 Cell["TeX", "Keywords",
- CellChangeTimes->{{3.6101840625330563`*^9, 3.61018406324277*^9}},
  CellID->1251852827]
 }, Closed]],
 
@@ -113,8 +112,7 @@ Cell["Guides", "TOCChapter"],
 
 Cell[TextData[ButtonBox["TeX Utilities",
  BaseStyle->"Link",
- ButtonData->"paclet:TeXUtilities/guide/TeXUtilities"]], "TOCSection",
- CellChangeTimes->{3.610183044638404*^9}]
+ ButtonData->"paclet:TeXUtilities/guide/TeXUtilities"]], "TOCSection"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -142,9 +140,10 @@ Cell[TextData[ButtonBox["TeXEnvironment",
 }, Open  ]]
 },
 WindowSize->{700, 770},
-WindowMargins->{{4, Automatic}, {Automatic, 0}},
+WindowMargins->{{8, Automatic}, {Automatic, 29}},
 PrivateNotebookOptions->{"FileOutlineCache"->False},
-FrontEndVersion->"9.0 for Linux x86 (64-bit) (February 7, 2013)",
+TrackCellChangeTimes->False,
+FrontEndVersion->"11.0 for Linux x86 (64-bit) (September 21, 2016)",
 StyleDefinitions->FrontEnd`FileName[{"Wolfram"}, "TutorialPageStyles.nb", 
   CharacterEncoding -> "UTF-8"]
 ]
