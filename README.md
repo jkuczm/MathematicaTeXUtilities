@@ -86,7 +86,7 @@ To load TeXUtilities package evaluate: ``Needs["TeXUtilities`"]``.
 ### Manual installation
 
 1. Download latest released
-   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.0/TeXUtilities.zip)
+   [TeXUtilities.zip](https://github.com/jkuczm/MathematicaTeXUtilities/releases/download/v1.0.1/TeXUtilities.zip)
    file.
 
 2. Extract downloaded `TeXUtilities.zip` to any directory which is on
